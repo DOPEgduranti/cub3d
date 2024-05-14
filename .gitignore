@@ -59,5 +59,8 @@ settings.json
 .nfs*
 file*
 
-# executables
+#directories
+obj
+
+#executables
 cub3d
