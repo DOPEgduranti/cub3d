@@ -6,19 +6,22 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/14 13:04:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:32:00 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
-#include "../libft/libft.h"
-#include "../minilibx-linux/mlx.h"
-#include <X11/keysym.h>
-#include <errno.h>
-#include <math.h>
-#include <stdio.h>
+# include "../libft/get_next_line_bonus.h"
+# include "../libft/ft_printf.h"
+# include "../minilibx-linux/mlx.h"
+# include <X11/keysym.h>
+# include <errno.h>
+# include <math.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 typedef struct s_vector
 {
@@ -54,5 +57,8 @@ typedef struct s_data
 	t_map		*map;
 	t_textures	textures;
 }	t_data;
+
+// error.c
+int	gerr(char *str);
 
 #endif

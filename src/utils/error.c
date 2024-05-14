@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 10:32:59 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/14 16:35:54 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/14 16:28:37 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <generator.h>
+#include <utils.h>
 
-int	main(int argc, char **argv)
+int	gerr(char *str)
 {
-	t_data	*data;
-	if (argc != 2)
-		return (gerr("Error: wrong number of arguments\n"));
-	data = datagen(argv[1]);
-	return (0);
+	while (str)
+		write(2, str++, 1);
+	return (1);
 }

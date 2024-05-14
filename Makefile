@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/14 12:48:10 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/14 16:43:59 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,21 @@ NAME = cub3d
 
 SRC_DIR = src
 UTILS_DIR = $(SRC_DIR)/utils
+GENERATOR_DIR = $(SRC_DIR)/generator
 
 SRC = $(SRC_DIR)/main.c
 
-UTILS = $(UTILS_DIR)/
+UTILS = $(UTILS_DIR)/error.c
 
-SRCS = $(SRC)
+GENERATOR = $(GENERATOR_DIR)/datagen.c \
+	$(GENERATOR_DIR)/mapgen.c
+
+SRCS = $(SRC) \
+	$(UTILS) \
+	$(GENERATOR)
 
 OBJ_DIR = obj
-OBJ_FOLD = $(OBJ_DIR)/$(SRC_DIR)/$(UTILS_DIR)
+OBJ_FOLD = $(OBJ_DIR)/$(SRC_DIR)/$(UTILS_DIR) $(OBJ_DIR)/$(SRC_DIR)/$(GENERATOR_DIR)
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c

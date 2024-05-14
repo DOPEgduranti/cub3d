@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   generator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 10:32:59 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/14 16:35:54 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/14 16:19:44 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <generator.h>
+#ifndef GENERATOR_H
+# define GENERATOR_H
 
-int	main(int argc, char **argv)
-{
-	t_data	*data;
-	if (argc != 2)
-		return (gerr("Error: wrong number of arguments\n"));
-	data = datagen(argv[1]);
-	return (0);
-}
+# include <utils.h>
+
+// datagen.c
+t_data	*datagen(char *mapname);
+
+// mapgen.c
+char	**mapgen(char *mapname);
+
+#endif
