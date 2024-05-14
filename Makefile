@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/14 12:40:41 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/14 12:48:10 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLX_DIR = minilibx-linux
 MLX = $(MLX_DIR)/libmlx_Linux.a
 MLXFLAGS = -lX11 -lXext -lm
 
-DEPS = includes/ libft/
+DEPS = includes/
 
 NAME = cub3d
 
@@ -34,11 +34,10 @@ UTILS = $(UTILS_DIR)/
 SRCS = $(SRC)
 
 OBJ_DIR = obj
+OBJ_FOLD = $(OBJ_DIR)/$(SRC_DIR)/$(UTILS_DIR)
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-OBJ_FOLD = $(OBJ_DIR)/$(SRC_DIR)/$(UTILS_DIR)
-
-$(OBJ_DIR)/%.o: %.c $(DEPS)
+$(OBJ_DIR)/%.o: %.c
 	make all -C $(LIBFT_DIR)
 	make all -C $(MLX_DIR)
 	mkdir -p $(OBJ_FOLD)
