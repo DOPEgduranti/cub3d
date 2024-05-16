@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:16:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:52:01 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_map	mapgen(char *mapname, t_data *data)
 		map.map_str = ft_strjoin_2free(map.map_str, buffer);
 		buffer = get_next_line(fd);
 	}
+	printf("%s", map.map_str);
 	map.map_mtx = ft_split(map.map_str, '\n');
 	map.textures = texturegen(map.map_mtx, data);
 	return (map);
