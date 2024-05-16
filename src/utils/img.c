@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generator.h                                        :+:      :+:    :+:   */
+/*   img.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:16:21 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/16 12:19:43 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/16 12:23:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GENERATOR_H
-# define GENERATOR_H
+#include <utils.h>
 
-# include <utils.h>
-
-// datagen.c
-t_data	datagen(char *mapname);
-
-// mapgen.c
-t_map	mapgen(char *mapname, t_data *data);
-
-// texturegen.c
-t_textures	texturegen(char **map, t_data *data);
-
-#endif
+void	*imggen(t_data *data, char *filename)
+{
+	if (!data || !filename)
+		return (NULL);
+	return (mlx_xpm_file_to_image(data->mlx, filename, &(data->img_w), &(data->img_h)));
+}
