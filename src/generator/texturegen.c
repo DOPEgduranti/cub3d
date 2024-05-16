@@ -6,13 +6,13 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 11:45:59 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:00:40 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
 
-t_textures	texturegen(char **map)
+t_textures	texturegen(char **map, void *mlx)
 {
 	t_textures	txtr;
 	int			i;

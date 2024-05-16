@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 11:19:48 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:00:08 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 t_data	datagen(char *mapname);
 
 // mapgen.c
-t_map	mapgen(char *mapname);
+t_map	mapgen(char *mapname, void *mlx);
 
 // texturegen.c
-t_textures	texturegen(char **map);
+t_textures	texturegen(char **map, void *mlx);
 
 #endif
