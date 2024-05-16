@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/14 16:28:37 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:40:25 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	gerr(char *str)
 {
-	while (str)
-		write(2, str++, 1);
+	ft_putstr_fd(str, 2);
 	return (1);
 }

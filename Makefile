@@ -6,12 +6,12 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/14 16:43:59 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/16 11:27:54 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror -O3
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -25,36 +25,34 @@ DEPS = includes/
 NAME = cub3d
 
 SRC_DIR = src
-UTILS_DIR = $(SRC_DIR)/utils
-GENERATOR_DIR = $(SRC_DIR)/generator
+UTILS_DIR = utils
+GENERATOR_DIR = generator
 
-SRC = $(SRC_DIR)/main.c
+SRC = main.c
 
-UTILS = $(UTILS_DIR)/error.c
+UTIL = error.c
+UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 
-GENERATOR = $(GENERATOR_DIR)/datagen.c \
-	$(GENERATOR_DIR)/mapgen.c
+GENERATOR = datagen.c \
+	mapgen.c \
+	texturegen.c
+GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 
-SRCS = $(SRC) \
-	$(UTILS) \
-	$(GENERATOR)
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS))
 
 OBJ_DIR = obj
-OBJ_FOLD = $(OBJ_DIR)/$(SRC_DIR)/$(UTILS_DIR) $(OBJ_DIR)/$(SRC_DIR)/$(GENERATOR_DIR)
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
-	make all -C $(LIBFT_DIR)
-	make all -C $(MLX_DIR)
-	mkdir -p $(OBJ_FOLD)
-	$(CC) $(CFLAGS) -c $< $(MLX) $(MLXFLAGS) $(LIBFT) -I $(DEPS) -o $@
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -I $(DEPS) -o $@
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	make all -C $(LIBFT_DIR)
 	make all -C $(MLX_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -o $(NAME)
-
-all: $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I $(DEPS) -o $@
 
 clean:
 	make clean -C $(LIBFT_DIR)
