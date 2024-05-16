@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:00:24 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:42:22 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_map	mapgen(char *mapname, void *mlx)
 	int		fd;
 	char	*buffer;
 
+	(void)mlx;
 	map = (t_map){0};
 	fd = open(mapname, O_RDONLY);
 	if (fd == -1)
@@ -30,6 +31,6 @@ t_map	mapgen(char *mapname, void *mlx)
 		buffer = get_next_line(fd);
 	}
 	map.map_mtx = ft_split(map.map_str, '\n');
-	map.textures = texturegen(map.map_mtx, mlx);
+	//map.textures = texturegen(map.map_mtx, mlx);
 	return (map);
 }
