@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:57:46 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:14:58 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "../libft/get_next_line_bonus.h"
 # include "../libft/ft_printf.h"
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
+# include <mlx_int.h>
 # include <X11/keysym.h>
 # include <errno.h>
 # include <math.h>
@@ -33,10 +34,10 @@ typedef struct s_vector
 
 typedef struct s_textures
 {
-	void	*north;
-	void	*south;
-	void	*east;
-	void	*west;
+	t_img	*north;
+	t_img	*south;
+	t_img	*east;
+	t_img	*west;
 	char	*col_floor;
 	char	*col_ceiling;
 }	t_textures;

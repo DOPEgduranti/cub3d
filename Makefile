@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/16 13:02:09 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/16 16:28:23 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,14 +47,14 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -I $(DEPS) -o $@
+	$(CC) $(CFLAGS) -c $< -I$(MLX_DIR) -I$(DEPS) -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make all -C $(LIBFT_DIR)
 	make all -C $(MLX_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I $(DEPS) -o $@
+	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I$(MLX_DIR) -I$(DEPS) -o $@
 
 clean:
 	make clean -C $(LIBFT_DIR)

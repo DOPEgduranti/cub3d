@@ -6,11 +6,22 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:52:01 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:42:38 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
+
+char	**map_parser(char **mtx, t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (mtx && mtx[++i])
+	{
+		if()
+	}
+}
 
 t_map	mapgen(char *mapname, t_data *data)
 {
