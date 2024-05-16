@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:07:50 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:23:55 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@
 
 // error.c
 int	gerr(char *str);
+
+// img.c
+void	*imggen(t_data *data, char *filename);
 
 #endif

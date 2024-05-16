@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/16 11:27:54 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/16 12:30:28 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ GENERATOR_DIR = generator
 
 SRC = main.c
 
-UTIL = error.c
+UTIL = error.c \
+	img.c
 UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 
 GENERATOR = datagen.c \

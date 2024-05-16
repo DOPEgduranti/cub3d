@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:07:56 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:14:54 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ typedef struct s_vector
 
 typedef struct s_textures
 {
-	char	*north;
-	char	*south;
-	char	*east;
-	char	*west;
+	void	*north;
+	void	*south;
+	void	*east;
+	void	*west;
 	char	*col_floor;
 	char	*col_ceiling;
 }	t_textures;
@@ -55,6 +55,8 @@ typedef struct s_player
 
 typedef struct s_data
 {
+	int			img_w;
+	int			img_h;
 	void		*mlx;
 	void		*window;
 	t_player	player;
