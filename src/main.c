@@ -6,11 +6,11 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:32:59 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 11:16:55 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:02:57 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <generator.h>
+#include <cub3d.h>
 
 int	main(int argc, char **argv)
 {

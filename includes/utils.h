@@ -6,14 +6,14 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 11:06:33 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:07:50 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
-#include <cub3d.h>
+# include <core.h>
 
 // error.c
 int	gerr(char *str);
