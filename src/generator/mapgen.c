@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 12:51:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:39:24 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**map_mtxnoempty(char **mtx)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	char	**dst;
 
 	i = 0;
@@ -36,21 +36,54 @@ char	**map_mtxnoempty(char **mtx)
 	return (dst);
 }
 
-bool	map_charcheck(char **mtx)
+bool	map_charchecker(char **mtx, t_vector pos, t_data *data)
 {
-	(void)(mtx);
-	return (false);
+	if (ft_isinset(mtx[(int)pos.y][(int)pos.x], "NSEW"))
+	{
+		if (data->player.begin_dir == 0)
+		{
+			data->player.begin_dir = mtx[(int)pos.y][(int)pos.x];
+			data->player.position = pos;
+		}
+		else
+			return (false);
+	}
+	if (mtx[(int)pos.y][(int)pos.x] == '0')
+	{
+		if (pos.y == 0 || pos.x == 0 || !mtx[(int)(pos.y + 1)] || !mtx[(int)pos.y][(int)pos.x + 1])
+			return (false);
+		if (mtx[(int)pos.y + 1][(int)pos.x] == ' ')
+			return (false);
+		if (mtx[(int)pos.y - 1][(int)pos.x] == ' ')
+			return (false);
+		if (mtx[(int)pos.y][(int)pos.x + 1] == ' ')
+			return (false);
+		if (mtx[(int)pos.y][(int)pos.x - 1] == ' ')
+			return (false);
+	}
+	return (true);
 }
 
-char	**map_parser(char **mtx, t_data *data)
+bool	map_parser(char **mtx, t_data *data)
 {
-	char	**dst;
+	int	i;
+	int	j;
 
-	(void)data;
-	dst = map_mtxnoempty(mtx);
-	if (map_charcheck(dst) == false)
-		return (ft_freemtx(&dst), NULL);
-	return (dst);
+	i = 0;
+	while (mtx && mtx[i])
+	{
+		j = 0;
+		while (mtx[i][j])
+		{
+			if (!ft_isinset(mtx[i][j], " 01NSEW"))
+				return (false);
+			if (!map_charchecker(mtx, (t_vector){j, i, 0}, data))
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
 }
 
 t_map	mapgen(t_data *data)
@@ -64,8 +97,12 @@ t_map	mapgen(t_data *data)
 		return ((t_map){0});
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
 		i++;
-	map.map_mtx = map_parser(&(data->file_mtx[i]), data);
+	map.map_mtx = map_mtxnoempty(&(data->file_mtx[i]));
 	if(!map.map_mtx)
 		return ((t_map){0});
+	map.size.x = ft_strlen(map.map_mtx[0]);
+	map.size.y = ft_mtxlen(map.map_mtx);
+	if (map_parser(map.map_mtx, data) == false)
+		return (ft_freemtx(&map.map_mtx), (t_map){0});
 	return (map);
 }
