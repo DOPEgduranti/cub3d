@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:53:17 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:55:54 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:12:36 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	ft_printmtx(char **mtx)
 	i = 0;
 	while (mtx && mtx[i])
 	{
-		ft_putstr_fd(mtx[i], 2);
+		ft_putstr_fd("|", 1);
+		ft_putstr_fd(mtx[i], 1);
+		ft_putstr_fd("|\n", 1);
 		i++;
 	}
 }
