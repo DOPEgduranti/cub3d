@@ -6,31 +6,29 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 12:52:01 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:53:04 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
 
-t_map	mapgen(char *mapname, t_data *data)
+char	**map_parser(char **mtx, t_data *data)
+{
+	
+}
+
+t_map	mapgen(t_data *data)
 {
 	t_map	map;
-	int		fd;
-	char	*buffer;
+	int		i;
 
-	map = (t_map){0};
-	fd = open(mapname, O_RDONLY);
-	if (fd == -1)
-		return(gerr("Error: map "), gerr(mapname), gerr(" cannot be opened\n"), (t_map){0});
-	map.map_str = NULL;
-	buffer = get_next_line(fd);
-	while (buffer)
-	{
-		map.map_str = ft_strjoin_2free(map.map_str, buffer);
-		buffer = get_next_line(fd);
-	}
-	printf("%s", map.map_str);
-	map.map_mtx = ft_split(map.map_str, '\n');
-	map.textures = texturegen(map.map_mtx, data);
-	return (map);
+	i = 0;
+	map.textures = texturegen(data->file_mtx, data);
+	if (map.textures.col_ceiling == NULL)
+		return ((t_map){0});
+	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
+		i++;
+	map.map_mtx = map_parser(&(data->file_mtx[i]), data);
+	if(!map.map_mtx)
+		return ((t_map){0});
 }
