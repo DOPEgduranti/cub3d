@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 15:26:31 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:28:08 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef enum e_textnbr
 {
+	NOTHING = -1,
 	NO,
 	SO,
 	WE,
@@ -29,9 +30,10 @@ typedef enum e_textnbr
 t_data	datagen(char *mapname);
 
 // mapgen.c
-t_map	mapgen(char *mapname, t_data *data);
+t_map	mapgen(t_data *data);
 
 // texturegen.c
 t_textures	texturegen(char **map, t_data *data);
+t_textnbr	txtr_row(char *str);
 
 #endif

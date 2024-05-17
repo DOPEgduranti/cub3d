@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 16:14:58 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:42:53 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ typedef struct s_textures
 
 typedef struct s_map
 {
-	t_textures	textures;
 	char		*name;
 	char		*map_str;
 	char		**map_mtx;
+	t_textures	textures;
 }	t_map;
 
 typedef struct s_player
@@ -61,6 +61,8 @@ typedef struct s_data
 	int			img_h;
 	void		*mlx;
 	void		*window;
+	char		*file_str;
+	char		**file_mtx;
 	t_player	player;
 	t_map		map;
 }	t_data;

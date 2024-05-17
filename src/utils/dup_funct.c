@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_funct.c                                         :+:      :+:    :+:   */
+/*   dup_funct.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:55:35 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:06:19 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/17 10:10:30 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/17 10:17:52 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
 
-bool	ft_isspace(char c)
+char	**ft_mtxdup(char **mtx)
 {
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (true);
-	return (false);
-}
+	char	**dst;
+	int i;
 
-bool	ft_isemptyline(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && str[i] && ft_isspace(str[i]))
-		i++;
-	if (str[i] != '\0')
-		return (false);
-	return (true);
+	i = -1;
+	dst = ft_calloc(ft_mtxlen(mtx), sizeof(char *));
+	if (!dst)
+		return (NULL);
+	while (mtx && mtx[++i])
+		dst[i] = ft_strdup(mtx[i]);
+	dst[i] = NULL;
+	return (dst);
 }

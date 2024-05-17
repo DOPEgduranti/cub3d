@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 16:43:15 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:51:06 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_textnbr	txtr_row(char *str)
 {
 	if (!str)
-		return (-1);
+		return (NOTHING);
 	if (ft_strncmp(str, "NO", 2) == 0 && ft_isspace(str[2]))
 		return (NO);
 	else if (ft_strncmp(str, "SO", 2) == 0 && ft_isspace(str[2]))
@@ -28,7 +28,7 @@ t_textnbr	txtr_row(char *str)
 		return (F);
 	else if (str[0] == 'C' && ft_isspace(str[1]))
 		return (C);
-	return (-1);
+	return (NOTHING);
 }
 
 t_img	*txtr_imgset(char *str, t_data *data)
