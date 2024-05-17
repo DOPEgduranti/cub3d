@@ -6,12 +6,12 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/16 16:28:23 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/17 12:21:19 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -O3 -g
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -30,9 +30,12 @@ GENERATOR_DIR = generator
 
 SRC = main.c
 
-UTIL = error.c \
+UTIL = debug.c \
+	dup_funct.c \
+	error.c \
 	img.c \
-	is_funct.c
+	is_funct.c \
+	size_funct.c
 UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 
 GENERATOR = datagen.c \
