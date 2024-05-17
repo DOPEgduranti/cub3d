@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
+#    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
 #    Updated: 2024/05/16 16:28:23 by gduranti         ###   ########.fr        #
@@ -25,8 +25,9 @@ DEPS = includes/
 NAME = cub3d
 
 SRC_DIR = src
-UTILS_DIR = utils
+UTIL_DIR = utils
 GENERATOR_DIR = generator
+EVENT_DIR = events
 
 SRC = main.c
 
@@ -40,7 +41,12 @@ GENERATOR = datagen.c \
 	texturegen.c
 GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS))
+EVENT = key_events.c \
+	mouse_events.c \
+	events.c
+EVENTS = $(addprefix $(EVENT_DIR)/, $(EVENT))
+
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS))
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
 /*   Updated: 2024/05/17 10:51:06 by gduranti         ###   ########.fr       */

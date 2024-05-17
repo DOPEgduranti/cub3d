@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
 /*   Updated: 2024/05/17 10:53:04 by gduranti         ###   ########.fr       */
@@ -31,4 +31,5 @@ t_map	mapgen(t_data *data)
 	map.map_mtx = map_parser(&(data->file_mtx[i]), data);
 	if(!map.map_mtx)
 		return ((t_map){0});
+  return (map);
 }

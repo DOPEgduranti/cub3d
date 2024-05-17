@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   mouse_events.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:08:11 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 15:21:34 by sgarigli         ###   ########.fr       */
+/*   Created: 2024/05/16 15:25:49 by sgarigli          #+#    #+#             */
+/*   Updated: 2024/05/16 15:54:21 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "events.h"
 
-# include <generator.h>
-# include <events.h>
-
-#endif
+int	ft_mouseHook(int button, t_data *data)
+{
+	(void)data;
+	printf("Mouse button %d\n", button);
+	return (0);
+}
