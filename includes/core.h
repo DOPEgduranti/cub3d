@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/16 16:19:28 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:42:53 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include "../libft/get_next_line_bonus.h"
 # include "../libft/ft_printf.h"
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
+# include <mlx_int.h>
 # include <X11/keysym.h>
 # include <errno.h>
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 typedef struct s_vector
 {
@@ -32,20 +34,20 @@ typedef struct s_vector
 
 typedef struct s_textures
 {
-	char	*north;
-	char	*south;
-	char	*east;
-	char	*west;
+	t_img	*north;
+	t_img	*south;
+	t_img	*east;
+	t_img	*west;
 	char	*col_floor;
 	char	*col_ceiling;
 }	t_textures;
 
 typedef struct s_map
 {
-	t_textures	textures;
 	char		*name;
 	char		*map_str;
 	char		**map_mtx;
+	t_textures	textures;
 }	t_map;
 
 typedef struct s_player
@@ -55,8 +57,12 @@ typedef struct s_player
 
 typedef struct s_data
 {
+	int			img_w;
+	int			img_h;
 	void		*mlx;
-	void		*win;
+	void		*window;
+	char		*file_str;
+	char		**file_mtx;
 	t_player	player;
 	t_map		map;
 }	t_data;

@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   dup_funct.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:18:06 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/17 10:10:30 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/17 10:17:52 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include <utils.h>
 
-# include <core.h>
+char	**ft_mtxdup(char **mtx)
+{
+	char	**dst;
+	int i;
 
-// dup_funct.c
-char	**ft_mtxdup(char **mtx);
-
-// error.c
-int	gerr(char *str);
-
-// img.c
-t_img	*imggen(t_data *data, char *filename);
-
-// is_funct.c
-bool	ft_isspace(char c);
-bool	ft_isemptyline(char *str);
-
-// size_funct.c
-int	ft_mtxlen(char **mtx);
-
-#endif
+	i = -1;
+	dst = ft_calloc(ft_mtxlen(mtx), sizeof(char *));
+	if (!dst)
+		return (NULL);
+	while (mtx && mtx[++i])
+		dst[i] = ft_strdup(mtx[i]);
+	dst[i] = NULL;
+	return (dst);
+}

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   img.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:18:06 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/16 12:19:43 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/16 16:17:01 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include <utils.h>
 
-# include <core.h>
+t_img	*imggen(t_data *data, char *filename)
+{
+	t_img	*img;
 
-// dup_funct.c
-char	**ft_mtxdup(char **mtx);
-
-// error.c
-int	gerr(char *str);
-
-// img.c
-t_img	*imggen(t_data *data, char *filename);
-
-// is_funct.c
-bool	ft_isspace(char c);
-bool	ft_isemptyline(char *str);
-
-// size_funct.c
-int	ft_mtxlen(char **mtx);
-
-#endif
+	if (!data || !filename)
+		return (NULL);
+	printf("%s\n", filename);
+	img = mlx_xpm_file_to_image(data->mlx, filename, &(data->img_w), &(data->img_h));
+	return (img);
+}

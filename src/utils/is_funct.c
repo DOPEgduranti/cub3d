@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   is_funct.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:18:06 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/16 12:55:35 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/17 10:06:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include <utils.h>
 
-# include <core.h>
+bool	ft_isspace(char c)
+{
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (true);
+	return (false);
+}
 
-// dup_funct.c
-char	**ft_mtxdup(char **mtx);
+bool	ft_isemptyline(char *str)
+{
+	int	i;
 
-// error.c
-int	gerr(char *str);
-
-// img.c
-t_img	*imggen(t_data *data, char *filename);
-
-// is_funct.c
-bool	ft_isspace(char c);
-bool	ft_isemptyline(char *str);
-
-// size_funct.c
-int	ft_mtxlen(char **mtx);
-
-#endif
+	i = 0;
+	while (str && str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] != '\0')
+		return (false);
+	return (true);
+}

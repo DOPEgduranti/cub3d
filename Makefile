@@ -6,7 +6,7 @@
 #    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/16 15:53:34 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/16 16:28:23 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ EVENT_DIR = events
 
 SRC = main.c
 
-UTIL = error.c
-UTILS = $(addprefix $(UTIL_DIR)/, $(UTIL))
+UTIL = error.c \
+	img.c \
+	is_funct.c
+UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 
 GENERATOR = datagen.c \
 	mapgen.c \
@@ -51,14 +53,14 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -I $(DEPS) -o $@
+	$(CC) $(CFLAGS) -c $< -I$(MLX_DIR) -I$(DEPS) -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make all -C $(LIBFT_DIR)
 	make all -C $(MLX_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I $(DEPS) -o $@
+	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I$(MLX_DIR) -I$(DEPS) -o $@
 
 clean:
 	make clean -C $(LIBFT_DIR)
