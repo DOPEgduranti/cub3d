@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 11:50:24 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:25:14 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ t_textures	texturegen(char **map, t_data *data)
 		else if (txtr_row(tmp) == EA)
 			txtr.east = txtr_imgset(tmp, data);
 		else if (txtr_row(tmp) == F)
-			txtr.col_floor = txtr_colorset(tmp);
+			txtr.col_floor.hex = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C)
-			txtr.col_ceiling = txtr_colorset(tmp);
+			txtr.col_ceiling.hex = txtr_colorset(tmp);
 		free(tmp);
 	}
 	return (txtr);

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 15:24:38 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:23:53 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct s_textures
 	t_img	*south;
 	t_img	*east;
 	t_img	*west;
-	char	*col_floor;
-	char	*col_ceiling;
+	t_color	col_floor;
+	t_color	col_ceiling;
 }	t_textures;
 
 typedef struct s_map

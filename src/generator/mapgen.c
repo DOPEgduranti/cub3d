@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 16:39:24 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:24:51 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_map	mapgen(t_data *data)
 
 	i = 0;
 	map.textures = texturegen(data->file_mtx, data);
-	if (map.textures.col_ceiling == NULL)
+	if (map.textures.north == NULL)
 		return ((t_map){0});
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
 		i++;
