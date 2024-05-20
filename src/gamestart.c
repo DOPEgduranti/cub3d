@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   gamestart.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 15:41:43 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/20 12:21:49 by sgarigli         ###   ########.fr       */
+/*   Created: 2024/05/20 12:22:25 by sgarigli          #+#    #+#             */
+/*   Updated: 2024/05/20 12:24:53 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <events.h>
+#include <cub3d.h>
 
-void	ft_mlx_hook(t_data *data)
+void gamestart(t_data *data)
 {
-	mlx_mouse_hook(data->window, ft_mouseHook, data);
-	mlx_key_hook(data->window, ft_keyHook, data);
-	mlx_hook(data->window, 17, 1L << 17, ft_close_window, data);
-	mlx_loop(data->mlx);
+	t_myImg	top;
+	t_myImg	bottom;
+	
+	top = new_image(data, WIDTH, HEIGHT / 2);
+	put_color(top, 0, 0, 0x00AA0000, data);
+	bottom = new_image(data, WIDTH, HEIGHT / 2);
+	put_color(bottom, 0, HEIGHT / 2, 0x0000AA00, data);
 }

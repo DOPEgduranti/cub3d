@@ -6,7 +6,7 @@
 #    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/20 12:18:58 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/20 12:23:03 by sgarigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ GENERATOR_DIR = generator
 EVENTS_DIR = events
 GRAPHICS_DIR = graphic
 
-SRC = main.c
+SRC = main.c \
+	gamestart.c
 
 UTIL = debug.c \
 	dup_funct.c \

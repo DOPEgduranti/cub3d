@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:08:11 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/20 12:14:47 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/20 12:23:53 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@
 # include <generator.h>
 # include <events.h>
 # include <graphic.h>
+
+// gamestart.c
+void gamestart(t_data *data);
 
 #endif
