@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:08:11 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/20 10:34:52 by sgarigli         ###   ########.fr       */
+/*   Created: 2024/05/16 15:20:09 by sgarigli          #+#    #+#             */
+/*   Updated: 2024/05/20 10:30:45 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef EVENTS_H
+# define EVENTS_H
 
-# include <generator.h>
-# include <events.h>
+# include <utils.h>
+
+//keyevents.c
+int		ft_close_window(t_data *data);
+int		ft_keyHook(int keysym, t_data *data);
+
+//mouseevents.c
+int		ft_mouseHook(int button, t_data *data);
+
+//events.c
+void	ft_mlx_hook(t_data *data);
 
 #endif

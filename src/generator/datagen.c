@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   datagen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:12:14 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 15:43:38 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:48:01 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ t_data	datagen(char *mapname)
 {
 	t_data	data;
 
+	(void)mapname;
 	data = (t_data){0};
 	data.mlx = mlx_init();
+	data.window = mlx_new_window(data.mlx, 1080, 720, "cub3d");
 	data.file_mtx = file_read(mapname, &data);
 	data.map = mapgen(&data);
 	ft_printmtx(data.map.map_mtx);
