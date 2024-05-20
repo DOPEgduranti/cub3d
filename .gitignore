@@ -60,6 +60,8 @@ file*
 
 #directories
 obj
+minilibx-linux/test
+minilibx-linux/obj
 
 #executables
 cub3d
