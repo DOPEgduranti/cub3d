@@ -6,7 +6,7 @@
 #    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/20 10:33:08 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/20 12:18:58 by sgarigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_DIR = src
 UTILS_DIR = utils
 GENERATOR_DIR = generator
 EVENTS_DIR = events
+GRAPHICS_DIR = graphic
 
 SRC = main.c
 
@@ -49,7 +50,10 @@ EVENT = events.c \
 	mouse_events.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS))
+GRAPHIC = graph_utils.c
+GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
+
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS))
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
