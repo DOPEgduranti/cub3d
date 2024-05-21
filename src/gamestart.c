@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   gamestart.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:22:25 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/21 11:42:04 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:36:52 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
 void gamestart(t_data *data)
-{
-	t_myImg	top;
-	t_myImg	bottom;
-	
-	top = new_image(data, WIDTH, HEIGHT / 2);
-	put_color(top, 0, 0, 0xAA0000, data);
-	bottom = new_image(data, WIDTH, HEIGHT / 2);
-	put_color(bottom, 0, HEIGHT / 2, 0x00AA00, data);
+{	
+	data->background = new_image(data, WIDTH, HEIGHT);
+	background_set(data->background, data->textures.col_floor.value, data->textures.col_ceiling.value);
+	mlx_put_image_to_window(data->mlx, data->window, data->background.img, 0, 0);
 }

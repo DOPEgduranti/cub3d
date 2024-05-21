@@ -6,23 +6,27 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:01:02 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/20 12:11:44 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:22:45 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
 
-void	put_color(t_myImg img, int x, int y, int color, t_data *data)
+void	background_set(t_myImg img, int f_color, int c_color)
 {
 	int i;
 	
 	i = 0;
 	while (i < WIDTH * HEIGHT * 2)
 	{
-		*(unsigned int*)(img.addr + i) = color;
+		*(unsigned int*)(img.addr + i) = c_color;
 		i+=4;
 	}
-	mlx_put_image_to_window(data->mlx, data->window, img.img, x, y);
+	while (i < WIDTH * HEIGHT * 4)
+	{
+		*(unsigned int*)(img.addr + i) = f_color;
+		i+=4;
+	}
 }
 
 t_myImg	new_image(t_data *data, int width, int height)

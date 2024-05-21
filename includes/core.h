@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:54:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:57:25 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_data
 	t_player	player;
 	t_map		map;
 	t_textures	textures;
+	t_myImg		background;
 }	t_data;
 
 #endif
