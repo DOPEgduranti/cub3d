@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:12:14 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:55:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:55:48 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_data	datagen(char *mapname)
 {
 	t_data	data;
 
-	(void)mapname;
 	data = (t_data){0};
 	data.mlx = mlx_init();
 	data.window = mlx_new_window(data.mlx, 1080, 720, "cub3d");
