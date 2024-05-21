@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
+#    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/20 12:23:03 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/21 10:36:40 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ GRAPHICS_DIR = graphic
 SRC = main.c \
 	gamestart.c
 
-UTIL = debug.c \
+UTIL = conversion.c \
+	debug.c \
 	dup_funct.c \
 	error.c \
 	img.c \

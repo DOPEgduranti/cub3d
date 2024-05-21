@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/20 12:04:36 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:49:31 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ typedef struct s_vector
 
 typedef struct s_color
 {
-	int		R;
-	int		G;
-	int		B;
+	int		value;
 	char	*hex;
 }	t_color;
 

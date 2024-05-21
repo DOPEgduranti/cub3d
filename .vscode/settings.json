@@ -5,7 +5,8 @@
 		"string_view": "c",
 		"ranges": "c",
 		"keysym.h": "c",
-		"mlx_int.h": "c"
+		"mlx_int.h": "c",
+		"cmath": "c"
 	},
 	"C_Cpp.default.includePath": [
 		"${workspaceFolder}/includes",

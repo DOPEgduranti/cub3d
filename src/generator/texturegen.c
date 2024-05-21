@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/20 10:25:14 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:52:48 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,21 @@ t_img	*txtr_imgset(char *str, t_data *data)
 	return (imggen(data, &str[i]));
 }
 
-char	*txtr_colorset(char *str)
+t_color	txtr_colorset(char *str)
 {
+	t_color	color;
 	int	i;
+
 	if (!str)
-		return (NULL);
-	i = 0;
-	while (ft_isalpha(str[i]))
-		i++;
+		return ((t_color){0});
+	i = 1;
 	while (ft_isspace(str[i]))
 		i++;
-	return (ft_strdup(&(str[i])));
+	if (!ft_isdigit(str[i]))
+		return ((t_color){0});
+	color.hex = rgb_to_hex(&str[i], ft_strdup("0x000000"));
+	color.value = ft_hextoi(&color.hex[2], ft_strlen(&color.hex[2]));
+	return (color);
 }
 
 t_textures	texturegen(char **map, t_data *data)
@@ -77,9 +81,9 @@ t_textures	texturegen(char **map, t_data *data)
 		else if (txtr_row(tmp) == EA)
 			txtr.east = txtr_imgset(tmp, data);
 		else if (txtr_row(tmp) == F)
-			txtr.col_floor.hex = txtr_colorset(tmp);
+			txtr.col_floor = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C)
-			txtr.col_ceiling.hex = txtr_colorset(tmp);
+			txtr.col_ceiling = txtr_colorset(tmp);
 		free(tmp);
 	}
 	return (txtr);
