@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:49:31 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:54:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_map
 	char		*map_str;
 	char		**map_mtx;
 	t_vector	size;
-	t_textures	textures;
 }	t_map;
 
 typedef struct s_player
@@ -87,6 +86,7 @@ typedef struct s_data
 	char		**file_mtx;
 	t_player	player;
 	t_map		map;
+	t_textures	textures;
 }	t_data;
 
 #endif

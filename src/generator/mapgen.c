@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/20 10:47:50 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:54:44 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,6 @@ t_map	mapgen(t_data *data)
 	int		i;
 
 	i = 0;
-	map.textures = texturegen(data->file_mtx, data);
-	// if (map.textures.north == NULL)
-	// 	return ((t_map){0});
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
 		i++;
 	map.map_mtx = map_mtxnoempty(&(data->file_mtx[i]));
