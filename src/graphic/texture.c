@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 12:24:13 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:31:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	init_pixels(t_data *data)
 
 	// if (data->pixels)
 	// 	ft_freemtx(&data->pixels);
-	data->pixels = ft_calloc(HEIGHT + 1, sizeof * data->pixels);
+	data->pixels = ft_calloc(data->win_height + 1, sizeof * data->pixels);
 	if (!data->pixels)
 		return (exit(1));
 	i = 0;
-	while (i < HEIGHT)
+	while (i < data->win_height)
 	{
-		data->pixels[i] = ft_calloc(WIDTH + 1, sizeof * data->pixels);
+		data->pixels[i] = ft_calloc(data->win_width + 1, sizeof * data->pixels);
 		if (!data->pixels[i])
 			return (exit(1));
 		i++;
@@ -56,12 +56,10 @@ void	update_pixels(t_data *data, t_textures *tex, t_ray *ray, int x)
 
 	get_texture_index(data, ray);
 	tex->x = (int)(ray->wall_x * tex->size);
-	if ((ray->side == 0 && ray->direction.x < 0)
-		|| (ray->side == 1 && ray->direction.y > 0))
+	if ((ray->side == 0 && ray->direction.x < 0) || (ray->side == 1 && ray->direction.y > 0))
 		tex->x = tex->size - tex->x - 1;
 	tex->step = 1.0 * tex->size / ray->line_height;
-	tex->pos = (ray->draw_start - HEIGHT / 2
-			+ ray->line_height / 2) * tex->step;
+	tex->pos = (ray->draw_start - data->win_height / 2 + ray->line_height / 2) * tex->step;
 	y = ray->draw_start;
 	while (y < ray->draw_end)
 	{

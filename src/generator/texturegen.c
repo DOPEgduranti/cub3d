@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 11:34:02 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:05:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
 		return (NULL);
 	dst = ft_calloc(txtr->size * txtr->size, sizeof(int));
 	if (!dst)
-		return (mlx_destroy_image(data->mlx, tmp.img), free(tmp.addr), NULL);
+		return (mlx_destroy_image(data->mlx, tmp.img), NULL);
 	y = 0;
 	while (y < txtr->size)
 	{
@@ -74,7 +74,7 @@ int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
 		}
 		y++;
 	}
-	return (mlx_destroy_image(data->mlx, tmp.img), free(tmp.addr), dst);
+	return (mlx_destroy_image(data->mlx, tmp.img), dst);
 }
 
 t_color	txtr_colorset(char *str)

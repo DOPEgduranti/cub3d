@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2024/05/22 12:40:07 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:49:31 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ We initialize the set up for the rays
 - delta_dist.x/y = distance to go to the next x or y.
 */
 
-static void	init_raycasting_info(int x, t_ray *ray, t_player *player)
+static void	init_raycasting_info(int x, t_ray *ray, t_player *player, t_data *data)
 {
-	ray->camera_x = 2 * x / (double)WIDTH - 1;
+	ray->camera_x = 2 * x / (double)data->win_width - 1;
 	ray->direction.x = player->direction.x + player->plane.x * ray->camera_x;
 	ray->direction.y = player->direction.y + player->plane.y * ray->camera_x;
 	ray->map.x = (int)player->position.x;
@@ -99,19 +99,19 @@ static void	perform_dda(t_data *data, t_ray *ray)
 	}
 }
 
-static void	calculate_line_height(t_ray *ray, t_player *player)
+static void	calculate_line_height(t_ray *ray, t_player *player, t_data *data)
 {
 	if (ray->side == 0)
 		ray->wall_dist = (ray->side_dist.x - ray->delta_dist.x);
 	else
 		ray->wall_dist = (ray->side_dist.y - ray->delta_dist.y);
-	ray->line_height = (int)(HEIGHT / ray->wall_dist);
-	ray->draw_start = -(ray->line_height) / 2 + HEIGHT / 2;
+	ray->line_height = (int)(data->win_height / ray->wall_dist);
+	ray->draw_start = -(ray->line_height) / 2 + data->win_height / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + HEIGHT / 2;
-	if (ray->draw_end >= HEIGHT)
-		ray->draw_end = HEIGHT - 1;
+	ray->draw_end = ray->line_height / 2 + data->win_height / 2;
+	if (ray->draw_end >= data->win_height)
+		ray->draw_end = data->win_height - 1;
 	if (ray->side == 0)
 		ray->wall_x = player->position.y + ray->wall_dist * ray->direction.y;
 	else
@@ -126,12 +126,12 @@ int	raycasting(t_player *player, t_data *data)
 
 	x = 0;
 	ray = data->ray; 
-	while (x < WIDTH)
+	while (x < data->win_width)
 	{
-		init_raycasting_info(x, &ray, player);
+		init_raycasting_info(x, &ray, player, data);
 		set_dda(&ray, player);
 		perform_dda(data, &ray);
-		calculate_line_height(&ray, player);
+		calculate_line_height(&ray, player, data);
 		update_pixels(data, &data->textures, &ray, x);
 		x++;
 	}

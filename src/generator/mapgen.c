@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 12:45:29 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:27:56 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ bool	map_charchecker(char **mtx, t_vector pos, t_data *data)
 		if (data->player.dir == 0)
 		{
 			data->player.dir = mtx[(int)pos.y][(int)pos.x];
-			data->player.position.x = pos.x;
-			data->player.position.y = pos.y;
+			data->player.position.x = pos.x + 0.5;
+			data->player.position.y = pos.y + 0.5;
+			mtx[(int)pos.y][(int)pos.x] = '0';
 		}
 		else
 			return (false);
@@ -78,7 +79,7 @@ bool	map_parser(char **mtx, t_data *data)
 		{
 			if (!ft_isinset(mtx[i][j], " 01NSEW"))
 				return (false);
-			if (!map_charchecker(mtx, (t_vector){j, i, 0}, data))
+			if (!map_charchecker(mtx, (t_vector){j, i}, data))
 				return (false);
 			j++;
 		}

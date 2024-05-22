@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 12:04:15 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:10:25 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <stdbool.h>
 
 # define HEIGHT 720
-# define WIDTH 1080
+# define WIDTH 960
 # define TXTR_SIZE 64
 
 typedef enum s_txtr_index
@@ -41,7 +41,6 @@ typedef struct s_vector
 {
 	double	x;
 	double	y;
-	double	z;
 }	t_vector;
 
 typedef struct s_color
@@ -113,6 +112,8 @@ typedef struct s_player
 
 typedef struct s_data
 {
+	int			win_height;
+	int			win_width;
 	int			img_w;
 	int			img_h;
 	void		*mlx;
