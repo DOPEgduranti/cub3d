@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:12:14 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:42:24 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:10:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,19 @@ t_data	datagen(char *mapname)
 	t_data	data;
 
 	data = (t_data){0};
+	data.win_height = HEIGHT;
+	data.win_width = WIDTH;
 	data.mlx = mlx_init();
+	data.window = mlx_new_window(data.mlx, data.win_width, data.win_height, "cub3d");
 	data.file_mtx = file_read(mapname, &data);
+	data.textures = texturegen(data.file_mtx, &data);
 	data.map = mapgen(&data);
+<<<<<<< HEAD
 	data.win = mlx_new_window(data.mlx, 1080, 720, "cub3d");
+=======
+	ft_printmtx(data.map.map_mtx);
+	init_player_direction(&data);
+>>>>>>> 361e6247634075974bcfa3f4dfeb389722b98dc1
 	if (!data.map.map_mtx)
 		return ((t_data){0});
 	return (data);

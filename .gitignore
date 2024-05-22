@@ -53,7 +53,6 @@ dkms.conf
 
 # JSON files
 #*.json
-settings.json
 
 #temp files
 .nfs*
@@ -61,6 +60,8 @@ file*
 
 #directories
 obj
+minilibx-linux/test
+minilibx-linux/obj
 
 #executables
 cub3d
