@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/21 10:36:40 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/22 12:19:35 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,10 @@ EVENT = events.c \
 	mouse_events.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-GRAPHIC = graph_utils.c
+GRAPHIC = graph_utils.c \
+	raycasting.c \
+	render.c \
+	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS))

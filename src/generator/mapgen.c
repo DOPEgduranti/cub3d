@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:54:44 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:28:03 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ bool	map_charchecker(char **mtx, t_vector pos, t_data *data)
 {
 	if (ft_isinset(mtx[(int)pos.y][(int)pos.x], "NSEW"))
 	{
-		if (data->player.begin_dir == 0)
+		if (data->player.dir == 0)
 		{
-			data->player.begin_dir = mtx[(int)pos.y][(int)pos.x];
-			data->player.position = pos;
+			data->player.dir = mtx[(int)pos.y][(int)pos.x];
+			data->player.position.x = pos.x;
+			data->player.position.y = pos.y;
 		}
 		else
 			return (false);

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:49:04 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:17:54 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	gerr(char *str);
 
 // img.c
 t_img	*imggen(t_data *data, char *filename);
+t_myImg	myImggen(char *filename, t_data *data);
+t_myImg	empty_myImg(t_data *data, int width, int height);
+void	set_pixel(t_myImg *image, int x, int y, int color);
 
 // is_funct.c
 bool	ft_isspace(char c);

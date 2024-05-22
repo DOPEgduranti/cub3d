@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:01:02 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/21 12:46:56 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:18:41 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ t_myImg	new_image(t_data *data, int width, int height)
 	t_myImg img;
 	
 	img.img = mlx_new_image(data->mlx, width, height);
-	img.addr = mlx_get_data_addr(img.img, &data->bpp, &data->size_l, &data->endian);
+	img.addr = (int *)mlx_get_data_addr(img.img, &data->bpp, &data->size_l, &data->endian);
 	return (img);
 }

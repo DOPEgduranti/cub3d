@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:12:14 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:55:48 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:30:26 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ t_data	datagen(char *mapname)
 	t_data	data;
 
 	data = (t_data){0};
+	data.player.position = (t_vector){0};
+	data.player.direction = (t_vector){0};
+	data.player.plane = (t_vector){0};
+	data.player.move = (t_vector){0};
+	data.pixels = NULL;
 	data.mlx = mlx_init();
 	data.window = mlx_new_window(data.mlx, 1080, 720, "cub3d");
 	data.file_mtx = file_read(mapname, &data);
