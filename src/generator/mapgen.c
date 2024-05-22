@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 12:28:03 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:45:29 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ t_map	mapgen(t_data *data)
 {
 	t_map	map;
 	int		i;
+	int		j;
 
 	i = 0;
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
@@ -102,5 +103,17 @@ t_map	mapgen(t_data *data)
 	map.size.y = ft_mtxlen(map.map_mtx);
 	if (map_parser(map.map_mtx, data) == false)
 		return (ft_freemtx(&map.map_mtx), (t_map){0});
+	i = 0;
+	while (map.map_mtx[i])
+	{
+		j = 0;
+		while (map.map_mtx[i][j])
+		{
+			if (ft_isspace(map.map_mtx[i][j]))
+				map.map_mtx[i][j] = '1';
+			j++;
+		}
+		i++;
+	}
 	return (map);
 }

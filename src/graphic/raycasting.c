@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2024/05/22 12:32:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:40:07 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int	raycasting(t_player *player, t_data *data)
 	int		x;
 
 	x = 0;
-	ray = data->ray;
+	ray = data->ray; 
 	while (x < WIDTH)
 	{
 		init_raycasting_info(x, &ray, player);
