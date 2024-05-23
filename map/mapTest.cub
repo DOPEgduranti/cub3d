@@ -1,7 +1,7 @@
-NO ./asset/texture/txtr1.xpm
+NO ./asset/texture/txtr4.xpm
 SO ./asset/texture/txtr4.xpm
-WE ./asset/texture/txtr10.xpm
-EA ./asset/texture/txtr19.xpm
+WE ./asset/texture/txtr4.xpm
+EA ./asset/texture/txtr4.xpm
 
 F 220,100,0
 C 225,30,0

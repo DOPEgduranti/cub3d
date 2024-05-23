@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 16:10:25 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:15:29 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ typedef struct s_data
 	int			endian;
 	char		*file_str;
 	char		**file_mtx;
-	char		**pixels;
+	int			**pixels;
 	t_player	player;
 	t_map		map;
 	t_textures	textures;
