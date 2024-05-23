@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/23 11:24:46 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:29:02 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	update_pixels(t_data *data, t_textures *tex, t_ray *ray, int x)
 		tex->pos += tex->step;
 		color = data->textures.txtrs[tex->index][tex->size * tex->y + tex->x];
 		if (tex->index == NORTH || tex->index == EAST)
+			color = (color >> 1) & 8355711;
+		if (tex->index == SOUTH || tex->index == WEST)
 			color = (color >> 1) & 8355711;
 		if (color > 0)
 			data->pixels[y][x] = color;
