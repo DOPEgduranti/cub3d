@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:57:25 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:15:29 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,21 @@
 # include <stdbool.h>
 
 # define HEIGHT 720
-# define WIDTH 1080 
+# define WIDTH 960
+# define TXTR_SIZE 64
+
+typedef enum s_txtr_index
+{
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}	t_txtr_index;
 
 typedef struct s_vector
 {
 	double	x;
 	double	y;
-	double	z;
 }	t_vector;
 
 typedef struct s_color
@@ -44,19 +52,27 @@ typedef struct s_color
 typedef struct s_myImg
 {
 	t_img	*img;
-	char	*addr;
+	int		*addr;
 	int		bpp;
 	int		size_l;
 	int		endian;
 }	t_myImg;
+
 typedef struct s_textures
 {
-	t_img	*north;
-	t_img	*south;
-	t_img	*east;
-	t_img	*west;
-	t_color	col_floor;
-	t_color	col_ceiling;
+	int				size;
+	char			*north;
+	char			*south;
+	char			*east;
+	char			*west;
+	t_color			col_floor;
+	t_color			col_ceiling;
+	int				**txtrs;
+	t_txtr_index	index;
+	double			step;
+	double			pos;
+	int				x;
+	int				y;
 }	t_textures;
 
 typedef struct s_map
@@ -67,14 +83,37 @@ typedef struct s_map
 	t_vector	size;
 }	t_map;
 
+typedef struct s_ray
+{
+	double		camera_x;
+	t_vector	direction;
+	t_vector	map;
+	t_vector	step;
+	t_vector	side_dist;
+	t_vector	delta_dist;
+	double		wall_dist;
+	double		wall_x;
+	int			side;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+}	t_ray;
+
 typedef struct s_player
 {
 	t_vector	position;
-	char		begin_dir;
+	t_vector	direction;
+	t_vector	plane;
+	t_vector	move;
+	char		dir;
+	int			has_moved;
+	int			rotate;
 }	t_player;
 
 typedef struct s_data
 {
+	int			win_height;
+	int			win_width;
 	int			img_w;
 	int			img_h;
 	void		*mlx;
@@ -84,10 +123,12 @@ typedef struct s_data
 	int			endian;
 	char		*file_str;
 	char		**file_mtx;
+	int			**pixels;
 	t_player	player;
 	t_map		map;
 	t_textures	textures;
 	t_myImg		background;
+	t_ray		ray;
 }	t_data;
 
 #endif

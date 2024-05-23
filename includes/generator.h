@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 10:28:08 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:16:13 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ t_map	mapgen(t_data *data);
 // texturegen.c
 t_textures	texturegen(char **map, t_data *data);
 t_textnbr	txtr_row(char *str);
+
+void	init_player_direction(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:54:44 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:27:56 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ bool	map_charchecker(char **mtx, t_vector pos, t_data *data)
 {
 	if (ft_isinset(mtx[(int)pos.y][(int)pos.x], "NSEW"))
 	{
-		if (data->player.begin_dir == 0)
+		if (data->player.dir == 0)
 		{
-			data->player.begin_dir = mtx[(int)pos.y][(int)pos.x];
-			data->player.position = pos;
+			data->player.dir = mtx[(int)pos.y][(int)pos.x];
+			data->player.position.x = pos.x + 0.5;
+			data->player.position.y = pos.y + 0.5;
+			mtx[(int)pos.y][(int)pos.x] = '0';
 		}
 		else
 			return (false);
@@ -77,7 +79,7 @@ bool	map_parser(char **mtx, t_data *data)
 		{
 			if (!ft_isinset(mtx[i][j], " 01NSEW"))
 				return (false);
-			if (!map_charchecker(mtx, (t_vector){j, i, 0}, data))
+			if (!map_charchecker(mtx, (t_vector){j, i}, data))
 				return (false);
 			j++;
 		}
@@ -90,6 +92,7 @@ t_map	mapgen(t_data *data)
 {
 	t_map	map;
 	int		i;
+	int		j;
 
 	i = 0;
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
@@ -101,5 +104,17 @@ t_map	mapgen(t_data *data)
 	map.size.y = ft_mtxlen(map.map_mtx);
 	if (map_parser(map.map_mtx, data) == false)
 		return (ft_freemtx(&map.map_mtx), (t_map){0});
+	i = 0;
+	while (map.map_mtx[i])
+	{
+		j = 0;
+		while (map.map_mtx[i][j])
+		{
+			if (ft_isspace(map.map_mtx[i][j]))
+				map.map_mtx[i][j] = '1';
+			j++;
+		}
+		i++;
+	}
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/21 11:52:48 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:05:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,50 @@ t_textnbr	txtr_row(char *str)
 	return (NOTHING);
 }
 
-t_img	*txtr_imgset(char *str, t_data *data)
+char	*txtr_nameset(char *str)
 {
 	int	i;
+	int	j;
+
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (ft_isalpha(str[i]))
+	while (str[i] && ft_isalpha(str[i]))
 		i++;
-	while (ft_isspace(str[i]))
+	while (str[i] && ft_isspace(str[i]))
 		i++;
-	return (imggen(data, &str[i]));
+	j = i;
+	while (str[j] && !ft_isspace(str[j]))
+		j++;
+	return(ft_strncpy(str, i, j));
+}
+
+int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
+{
+	t_myImg	tmp;
+	int		*dst;
+	int		x;
+	int		y;
+
+	*name = txtr_nameset(str);
+	tmp = myImggen(*name, data);
+	if (!tmp.addr)
+		return (NULL);
+	dst = ft_calloc(txtr->size * txtr->size, sizeof(int));
+	if (!dst)
+		return (mlx_destroy_image(data->mlx, tmp.img), NULL);
+	y = 0;
+	while (y < txtr->size)
+	{
+		x = 0;
+		while (x < txtr->size)
+		{
+			dst[y * txtr->size + x] = tmp.addr[y * txtr->size + x];
+			x++;
+		}
+		y++;
+	}
+	return (mlx_destroy_image(data->mlx, tmp.img), dst);
 }
 
 t_color	txtr_colorset(char *str)
@@ -69,17 +102,21 @@ t_textures	texturegen(char **map, t_data *data)
 
 	i = -1;
 	txtr = (t_textures){0};
+	txtr.size = TXTR_SIZE;
+	txtr.txtrs = malloc(5 * sizeof(int *));
+	if (!txtr.txtrs)
+		return ((t_textures){0});
 	while (map && map[++i])
 	{
 		tmp = ft_strtrim(map[i], " \f\n\r\t\v");
 		if (txtr_row(tmp) == NO)
-			txtr.north = txtr_imgset(tmp, data);
+			txtr.txtrs[NORTH] = txtr_imgset(tmp, data, &txtr, &txtr.north);
 		else if (txtr_row(tmp) == SO)
-			txtr.south = txtr_imgset(tmp, data);
+			txtr.txtrs[SOUTH] = txtr_imgset(tmp, data, &txtr, &txtr.south);
 		else if (txtr_row(tmp) == WE)
-			txtr.west = txtr_imgset(tmp, data);
+			txtr.txtrs[WEST] = txtr_imgset(tmp, data, &txtr, &txtr.west);
 		else if (txtr_row(tmp) == EA)
-			txtr.east = txtr_imgset(tmp, data);
+			txtr.txtrs[EAST] = txtr_imgset(tmp, data, &txtr, &txtr.east);
 		else if (txtr_row(tmp) == F)
 			txtr.col_floor = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C)
