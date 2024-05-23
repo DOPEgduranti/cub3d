@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/23 12:30:17 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:52:05 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	update_pixels(t_data *data, t_textures *tex, t_ray *ray, int x)
 		tex->y = (int)tex->pos & (tex->size - 1);
 		tex->pos += tex->step;
 		color = data->textures.txtrs[tex->index][tex->size * tex->y + tex->x];
-		if (tex->index == NORTH || tex->index == EAST)
+		if (tex->index == NORTH || tex->index == EAST) // for shadows
 			color = (color >> 1) & 8355711;
 		if (color > 0)
 			data->pixels[y][x] = color;
