@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2024/05/24 11:03:19 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:25:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ We initialize the set up for the rays
 
 static void	reycast_init(int x, t_data *data)
 {
-	data->ray.camera_x = 2 * x / (double)data->win_width - 1;
+	data->ray.camera_x = 2 * x / (double)data->win_w - 1;
 	data->ray.direction.x = data->player.direction.x + data->player.plane.x * data->ray.camera_x;
 	data->ray.direction.y = data->player.direction.y + data->player.plane.y * data->ray.camera_x;
 	data->ray.map.x = (int)data->player.position.x;
@@ -102,13 +102,13 @@ static void	line_calc(t_data *data)
 		data->ray.wall_dist = (data->ray.side_dist.x - data->ray.delta_dist.x);
 	else
 		data->ray.wall_dist = (data->ray.side_dist.y - data->ray.delta_dist.y);
-	data->ray.line_height = (int)(data->win_height / data->ray.wall_dist);
-	data->ray.draw_start = -(data->ray.line_height) / 2 + data->win_height / 2;
+	data->ray.line_height = (int)(data->wih_h / data->ray.wall_dist);
+	data->ray.draw_start = -(data->ray.line_height) / 2 + data->wih_h / 2;
 	if (data->ray.draw_start < 0)
 		data->ray.draw_start = 0;
-	data->ray.draw_end = data->ray.line_height / 2 + data->win_height / 2;
-	if (data->ray.draw_end >= data->win_height)
-		data->ray.draw_end = data->win_height - 1;
+	data->ray.draw_end = data->ray.line_height / 2 + data->wih_h / 2;
+	if (data->ray.draw_end >= data->wih_h)
+		data->ray.draw_end = data->wih_h - 1;
 	if (data->ray.side == 0)
 		data->ray.wall_x = data->player.position.y + data->ray.wall_dist * data->ray.direction.y;
 	else
@@ -121,7 +121,7 @@ int	raycasting(t_data *data)
 	int		x;
 
 	x = 0;
-	while (x < data->win_width)
+	while (x < data->win_w)
 	{
 		reycast_init(x, data);
 		dda_init(data);

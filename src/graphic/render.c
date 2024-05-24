@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:04 by mcombeau          #+#    #+#             */
-/*   Updated: 2024/05/24 10:50:05 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:25:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
-	else if (y < data->win_height / 2)
+	else if (y < data->wih_h / 2)
 		set_pixel(image, x, y, data->textures.col_ceiling.value);
-	else if (y < data->win_height -1)
+	else if (y < data->wih_h -1)
 		set_pixel(image, x, y, data->textures.col_floor.value);
 }
 
@@ -29,12 +29,12 @@ static void	render_frame(t_data *data)
 	int		y;
 
 	image.img = NULL;
-	image = empty_myImg(data, data->win_width, data->win_height);
+	image = empty_myImg(data, data->win_w, data->wih_h);
 	y = 0;
-	while (y < data->win_height)
+	while (y < data->wih_h)
 	{
 		x = 0;
-		while (x < data->win_width)
+		while (x < data->win_w)
 		{
 			frame_set(data, &image, x, y);
 			x++;
