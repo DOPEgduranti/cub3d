@@ -3,70 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/23 12:52:05 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:05:39 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
 
-void	init_pixels(t_data *data)
+void	pixels_init(t_data *data)
 {
 	int	i;
 
-	// if (data->pixels)
-	// 	ft_freemtx(&data->pixels);
-	data->pixels = ft_calloc(data->win_height + 1, sizeof * data->pixels);
+	if (data->pixels)
+		ft_freemtx((void **)data->pixels);
+	data->pixels = ft_calloc(data->win_height + 1, sizeof(int *));
 	if (!data->pixels)
 		return (exit(1));
 	i = 0;
 	while (i < data->win_height)
 	{
-		data->pixels[i] = ft_calloc(data->win_width + 1, sizeof * data->pixels);
+		data->pixels[i] = ft_calloc(data->win_width + 1, sizeof(int));
 		if (!data->pixels[i])
-			return (exit(1));
+			return (ft_freemtx((void **)data->pixels), exit(1));
 		i++;
 	}
 }
 
-static void	get_texture_index(t_data *data, t_ray *ray)
+static void	get_texture_index(t_data *data)
 {
-	if (ray->side == 0)
+	if (data->ray.side == 0)
 	{
-		if (ray->direction.x < 0)
+		if (data->ray.direction.x < 0)
 			data->textures.index = WEST;
 		else
 			data->textures.index = EAST;
 	}
 	else
 	{
-		if (ray->direction.y > 0)
+		if (data->ray.direction.y > 0)
 			data->textures.index = SOUTH;
 		else
 			data->textures.index = NORTH;
 	}
 }
 
-void	update_pixels(t_data *data, t_textures *tex, t_ray *ray, int x)
+void	pixels_update(t_data *data, int x)
 {
 	int			y;
 	int			color;
 
-	get_texture_index(data, ray);
-	tex->x = (int)(ray->wall_x * tex->size);
-	if ((ray->side == 0 && ray->direction.x < 0) || (ray->side == 1 && ray->direction.y > 0))
-		tex->x = tex->size - tex->x - 1;
-	tex->step = 1.0 * tex->size / ray->line_height;
-	tex->pos = (ray->draw_start - data->win_height / 2 + ray->line_height / 2) * tex->step;
-	y = ray->draw_start;
-	while (y < ray->draw_end)
+	get_texture_index(data);
+	data->textures.x = (int)(data->ray.wall_x * data->textures.size);
+	if ((data->ray.side == 0 && data->ray.direction.x < 0) || (data->ray.side == 1 && data->ray.direction.y > 0))
+		data->textures.x = data->textures.size - data->textures.x - 1;
+	data->textures.step = 1.0 * data->textures.size / data->ray.line_height;
+	data->textures.pos = (data->ray.draw_start - data->win_height / 2 + data->ray.line_height / 2) * data->textures.step;
+	y = data->ray.draw_start;
+	while (y < data->ray.draw_end)
 	{
-		tex->y = (int)tex->pos & (tex->size - 1);
-		tex->pos += tex->step;
-		color = data->textures.txtrs[tex->index][tex->size * tex->y + tex->x];
-		if (tex->index == NORTH || tex->index == EAST) // for shadows
+		data->textures.y = (int)data->textures.pos & (data->textures.size - 1);
+		data->textures.pos += data->textures.step;
+		color = data->textures.txtrs[data->textures.index][data->textures.size * data->textures.y + data->textures.x];
+		if (data->textures.index == NORTH || data->textures.index == EAST) // for shadows
 			color = (color >> 1) & 8355711;
 		if (color > 0)
 			data->pixels[y][x] = color;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:04 by mcombeau          #+#    #+#             */
-/*   Updated: 2024/05/23 12:23:38 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/24 10:50:05 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
 
-static void	set_frame_image_pixel(t_data *data, t_myImg *image, int x, int y)
+static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
@@ -36,7 +36,7 @@ static void	render_frame(t_data *data)
 		x = 0;
 		while (x < data->win_width)
 		{
-			set_frame_image_pixel(data, &image, x, y);
+			frame_set(data, &image, x, y);
 			x++;
 		}
 		y++;
@@ -45,16 +45,11 @@ static void	render_frame(t_data *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
-static void	render_raycast(t_data *data)
-{
-	init_pixels(data);
-	raycasting(&data->player, data);
-	render_frame(data);
-}
-
 void	render_images(t_data *data)
 {
-	render_raycast(data);
+	pixels_init(data);
+	raycasting(data);
+	render_frame(data);
 	// if (BONUS)
 	// 	render_minimap(data);
 }

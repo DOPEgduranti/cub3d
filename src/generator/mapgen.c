@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/23 12:45:09 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/24 10:58:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_map	mapgen(t_data *data)
 	map.size.x = ft_strlen(map.map_mtx[0]);
 	map.size.y = ft_mtxlen(map.map_mtx);
 	if (map_parser(map.map_mtx, data) == false)
-		return (ft_freemtx(&map.map_mtx), (t_map){0});
+		return (ft_freemtx((void **)map.map_mtx), (t_map){0});
 	i = 0;
 	while (map.map_mtx[i])
 	{
