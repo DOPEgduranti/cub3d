@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:54:14 by gduranti         ###   ########.fr       */
+/*   Created: 2023/10/16 10:47:39 by gduranti          #+#    #+#             */
+/*   Updated: 2023/10/16 11:28:18 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "libft.h"
 
-int	gerr(char *str)
+int	ft_lstsize(t_list *lst)
 {
-	ft_putstr_fd(str, 2);
-	return (1);
+	int		size;
+	t_list	*tmp_lst;
+
+	size = 1;
+	tmp_lst = lst;
+	if (!lst)
+		return (0);
+	while (tmp_lst->next)
+	{
+		tmp_lst = tmp_lst->next;
+		size++;
+	}
+	return (size);
 }

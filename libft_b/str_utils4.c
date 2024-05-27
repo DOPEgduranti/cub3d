@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   str_utils4.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:54:14 by gduranti         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/02 12:49:36 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "libft.h"
 
-int	gerr(char *str)
+char	*free_strdup(char *str, char **freestr)
 {
-	ft_putstr_fd(str, 2);
-	return (1);
+	char	*tmp;
+
+	tmp = ft_strdup(str);
+	free(*freestr);
+	return (tmp);
+}
+
+char	*ft_skipstring(int offset, char *str)
+{
+	char	*dst;
+
+	dst = ft_strdup(str + offset);
+	return (free(str), dst);
 }
