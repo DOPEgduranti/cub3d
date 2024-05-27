@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/24 11:27:05 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:46:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,27 @@ char	**map_mtxnoempty(char **mtx)
 	return (dst);
 }
 
-bool	map_charchecker(char **mtx, t_vector pos, t_data *data)
+bool	map_charchecker(char **mtx, int i, int j, t_data *data)
 {
-	if (ft_isinset(mtx[(int)pos.y][(int)pos.x], "NSEW"))
+	if (ft_isinset(mtx[i][j], "NSEW"))
 	{
-		if (data->player.dir == 0)
-		{
-			data->player.dir = mtx[(int)pos.y][(int)pos.x];
-			data->player.position.x = pos.x + 0.5;
-			data->player.position.y = pos.y + 0.5;
-			mtx[(int)pos.y][(int)pos.x] = '0';
-		}
-		else
+		if (data->player.dir != 0)
 			return (false);
+		data->player.dir = mtx[i][j];
+		data->player.position = (t_vector){j + 0.5, i + 0.5};
+		mtx[i][j] = '0';
 	}
-	if (mtx[(int)pos.y][(int)pos.x] == '0')
+	if (mtx[i][j] == '0')
 	{
-		if (pos.y == 0 || pos.x == 0 || !mtx[(int)(pos.y + 1)] || !mtx[(int)pos.y][(int)pos.x + 1])
+		if (i == 0 || j == 0 || !mtx[(i + 1)] || !mtx[i][j + 1])
 			return (false);
-		if (mtx[(int)pos.y + 1][(int)pos.x] == ' ')
+		if (ft_isspace(mtx[i + 1][j]))
 			return (false);
-		if (mtx[(int)pos.y - 1][(int)pos.x] == ' ')
+		if (ft_isspace(mtx[i - 1][j]))
 			return (false);
-		if (mtx[(int)pos.y][(int)pos.x + 1] == ' ')
+		if (ft_isspace(mtx[i][j + 1]))
 			return (false);
-		if (mtx[(int)pos.y][(int)pos.x - 1] == ' ')
+		if (ft_isspace(mtx[i][j - 1]))
 			return (false);
 	}
 	return (true);
@@ -77,9 +73,9 @@ bool	map_parser(char **mtx, t_data *data)
 		j = 0;
 		while (mtx[i][j])
 		{
-			if (!ft_isinset(mtx[i][j], " 01NSEW"))
+			if (!ft_isinset(mtx[i][j], "01NSEW") && !ft_isspace(mtx[i][j]))
 				return (false);
-			if (!map_charchecker(mtx, (t_vector){j, i}, data))
+			if (!map_charchecker(mtx, i, j, data))
 				return (false);
 			j++;
 		}
@@ -92,7 +88,6 @@ t_map	mapgen(t_data *data)
 {
 	t_map	map;
 	int		i;
-	int		j;
 
 	i = 0;
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
@@ -104,17 +99,5 @@ t_map	mapgen(t_data *data)
 	map.size.y = ft_mtxlen(map.map_mtx);
 	if (map_parser(map.map_mtx, data) == false)
 		return (ft_freemtx((void **)map.map_mtx), (t_map){0});
-	i = 0;
-	while (map.map_mtx[i])
-	{
-		j = 0;
-		while (map.map_mtx[i][j])
-		{
-			if (ft_isspace(map.map_mtx[i][j]))
-				map.map_mtx[i][j] = '1';
-			j++;
-		}
-		i++;
-	}
 	return (map);
 }

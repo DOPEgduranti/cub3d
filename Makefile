@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/22 15:41:03 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/27 11:50:13 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ UTIL = conversion.c \
 	debug.c \
 	dup_funct.c \
 	error.c \
+	free_funct.c \
 	img.c \
 	is_funct.c \
 	size_funct.c

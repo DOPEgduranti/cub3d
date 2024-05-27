@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:54:14 by gduranti         ###   ########.fr       */
+/*   Created: 2023/10/13 09:36:18 by gduranti          #+#    #+#             */
+/*   Updated: 2023/10/17 10:31:42 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "libft.h"
 
-int	gerr(char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	ft_putstr_fd(str, 2);
-	return (1);
+	size_t	i;
+
+	i = 0;
+	if (!s || fd == -1)
+		return ;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

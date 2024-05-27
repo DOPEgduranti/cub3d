@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 12:17:54 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:59:57 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ char	**ft_mtxdup(char **mtx);
 // error.c
 int	gerr(char *str);
 
+// free_funct.c
+void	free_textures(t_textures *txtr);
+
 // img.c
 t_img	*imggen(t_data *data, char *filename);
 t_myImg	myImggen(char *filename, t_data *data);
@@ -39,6 +42,7 @@ void	set_pixel(t_myImg *image, int x, int y, int color);
 // is_funct.c
 bool	ft_isspace(char c);
 bool	ft_isemptyline(char *str);
+bool	ft_isinset(char c, char *set);
 
 // size_funct.c
 int	ft_mtxlen(char **mtx);

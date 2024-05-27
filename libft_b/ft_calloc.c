@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:54:14 by gduranti         ###   ########.fr       */
+/*   Created: 2023/10/10 15:11:14 by gduranti          #+#    #+#             */
+/*   Updated: 2023/12/04 15:22:51 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "libft.h"
 
-int	gerr(char *str)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	ft_putstr_fd(str, 2);
-	return (1);
+	void	*res;
+
+	res = malloc(size * nmemb);
+	if (!res)
+		return (NULL);
+	ft_bzero(res, size * nmemb);
+	return (res);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("%p\n", ft_calloc(214748364, 90));
+	printf("%p\n", calloc(214748364, 90));
+	return (0);
+}*/

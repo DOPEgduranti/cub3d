@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:07:22 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:54:14 by gduranti         ###   ########.fr       */
+/*   Created: 2023/10/16 10:56:35 by gduranti          #+#    #+#             */
+/*   Updated: 2023/10/17 09:25:13 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "libft.h"
 
-int	gerr(char *str)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ft_putstr_fd(str, 2);
-	return (1);
+	t_list	*tmp_lst;
+
+	if (!new || !lst)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		tmp_lst = ft_lstlast(*lst);
+		tmp_lst->next = new;
+	}
 }
