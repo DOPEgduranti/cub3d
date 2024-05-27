@@ -6,22 +6,23 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:47:24 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 12:47:48 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/24 10:57:38 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_freemtx(char ***mtx)
+void	ft_freemtx(void **mtx)
 {
 	size_t	i;
 
 	i = 0;
-	while ((*mtx)[i])
+	if (!mtx)
+		return ;
+	while (mtx[i])
 	{
-		free((*mtx)[i]);
+		free(mtx[i]);
 		i++;
 	}
-	free(*mtx);
-	mtx = NULL;
+	free(mtx);
 }

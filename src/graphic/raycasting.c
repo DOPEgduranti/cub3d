@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2024/05/23 11:17:33 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:25:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ We initialize the set up for the rays
 - delta_dist.x/y = distance to go to the next x or y.
 */
 
-static void	init_raycasting_info(int x, t_ray *ray, t_player *player, t_data *data)
+static void	reycast_init(int x, t_data *data)
 {
-	ray->camera_x = 2 * x / (double)data->win_width - 1;
-	ray->direction.x = player->direction.x + player->plane.x * ray->camera_x;
-	ray->direction.y = player->direction.y + player->plane.y * ray->camera_x;
-	ray->map.x = (int)player->position.x;
-	ray->map.y = (int)player->position.y;
-	ray->delta_dist.x = fabs(1 / ray->direction.x);
-	ray->delta_dist.y = fabs(1 / ray->direction.y);
+	data->ray.camera_x = 2 * x / (double)data->win_w - 1;
+	data->ray.direction.x = data->player.direction.x + data->player.plane.x * data->ray.camera_x;
+	data->ray.direction.y = data->player.direction.y + data->player.plane.y * data->ray.camera_x;
+	data->ray.map.x = (int)data->player.position.x;
+	data->ray.map.y = (int)data->player.position.y;
+	data->ray.delta_dist.x = fabs(1 / data->ray.direction.x);
+	data->ray.delta_dist.y = fabs(1 / data->ray.direction.y);
 }
 
 /*
@@ -40,27 +40,27 @@ static void	init_raycasting_info(int x, t_ray *ray, t_player *player, t_data *da
 - if x or y > 0 go the next x or y to the right
 */
 
-static void	set_dda(t_ray *ray, t_player *player)
+static void	dda_init(t_data *data)
 {
-	if (ray->direction.x < 0)
+	if (data->ray.direction.x < 0)
 	{
-		ray->step.x = -1;
-		ray->side_dist.x = (player->position.x - ray->map.x) * ray->delta_dist.x;
+		data->ray.step.x = -1;
+		data->ray.side_dist.x = (data->player.position.x - data->ray.map.x) * data->ray.delta_dist.x;
 	}
 	else
 	{
-		ray->step.x = 1;
-		ray->side_dist.x = (ray->map.x + 1.0 - player->position.x) * ray->delta_dist.x;
+		data->ray.step.x = 1;
+		data->ray.side_dist.x = (data->ray.map.x + 1.0 - data->player.position.x) * data->ray.delta_dist.x;
 	}
-	if (ray->direction.y < 0)
+	if (data->ray.direction.y < 0)
 	{
-		ray->step.y = -1;
-		ray->side_dist.y = (player->position.y - ray->map.y) * ray->delta_dist.y;
+		data->ray.step.y = -1;
+		data->ray.side_dist.y = (data->player.position.y - data->ray.map.y) * data->ray.delta_dist.y;
 	}
 	else
 	{
-		ray->step.y = 1;
-		ray->side_dist.y = (ray->map.y + 1.0 - player->position.y) * ray->delta_dist.y;
+		data->ray.step.y = 1;
+		data->ray.side_dist.y = (data->ray.map.y + 1.0 - data->player.position.y) * data->ray.delta_dist.y;
 	}
 }
 
@@ -70,69 +70,64 @@ static void	set_dda(t_ray *ray, t_player *player)
 - If the sidedistx < sidedisty, x is the closest point from the ray
 */
 
-static void	perform_dda(t_data *data, t_ray *ray)
+static void	dda_exec(t_data *data)
 {
-	int	hit;
+	bool	hit;
 
-	hit = 0;
-	while (hit == 0)
+	hit = false;
+	while (hit == false)
 	{
-		if (ray->side_dist.x < ray->side_dist.y)
+		if (data->ray.side_dist.x < data->ray.side_dist.y)
 		{
-			ray->side_dist.x += ray->delta_dist.x;
-			ray->map.x += ray->step.x;
-			ray->side = 0;
+			data->ray.side_dist.x += data->ray.delta_dist.x;
+			data->ray.map.x += data->ray.step.x;
+			data->ray.side = 0;
 		}
 		else
 		{
-			ray->side_dist.y += ray->delta_dist.y;
-			ray->map.y += ray->step.y;
-			ray->side = 1;
+			data->ray.side_dist.y += data->ray.delta_dist.y;
+			data->ray.map.y += data->ray.step.y;
+			data->ray.side = 1;
 		}
-		if (ray->map.y < 0.25
-			|| ray->map.x < 0.25
-			|| ray->map.y > data->map.size.y - 0.25
-			|| ray->map.x > data->map.size.x - 1.25)
+		if (data->ray.map.y < 0.25 || data->ray.map.x < 0.25 || data->ray.map.y > data->map.size.y - 0.25 || data->ray.map.x > data->map.size.x - 1.25)
 			break ;
-		else if (data->map.map_mtx[(int)ray->map.y][(int)ray->map.x] > '0')
-			hit = 1;
+		else if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] != '0')
+			hit = true;
 	}
 }
 
-static void	calculate_line_height(t_ray *ray, t_player *player, t_data *data)
+static void	line_calc(t_data *data)
 {
-	if (ray->side == 0)
-		ray->wall_dist = (ray->side_dist.x - ray->delta_dist.x);
+	if (data->ray.side == 0)
+		data->ray.wall_dist = (data->ray.side_dist.x - data->ray.delta_dist.x);
 	else
-		ray->wall_dist = (ray->side_dist.y - ray->delta_dist.y);
-	ray->line_height = (int)(data->win_height / ray->wall_dist);
-	ray->draw_start = -(ray->line_height) / 2 + data->win_height / 2;
-	if (ray->draw_start < 0)
-		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + data->win_height / 2;
-	if (ray->draw_end >= data->win_height)
-		ray->draw_end = data->win_height - 1;
-	if (ray->side == 0)
-		ray->wall_x = player->position.y + ray->wall_dist * ray->direction.y;
+		data->ray.wall_dist = (data->ray.side_dist.y - data->ray.delta_dist.y);
+	data->ray.line_height = (int)(data->wih_h / data->ray.wall_dist);
+	data->ray.draw_start = -(data->ray.line_height) / 2 + data->wih_h / 2;
+	if (data->ray.draw_start < 0)
+		data->ray.draw_start = 0;
+	data->ray.draw_end = data->ray.line_height / 2 + data->wih_h / 2;
+	if (data->ray.draw_end >= data->wih_h)
+		data->ray.draw_end = data->wih_h - 1;
+	if (data->ray.side == 0)
+		data->ray.wall_x = data->player.position.y + data->ray.wall_dist * data->ray.direction.y;
 	else
-		ray->wall_x = player->position.x + ray->wall_dist * ray->direction.x;
-	ray->wall_x -= floor(ray->wall_x);
+		data->ray.wall_x = data->player.position.x + data->ray.wall_dist * data->ray.direction.x;
+	data->ray.wall_x -= floor(data->ray.wall_x);
 }
 
-int	raycasting(t_player *player, t_data *data)
+int	raycasting(t_data *data)
 {
-	t_ray	ray;
 	int		x;
 
 	x = 0;
-	ray = data->ray; 
-	while (x < data->win_width)
+	while (x < data->win_w)
 	{
-		init_raycasting_info(x, &ray, player, data);
-		set_dda(&ray, player);
-		perform_dda(data, &ray);
-		calculate_line_height(&ray, player, data);
-		update_pixels(data, &data->textures, &ray, x);
+		reycast_init(x, data);
+		dda_init(data);
+		dda_exec(data);
+		line_calc(data);
+		pixels_update(data, x);
 		x++;
 	}
 	return (0);
