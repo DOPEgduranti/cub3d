@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/24 11:27:05 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 10:38:03 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_map	mapgen(t_data *data)
 {
 	t_map	map;
 	int		i;
-	int		j;
+	// int		j;
 
 	i = 0;
 	while (data->file_mtx && data->file_mtx[i] && (ft_isemptyline(data->file_mtx[i]) || txtr_row(data->file_mtx[i]) != NOTHING))
@@ -104,17 +104,17 @@ t_map	mapgen(t_data *data)
 	map.size.y = ft_mtxlen(map.map_mtx);
 	if (map_parser(map.map_mtx, data) == false)
 		return (ft_freemtx((void **)map.map_mtx), (t_map){0});
-	i = 0;
-	while (map.map_mtx[i])
-	{
-		j = 0;
-		while (map.map_mtx[i][j])
-		{
-			if (ft_isspace(map.map_mtx[i][j]))
-				map.map_mtx[i][j] = '1';
-			j++;
-		}
-		i++;
-	}
+	// i = 0;
+	// while (map.map_mtx[i])
+	// {
+	// 	j = 0;
+	// 	while (map.map_mtx[i][j])
+	// 	{
+	// 		if (ft_isspace(map.map_mtx[i][j]))
+	// 			map.map_mtx[i][j] = '1';
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 	return (map);
 }
