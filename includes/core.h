@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 12:57:15 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:14:18 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # include <stdbool.h>
 
 # define HEIGHT 720
-# define WIDTH 960
+# define WIDTH 1080
 # define TXTR_SIZE 64
-# define RSPEED 0.1
-# define MSPEED 0.1
+# define RSPEED 0.020
+# define MSPEED 0.025
 
 typedef enum s_txtr_index
 {

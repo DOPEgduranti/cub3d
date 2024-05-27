@@ -6,11 +6,12 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:30:04 by mcombeau          #+#    #+#             */
-/*   Updated: 2024/05/24 11:25:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:48:31 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
+#include <events.h>
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
@@ -54,11 +55,11 @@ void	render_images(t_data *data)
 	// 	render_minimap(data);
 }
 
-// int	render(t_data *data)
-// {
-// 	data->player.has_moved += move_player(data);
-// 	if (data->player.has_moved == 0)
-// 		return (0);
-// 	render_images(data);
-// 	return (0);
-// }
+int	render(t_data *data)
+{
+	data->player.has_moved += ft_movement(data);
+	if (data->player.has_moved == 0)
+		return (0);
+	render_images(data);
+	return (0);
+}

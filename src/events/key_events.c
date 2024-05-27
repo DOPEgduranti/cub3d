@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:25:47 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/27 12:32:23 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:15:52 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
-#include <cub3d.h>
 
 int	ft_close_window(t_data *data)
 {
@@ -19,40 +18,45 @@ int	ft_close_window(t_data *data)
 	exit(0);
 }
 
-void ft_movement (t_data *data, int keysym)
+int ft_movement (t_data *data)
 {
-	if (data->player.has_moved == false)
-		return ;
-	if (keysym == XK_w)
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	if (data->player.move.y == 1)
 	{
 		data->player.position.x += data->player.direction.x * MSPEED;
 		data->player.position.y += data->player.direction.y * MSPEED;
+		y++;
 	}
-	if (keysym == XK_s)
+	if (data->player.move.y == -1)
 	{
 		data->player.position.x -= data->player.direction.x * MSPEED;
 		data->player.position.y -= data->player.direction.y * MSPEED;
+		y--;
 	}
-	if (keysym == XK_a)
+	if (data->player.move.x == -1)
 	{
 		data->player.position.x += data->player.direction.y * MSPEED;
 		data->player.position.y -= data->player.direction.x * MSPEED;
+		x--;
 	}
-	if (keysym == XK_d)
+	if (data->player.move.x == 1)
 	{
 		data->player.position.x -= data->player.direction.y * MSPEED;
 		data->player.position.y += data->player.direction.x * MSPEED;
+		x++;
 	}
-	render_images(data);
+	ft_rotate(data);
+	return (abs(x) + abs(y) + abs(data->player.rotate));
 }
 
 
-
-void ft_rotate (t_data *data, int keysym)
+void ft_rotate (t_data *data)
 {
-	if (data->player.rotate == false)
-		return ;
-	if (keysym == XK_Left)
+	if (data->player.rotate == -1)
 	{
 		double old_plane_x = data->player.plane.x;
 		double old_plane_y = data->player.plane.y;
@@ -64,7 +68,7 @@ void ft_rotate (t_data *data, int keysym)
 		data->player.plane.x = old_plane_x * cos(RSPEED) + old_plane_y * sin(RSPEED);
 		data->player.plane.y = old_plane_y * cos(RSPEED) - old_plane_x * sin(RSPEED);
 	}
-	if (keysym == XK_Right)
+	if (data->player.rotate == 1)
 	{
 		double old_plane_x = data->player.plane.x;
 		double old_plane_y = data->player.plane.y;
@@ -76,15 +80,16 @@ void ft_rotate (t_data *data, int keysym)
 		data->player.plane.x = old_plane_x * cos(RSPEED) - old_plane_y * sin(RSPEED);
 		data->player.plane.y = old_plane_y * cos(RSPEED) + old_plane_x * sin(RSPEED);
 	}
-	render_images(data);
 }
 
 int ft_keyReleaseHook(int keysym, t_data *data)
 {
-	if(keysym == XK_w || keysym == XK_s || keysym == XK_a || keysym == XK_d)
-		data->player.has_moved = false;
+	if (keysym == XK_w || keysym == XK_s)
+		data->player.move.y = 0;
+	if (keysym == XK_a || keysym == XK_d)
+		data->player.move.x = 0;
 	if (keysym == XK_Left || keysym == XK_Right)
-		data->player.rotate = false;
+		data->player.rotate = 0;
 	return (0);
 }
 
@@ -92,17 +97,18 @@ int	ft_keyHook(int keysym, t_data *data)
 {
 	if (keysym == 65307)
 		ft_close_window(data);
-	if (keysym == XK_w || keysym == XK_s || keysym == XK_a || keysym == XK_d)
-	{
-		data->player.has_moved = true;
-		ft_movement(data, keysym);
-	}
-	if (keysym == XK_Left || keysym == XK_Right)
-	{
-		data->player.rotate = true;
-		ft_rotate(data, keysym);
-	}
-	
+	if (keysym == XK_w)
+		data->player.move.y = 1;
+	if (keysym == XK_s)
+		data->player.move.y = -1;
+	if (keysym == XK_a)
+		data->player.move.x = -1;
+	if (keysym == XK_d)
+		data->player.move.x = 1;
+	if (keysym == XK_Left)
+		data->player.rotate = -1;
+	if (keysym == XK_Right)
+		data->player.rotate = 1;
 	printf("player position: %f %f\n", data->player.position.x, data->player.position.y);
 	return (0);
 }

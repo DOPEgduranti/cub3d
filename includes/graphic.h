@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:01:28 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/24 11:05:58 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:35:56 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void	pixels_update(t_data *data, int x);
 
 // render.c
 void	render_images(t_data *data);
+int		render(t_data *data);
+
 
 #endif
