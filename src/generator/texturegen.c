@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/22 16:05:19 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:34:04 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,23 @@ t_color	txtr_colorset(char *str)
 	return (color);
 }
 
+bool	txtr_check(t_textures *txtr)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (!txtr->txtrs[i] || !txtr->col_ceiling.hex || !txtr->col_floor.hex)
+		{
+			free_textures(txtr);
+			return (false);
+		}
+		i++;
+	}
+	return (true);
+}
+
 t_textures	texturegen(char **map, t_data *data)
 {
 	t_textures	txtr;
@@ -103,25 +120,27 @@ t_textures	texturegen(char **map, t_data *data)
 	i = -1;
 	txtr = (t_textures){0};
 	txtr.size = TXTR_SIZE;
-	txtr.txtrs = malloc(5 * sizeof(int *));
+	txtr.txtrs = ft_calloc(5, sizeof(int *));
 	if (!txtr.txtrs)
 		return ((t_textures){0});
 	while (map && map[++i])
 	{
 		tmp = ft_strtrim(map[i], " \f\n\r\t\v");
-		if (txtr_row(tmp) == NO)
+		if (txtr_row(tmp) == NO && !txtr.north)
 			txtr.txtrs[NORTH] = txtr_imgset(tmp, data, &txtr, &txtr.north);
-		else if (txtr_row(tmp) == SO)
+		else if (txtr_row(tmp) == SO && !txtr.south)
 			txtr.txtrs[SOUTH] = txtr_imgset(tmp, data, &txtr, &txtr.south);
-		else if (txtr_row(tmp) == WE)
+		else if (txtr_row(tmp) == WE && !txtr.west)
 			txtr.txtrs[WEST] = txtr_imgset(tmp, data, &txtr, &txtr.west);
-		else if (txtr_row(tmp) == EA)
+		else if (txtr_row(tmp) == EA && !txtr.east)
 			txtr.txtrs[EAST] = txtr_imgset(tmp, data, &txtr, &txtr.east);
-		else if (txtr_row(tmp) == F)
+		else if (txtr_row(tmp) == F && !txtr.col_floor.hex)
 			txtr.col_floor = txtr_colorset(tmp);
-		else if (txtr_row(tmp) == C)
+		else if (txtr_row(tmp) == C && !txtr.col_ceiling.hex)
 			txtr.col_ceiling = txtr_colorset(tmp);
 		free(tmp);
 	}
+	if (txtr_check(&txtr) == false)
+		return ((t_textures){0});
 	return (txtr);
 }

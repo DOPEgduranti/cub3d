@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:32:59 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 10:09:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:04:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (gerr("Error: wrong number of arguments\n"));
 	data = datagen(argv[1]);
+	if (!data.map.map_mtx)
+	{
+		mlx_destroy_window(data.mlx, data.window);
+		mlx_destroy_display(data.mlx);
+		free(data.mlx);
+		return (1);
+	}
 	render_images(&data);
 	ft_mlx_hook(&data);
 	return (0);

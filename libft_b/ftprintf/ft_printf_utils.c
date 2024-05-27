@@ -1,46 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_funct.c                                         :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:55:35 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 13:00:02 by gduranti         ###   ########.fr       */
+/*   Created: 2023/10/24 09:07:46 by gduranti          #+#    #+#             */
+/*   Updated: 2023/10/26 10:23:09 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <utils.h>
+#include "ft_printf.h"
 
-bool	ft_isspace(char c)
+int	ft_putchar(int c)
 {
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (true);
-	return (false);
+	write(1, &c, 1);
+	return (1);
 }
 
-bool	ft_isemptyline(char *str)
+int	ft_freeputstr(const char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str && str[i] && ft_isspace(str[i]))
-		i++;
-	if (str[i] != '\0')
-		return (false);
-	return (true);
-}
-
-bool	ft_isinset(char c, char *set)
-{
-	size_t	i;
-
-	i = 0;
-	while (set[i])
+	if (!str)
 	{
-		if (c == set[i])
-			return (true);
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (false);
+	free((void *)str);
+	return (i);
+}
+
+int	ft_putstr(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

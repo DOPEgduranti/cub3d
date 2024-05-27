@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/24 10:57:44 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:01:13 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		*ft_strrchr(char *str, int c);
 char		*ft_substr(char *s, unsigned int start, size_t len);
 char		*ft_freesubstr(char *s, unsigned int start, size_t len);
 char		*ft_strjoin(char *s1, char *s2);
-char		*ft_strtrim(char *s1, char *set);
+char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_freestrtrim(char *s1, char *set);
 char		*ft_strmapi(char *s, char (*f)(unsigned int, char));
 char		**ft_split(char const *s, char c);
@@ -87,8 +87,8 @@ int			ft_strlen_noquote(char *str);
 
 //str_utils2.c
 
-int			ft_isinset(char c, char *set);
-char		*ft_strtrimfree(char *s1, char *set, int *trimmed);
+// int			ft_isinset(char c, char *set);
+//char		*ft_strtrimfree(char *s1, char *set, int *trimmed);
 int			find_first(char *str, char c);
 int			find_last(char *str, char c);
 
