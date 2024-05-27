@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   mapgen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:00:56 by gduranti          #+#    #+#             */
 /*   Updated: 2024/05/27 12:46:19 by gduranti         ###   ########.fr       */
