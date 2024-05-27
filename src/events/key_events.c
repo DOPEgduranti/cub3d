@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:25:47 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/27 11:59:50 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:32:23 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void ft_rotate (t_data *data, int keysym)
 		double old_dir_x = data->player.direction.x;
 		double old_dir_y = data->player.direction.y;
 
-		data->player.direction.x = old_dir_x * cos(-RSPEED) - old_dir_y * sin(-RSPEED);
-		data->player.direction.y = old_dir_x * sin(-RSPEED) + old_dir_y * cos(-RSPEED);
-		data->player.plane.x = old_plane_x * cos(-RSPEED) - old_plane_y * sin(-RSPEED);
-		data->player.plane.y = old_plane_x * sin(-RSPEED) + old_plane_y * cos(-RSPEED);
+		data->player.direction.x = old_dir_x * cos(RSPEED) + old_dir_y * sin(RSPEED);
+		data->player.direction.y = old_dir_y * cos(RSPEED) - old_dir_x * sin(RSPEED);
+		data->player.plane.x = old_plane_x * cos(RSPEED) + old_plane_y * sin(RSPEED);
+		data->player.plane.y = old_plane_y * cos(RSPEED) - old_plane_x * sin(RSPEED);
 	}
 	if (keysym == XK_Right)
 	{
@@ -72,9 +72,9 @@ void ft_rotate (t_data *data, int keysym)
 		double old_dir_y = data->player.direction.y;
 		
 		data->player.direction.x = old_dir_x * cos(RSPEED) - old_dir_y * sin(RSPEED);
-		data->player.direction.y = old_dir_x * sin(RSPEED) + old_dir_y * cos(RSPEED);
+		data->player.direction.y = old_dir_y * cos(RSPEED) + old_dir_x * sin(RSPEED);
 		data->player.plane.x = old_plane_x * cos(RSPEED) - old_plane_y * sin(RSPEED);
-		data->player.plane.y = old_plane_x * sin(RSPEED) + old_plane_y * cos(RSPEED);
+		data->player.plane.y = old_plane_y * cos(RSPEED) + old_plane_x * sin(RSPEED);
 	}
 	render_images(data);
 }
