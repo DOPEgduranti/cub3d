@@ -30,8 +30,7 @@ GENERATOR_DIR = generator
 EVENTS_DIR = events
 GRAPHICS_DIR = graphic
 
-SRC = main.c \
-	gamestart.c
+SRC = main.c
 
 UTIL = conversion.c \
 	debug.c \
@@ -46,12 +45,14 @@ UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 GENERATOR = datagen.c \
 	mapgen.c \
 	player_init.c \
-	texturegen.c
+	texturegen.c \
+	texturegen_utils.c
 GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 
 EVENT = events.c \
 	key_events.c \
-	mouse_events.c
+	movement.c \
+	rotation.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
 GRAPHIC = graph_utils.c \

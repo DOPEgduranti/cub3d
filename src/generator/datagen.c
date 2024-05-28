@@ -6,13 +6,13 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 11:53:59 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:34:53 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
 
-char	**file_read(char *mapname, t_data *data)
+static char	**file_read(char *mapname, t_data *data)
 {
 	int		fd;
 	char	*buffer;
@@ -21,7 +21,8 @@ char	**file_read(char *mapname, t_data *data)
 		return (err_gen("Error\nonly *.ber files accepted\n"), NULL);
 	fd = open(mapname, O_RDONLY);
 	if (fd == -1)
-		return(err_gen("Error\nmap "), err_gen(mapname), err_gen(" cannot be read\n"), NULL);
+		return (err_gen("Error\nmap "), err_gen(mapname),
+			err_gen(" cannot be read\n"), NULL);
 	buffer = get_next_line(fd);
 	data->file_str = ft_calloc(1, sizeof(char));
 	while (buffer)

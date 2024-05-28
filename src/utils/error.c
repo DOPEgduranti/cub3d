@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 11:53:59 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:18:07 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	err_gen(char *str)
 
 int	err_malloc(void)
 {
-	ft_putstr_fd("Error\nmalloc issue", 2);
+	ft_putstr_fd("Error\nmalloc issue\n", 2);
 	return (1);
 }
 
 int	err_map(void)
 {
-	ft_putstr_fd("Error\nmap cannot be generated", 2);
+	ft_putstr_fd("Error\nmap cannot be generated\n", 2);
 	return (1);
 }

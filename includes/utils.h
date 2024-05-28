@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 11:53:58 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:18:06 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_data(t_data *data);
 
 // img.c
 t_img	*imggen(t_data *data, char *filename);
-t_myImg	myImggen(char *filename, t_data *data);
+t_myImg	myimg_gen(char *filename, t_data *data);
 t_myImg	empty_myImg(t_data *data, int width, int height);
 void	set_pixel(t_myImg *image, int x, int y, int color);
 
