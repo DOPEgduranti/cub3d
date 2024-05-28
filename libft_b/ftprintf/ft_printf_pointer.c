@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:08:21 by gduranti          #+#    #+#             */
-/*   Updated: 2023/10/26 09:16:52 by gduranti         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/28 11:53:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

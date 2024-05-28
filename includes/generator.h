@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:01:34 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 10:38:16 by gduranti         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/28 11:53:58 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_map	mapgen(t_data *data);
 t_textures	texturegen(char **map, t_data *data);
 t_textnbr	txtr_row(char *str);
 
+
+// player_init.c
 void	player_init(t_data *data);
 
 #endif

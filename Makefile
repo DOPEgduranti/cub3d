@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/27 11:50:13 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/28 11:27:50 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ UTILS = $(addprefix $(UTILS_DIR)/, $(UTIL))
 
 GENERATOR = datagen.c \
 	mapgen.c \
-	player_dir.c \
+	player_init.c \
 	texturegen.c
 GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 

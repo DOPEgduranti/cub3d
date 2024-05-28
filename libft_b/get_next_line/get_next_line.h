@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 15:40:32 by gduranti          #+#    #+#             */
-/*   Updated: 2024/01/12 09:17:44 by gduranti         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/28 11:53:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

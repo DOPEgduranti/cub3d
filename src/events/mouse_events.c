@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_events.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 15:25:49 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/16 15:54:21 by sgarigli         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/28 11:53:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

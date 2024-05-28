@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 11:23:31 by gduranti         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/28 11:53:58 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
-# define HEIGHT 720
-# define WIDTH 1080
+# define HEIGHT 480
+# define WIDTH 720
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
@@ -113,8 +113,8 @@ typedef struct s_player
 
 typedef struct s_data
 {
-	int			win_h;
-	int			win_w;
+	double			win_h;
+	double			win_w;
 	int			img_w;
 	int			img_h;
 	void		*mlx;
