@@ -15,7 +15,7 @@
 char	**ft_mtxdup(char **mtx)
 {
 	char	**dst;
-	int i;
+	int		i;
 
 	i = 0;
 	dst = ft_calloc(ft_mtxlen(mtx) + 1, sizeof(char *));

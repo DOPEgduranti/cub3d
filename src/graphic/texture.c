@@ -56,17 +56,20 @@ void	pixels_update(t_data *data, int x)
 
 	get_index(data);
 	data->textures.x = (int)(data->ray.wall_x * data->textures.size);
-	if ((data->ray.side == 0 && data->ray.direction.x < 0) || (data->ray.side == 1 && data->ray.direction.y > 0))
+	if ((data->ray.side == 0 && data->ray.direction.x < 0)
+		|| (data->ray.side == 1 && data->ray.direction.y > 0))
 		data->textures.x = data->textures.size - data->textures.x - 1;
 	data->textures.step = 1.0 * data->textures.size / data->ray.line_height;
-	data->textures.pos = (data->ray.draw_start - data->win_h / 2 + data->ray.line_height / 2) * data->textures.step;
+	data->textures.pos = (data->ray.draw_start - data->win_h / 2
+			+ data->ray.line_height / 2) * data->textures.step;
 	y = data->ray.draw_start;
 	while (y < data->ray.draw_end)
 	{
 		data->textures.y = (int)data->textures.pos & (data->textures.size - 1);
 		data->textures.pos += data->textures.step;
-		color = data->textures.txtrs[data->textures.index][data->textures.size * data->textures.y + data->textures.x];
-		if (data->textures.index == NORTH || data->textures.index == EAST) // for shadows
+		color = data->textures.txtrs[data->textures.index][data->textures.size
+			* data->textures.y + data->textures.x];
+		if (data->textures.index == NORTH || data->textures.index == EAST)
 			color = (color >> 1) & 0x7F7F7F;
 		if (!color)
 			color += 1;

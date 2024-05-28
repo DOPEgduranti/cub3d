@@ -17,7 +17,6 @@
 
 // graph_utils.c
 void	background_set(t_myImg img, int f_color, int c_color);
-t_myImg	new_image(t_data *data, int width, int height);
 
 // raycasting.c
 int	raycasting(t_data *data);

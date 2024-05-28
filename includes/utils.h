@@ -40,7 +40,7 @@ void	free_data(t_data *data);
 // img.c
 t_img	*imggen(t_data *data, char *filename);
 t_myImg	myimg_gen(char *filename, t_data *data);
-t_myImg	empty_myImg(t_data *data, int width, int height);
+t_myImg	myimg_empty(t_data *data, int width, int height);
 void	set_pixel(t_myImg *image, int x, int y, int color);
 
 // is_funct.c

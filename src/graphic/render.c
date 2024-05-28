@@ -30,7 +30,7 @@ static void	render_frame(t_data *data)
 	int		y;
 
 	image.img = NULL;
-	image = empty_myImg(data, data->win_w, data->win_h);
+	image = myimg_empty(data, data->win_w, data->win_h);
 	y = 0;
 	while (y < data->win_h)
 	{
@@ -51,8 +51,6 @@ void	render_images(t_data *data)
 	pixels_init(data);
 	raycasting(data);
 	render_frame(data);
-	// if (BONUS)
-	// 	render_minimap(data);
 }
 
 int	render(t_data *data)

@@ -14,35 +14,36 @@
 
 int	ft_hextoi(char *hex, int length)
 {
-    char	c;
+	char	c;
 	int		nbr;
 
 	if (length == 0)
-        return 0;
-    c = hex[length - 1];
+		return (0);
+	c = hex[length - 1];
 	if (ft_isdigit(c))
-        nbr =  c - '0';
+		nbr = c - '0';
 	else
-        nbr =  ft_toupper(c) - 'A' + 10;
-    return (nbr + 16 * ft_hextoi(hex, length - 1));
+		nbr = ft_toupper(c) - 'A' + 10;
+	return (nbr + 16 * ft_hextoi(hex, length - 1));
 }
 
-void ft_itohex(int dec, char *hex, int *index)
+void	ft_itohex(int dec, char *hex, int *index)
 {
-    char hexDigits[] = "0123456789ABCDEF";
+	char	*hex_digits;
 	int		pos;
 
-    if (dec == 0)
+	hex_digits = "0123456789ABCDEF";
+	if (dec == 0)
 	{
-        if (*index == '0')
+		if (*index == '0')
 		{
-            hex[(*index)++] = '0';
-        }
-        return;
-    }
-    ft_itohex(dec / 16, hex, index);
-    pos = dec % 16;
-    hex[(*index)++] = hexDigits[pos];
+			hex[(*index)++] = '0';
+		}
+		return ;
+	}
+	ft_itohex(dec / 16, hex, index);
+	pos = dec % 16;
+	hex[(*index)++] = hex_digits[pos];
 }
 
 int	*find_rgb(char	*str)
@@ -59,13 +60,13 @@ int	*find_rgb(char	*str)
 	while (str && str[i] && ft_isdigit(str[i]) && j < 3)
 	{
 		rgb[j] = ft_atoi(&str[i]);
-		if (rgb[j] > 255 || (rgb[j] == 0 && (str[i] != '0' || ft_isdigit(str[i + 1]))))
+		if (rgb[j] > 255 || (rgb[j] == 0 && (str[i] != '0'
+					|| ft_isdigit(str[i + 1]))))
 			return (free(rgb), NULL);
-		while(ft_isdigit(str[i]))
+		while (ft_isdigit(str[i]))
 			i++;
-		if (str[i] == ',' && j < 2)
+		if (j++ < 2 && str[i] == ',')
 			i++;
-		j++;
 	}
 	while (str[i] && ft_isspace(str[i]))
 		i++;
