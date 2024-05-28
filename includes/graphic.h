@@ -15,14 +15,10 @@
 
 # include <utils.h>
 
-// graph_utils.c
-void	background_set(t_myImg img, int f_color, int c_color);
-
-// raycasting.c
-int	raycasting(t_data *data);
+// raycaster.c
+int	raycaster(t_data *data);
 
 // texture.c
-void	pixels_init(t_data *data);
 void	pixels_update(t_data *data, int x);
 
 // render.c

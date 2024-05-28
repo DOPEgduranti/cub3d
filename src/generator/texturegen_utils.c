@@ -31,7 +31,7 @@ t_textnbr	txtr_row(char *str)
 	return (NOTHING);
 }
 
-char	*txtr_nameset(char *str)
+static char	*txtr_nameset(char *str)
 {
 	int	i;
 	int	j;

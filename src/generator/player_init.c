@@ -30,7 +30,7 @@ static void	player_no_so(t_player *player)
 	}
 }
 
-static void	player_we_ea(t_player *player)
+static void	player_ea_we(t_player *player)
 {
 	if (player->dir == 'E')
 	{
@@ -51,5 +51,5 @@ static void	player_we_ea(t_player *player)
 void	player_init(t_data *data)
 {
 	player_no_so(&data->player);
-	player_we_ea(&data->player);
+	player_ea_we(&data->player);
 }

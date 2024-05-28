@@ -37,7 +37,6 @@ t_textures	texturegen(char **map, t_data *data);
 
 // texturegen_utils.c
 t_textnbr	txtr_row(char *str);
-char		*txtr_nameset(char *str);
 int			*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name);
 t_color		txtr_colorset(char *str);
 bool		txtr_check(t_textures *txtr);

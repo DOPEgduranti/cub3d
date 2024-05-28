@@ -46,10 +46,29 @@ static void	render_frame(t_data *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
+static void	pixels_init(t_data *data)
+{
+	int	i;
+
+	if (data->pixels)
+		ft_freemtx((void **)data->pixels);
+	data->pixels = ft_calloc(data->win_h + 1, sizeof(int *));
+	if (!data->pixels)
+		return (err_malloc(), free_data(data), exit(1));
+	i = 0;
+	while (i < data->win_h)
+	{
+		data->pixels[i] = ft_calloc(data->win_w + 1, sizeof(int));
+		if (!data->pixels[i])
+			return (err_malloc(), free_data(data), exit(1));
+		i++;
+	}
+}
+
 void	render_images(t_data *data)
 {
 	pixels_init(data);
-	raycasting(data);
+	raycaster(data);
 	render_frame(data);
 }
 
