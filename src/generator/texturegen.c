@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:18:40 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 11:34:04 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:06:50 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
 		return (NULL);
 	dst = ft_calloc(txtr->size * txtr->size, sizeof(int));
 	if (!dst)
-		return (mlx_destroy_image(data->mlx, tmp.img), NULL);
+		return (err_malloc(), mlx_destroy_image(data->mlx, tmp.img), NULL);
 	y = 0;
 	while (y < txtr->size)
 	{
@@ -90,6 +90,8 @@ t_color	txtr_colorset(char *str)
 	if (!ft_isdigit(str[i]))
 		return ((t_color){0});
 	color.hex = rgb_to_hex(&str[i], ft_strdup("0x000000"));
+	if (!color.hex)
+		return ((t_color){0});
 	color.value = ft_hextoi(&color.hex[2], ft_strlen(&color.hex[2]));
 	return (color);
 }
@@ -103,6 +105,7 @@ bool	txtr_check(t_textures *txtr)
 	{
 		if (!txtr->txtrs[i] || !txtr->col_ceiling.hex || !txtr->col_floor.hex)
 		{
+			err_gen("Error\nissue occurs during texture generation");
 			free_textures(txtr);
 			return (false);
 		}
@@ -122,7 +125,7 @@ t_textures	texturegen(char **map, t_data *data)
 	txtr.size = TXTR_SIZE;
 	txtr.txtrs = ft_calloc(5, sizeof(int *));
 	if (!txtr.txtrs)
-		return ((t_textures){0});
+		return (err_malloc(), (t_textures){0});
 	while (map && map[++i])
 	{
 		tmp = ft_strtrim(map[i], " \f\n\r\t\v");

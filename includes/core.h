@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:35:09 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 16:14:18 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:23:31 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define WIDTH 1080
 # define TXTR_SIZE 64
 # define RSPEED 0.020
-# define MSPEED 0.025
+# define MSPEED 0.050
 
 typedef enum s_txtr_index
 {
@@ -79,7 +79,6 @@ typedef struct s_textures
 
 typedef struct s_map
 {
-	char		*name;
 	char		*map_str;
 	char		**map_mtx;
 	t_vector	size;
@@ -114,7 +113,7 @@ typedef struct s_player
 
 typedef struct s_data
 {
-	int			wih_h;
+	int			win_h;
 	int			win_w;
 	int			img_w;
 	int			img_h;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2024/05/27 12:26:07 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:41:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ static void	line_calc(t_data *data)
 		data->ray.wall_dist = (data->ray.side_dist.x - data->ray.delta_dist.x);
 	else
 		data->ray.wall_dist = (data->ray.side_dist.y - data->ray.delta_dist.y);
-	data->ray.line_height = (int)(data->wih_h / data->ray.wall_dist);
-	data->ray.draw_start = -(data->ray.line_height) / 2 + data->wih_h / 2;
+	data->ray.line_height = (int)(data->win_h / data->ray.wall_dist);
+	data->ray.draw_start = -(data->ray.line_height) / 2 + data->win_h / 2;
 	if (data->ray.draw_start < 0)
 		data->ray.draw_start = 0;
-	data->ray.draw_end = data->ray.line_height / 2 + data->wih_h / 2;
-	if (data->ray.draw_end >= data->wih_h)
-		data->ray.draw_end = data->wih_h - 1;
+	data->ray.draw_end = data->ray.line_height / 2 + data->win_h / 2;
+	if (data->ray.draw_end >= data->win_h)
+		data->ray.draw_end = data->win_h - 1;
 	if (data->ray.side == 0)
 		data->ray.wall_x = data->player.position.y + data->ray.wall_dist * data->ray.direction.y;
 	else

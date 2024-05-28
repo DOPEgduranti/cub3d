@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:25:47 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/27 16:15:52 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:43:40 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_close_window(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->window);
+	free_data(data);
 	exit(0);
 }
 

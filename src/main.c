@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:32:59 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 15:04:28 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:52:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	if (argc != 2)
-		return (gerr("Error: wrong number of arguments\n"));
+		return (err_gen("Error: wrong number of arguments\n"));
 	data = datagen(argv[1]);
 	if (!data.map.map_mtx)
 	{

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 10:10:30 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/17 12:22:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:22:18 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_mtxdup(char **mtx)
 	i = 0;
 	dst = ft_calloc(ft_mtxlen(mtx) + 1, sizeof(char *));
 	if (!dst)
-		return (NULL);
+		return (err_malloc(), NULL);
 	while (mtx && mtx[i])
 	{
 		dst[i] = ft_strdup(mtx[i]);

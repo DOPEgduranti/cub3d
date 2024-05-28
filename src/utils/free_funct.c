@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 11:31:19 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 11:33:36 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:47:36 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	free_textures(t_textures *txtr)
 {
-	int	i;
-
 	if (txtr->col_ceiling.hex)
 		free(txtr->col_ceiling.hex);
 	if (txtr->col_floor.hex)
@@ -28,12 +26,22 @@ void	free_textures(t_textures *txtr)
 		free (txtr->west);
 	if (txtr->east)
 		free (txtr->east);
-	i = 0;
-	while (i < 4)
-	{
-		if (txtr->txtrs[i])
-			free(txtr->txtrs[i]);
-		i++;
-	}
-	free(txtr->txtrs);
+	ft_freemtx((void **)txtr->txtrs);
+}
+
+void	free_map(t_map *map)
+{
+	if (map->map_mtx)
+		ft_freemtx((void **)map->map_mtx);
+}
+
+void	free_data(t_data *data)
+{
+	free_map(&data->map);
+	free_textures(&data->textures);
+	mlx_destroy_window(data->mlx, data->window);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	if (data->pixels)
+		ft_freemtx((void **)data->pixels);
 }

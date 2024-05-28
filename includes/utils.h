@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:05:18 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/27 12:59:57 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:03:05 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ void	ft_printmtx(char **mtx);
 char	**ft_mtxdup(char **mtx);
 
 // error.c
-int	gerr(char *str);
+int	err_gen(char *str);
+int	err_malloc(void);
+int	err_map(void);
 
 // free_funct.c
 void	free_textures(t_textures *txtr);
+void	free_map(t_map *map);
+void	free_data(t_data *data);
 
 // img.c
 t_img	*imggen(t_data *data, char *filename);

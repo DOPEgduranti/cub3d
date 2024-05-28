@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:01:02 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/24 11:25:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:41:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 // 	int i;
 	
 // 	i = 0;
-// 	while (i < data->win_w * data->wih_h * 2)
+// 	while (i < data->win_w * data->win_h * 2)
 // 	{
 // 		*(unsigned int*)(img.addr + i) = c_color;
 // 		i+=sizeof(int);
 // 	}
-// 	while (i < data->win_w * data->wih_h * 4)
+// 	while (i < data->win_w * data->win_h * 4)
 // 	{
 // 		*(unsigned int*)(img.addr + i) = f_color;
 // 		i+=sizeof(int);
