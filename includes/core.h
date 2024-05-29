@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 11:32:27 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:44:09 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define HEIGHT 720
 # define WIDTH 1080
-# define TXTR_SIZE 64
+# define TXTR_SIZE 64 // crasha se e' piu' grande di quella effettiva
 # define RSPEED 0.020
 # define MSPEED 0.050
 
