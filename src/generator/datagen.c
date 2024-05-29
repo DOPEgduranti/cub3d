@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 11:27:29 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:35:34 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ t_data	datagen(char *mapname)
 	ft_freemtx((void **)data.file_mtx);
 	if (!data.map.map_mtx)
 		return (free_textures(&data.textures), data);
-	ft_printmtx(data.map.map_mtx);
 	player_init(&data);
 	return (data);
 }
