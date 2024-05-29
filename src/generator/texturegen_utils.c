@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:43:03 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:23:00 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	*txtr_nameset(char *str)
 	return (ft_strncpy(str, i, j));
 }
 
-int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
+int	*txtr_imgset(char *str, t_data *data, char **name)
 {
 	t_myImg	tmp;
 	int		*dst;
@@ -60,16 +60,16 @@ int	*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name)
 	tmp = myimg_gen(*name, data);
 	if (!tmp.addr)
 		return (NULL);
-	dst = ft_calloc(txtr->size * txtr->size, sizeof(int));
+	dst = ft_calloc((int)TXTR_SIZE * (int)TXTR_SIZE, sizeof(int));
 	if (!dst)
 		return (err_malloc(), mlx_destroy_image(data->mlx, tmp.img), NULL);
 	y = 0;
-	while (y < txtr->size)
+	while (y < (int)TXTR_SIZE)
 	{
 		x = 0;
-		while (x < txtr->size)
+		while (x < (int)TXTR_SIZE)
 		{
-			dst[y * txtr->size + x] = tmp.addr[y * txtr->size + x];
+			dst[y * (int)TXTR_SIZE + x] = tmp.addr[y * (int)TXTR_SIZE + x];
 			x++;
 		}
 		y++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:18:07 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:32:27 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ void	pixels_update(t_data *data, int x)
 	int			color;
 
 	get_index(data);
-	data->textures.x = (int)(data->ray.wall_x * data->textures.size);
+	data->textures.x = (int)(data->ray.wall_x * (int)TXTR_SIZE);
 	if ((data->ray.side == 0 && data->ray.direction.x < 0)
 		|| (data->ray.side == 1 && data->ray.direction.y > 0))
-		data->textures.x = data->textures.size - data->textures.x - 1;
-	data->textures.step = 1.0 * data->textures.size / data->ray.line_height;
+		data->textures.x = (int)TXTR_SIZE - data->textures.x - 1;
+	data->textures.step = 1.0 * (int)TXTR_SIZE / data->ray.line_height;
 	data->textures.pos = (data->ray.draw_start - data->win_h / 2
 			+ data->ray.line_height / 2) * data->textures.step;
 	y = data->ray.draw_start;
 	while (y < data->ray.draw_end)
 	{
-		data->textures.y = (int)data->textures.pos & (data->textures.size - 1);
+		data->textures.y = (int)data->textures.pos & ((int)TXTR_SIZE - 1);
 		data->textures.pos += data->textures.step;
-		color = data->textures.txtrs[data->textures.index][data->textures.size
+		color = data->textures.txtrs[data->textures.index][(int)TXTR_SIZE
 			* data->textures.y + data->textures.x];
 		if (data->textures.index == NORTH || data->textures.index == EAST)
 			color = (color >> 1) & 0x7F7F7F;

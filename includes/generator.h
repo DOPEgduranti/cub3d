@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:18:06 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:23:38 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_textures	texturegen(char **map, t_data *data);
 
 // texturegen_utils.c
 t_textnbr	txtr_row(char *str);
-int			*txtr_imgset(char *str, t_data *data, t_textures *txtr, char **name);
+int			*txtr_imgset(char *str, t_data *data, char **name);
 t_color		txtr_colorset(char *str);
 bool		txtr_check(t_textures *txtr);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:42:29 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:24:44 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	txtr_set(char **map, t_data *data, t_textures *txtr)
 	{
 		tmp = ft_strtrim(map[i], " \f\n\r\t\v");
 		if (txtr_row(tmp) == NO && !txtr->north)
-			txtr->txtrs[NORTH] = txtr_imgset(tmp, data, txtr, &txtr->north);
+			txtr->txtrs[NORTH] = txtr_imgset(tmp, data, &txtr->north);
 		else if (txtr_row(tmp) == SO && !txtr->south)
-			txtr->txtrs[SOUTH] = txtr_imgset(tmp, data, txtr, &txtr->south);
+			txtr->txtrs[SOUTH] = txtr_imgset(tmp, data, &txtr->south);
 		else if (txtr_row(tmp) == WE && !txtr->west)
-			txtr->txtrs[WEST] = txtr_imgset(tmp, data, txtr, &txtr->west);
+			txtr->txtrs[WEST] = txtr_imgset(tmp, data, &txtr->west);
 		else if (txtr_row(tmp) == EA && !txtr->east)
-			txtr->txtrs[EAST] = txtr_imgset(tmp, data, txtr, &txtr->east);
+			txtr->txtrs[EAST] = txtr_imgset(tmp, data, &txtr->east);
 		else if (txtr_row(tmp) == F && !txtr->col_floor.hex)
 			txtr->col_floor = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C && !txtr->col_ceiling.hex)
