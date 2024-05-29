@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 11:23:00 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:28:51 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ int	*txtr_imgset(char *str, t_data *data, char **name)
 	tmp = myimg_gen(*name, data);
 	if (!tmp.addr)
 		return (NULL);
-	dst = ft_calloc((int)TXTR_SIZE * (int)TXTR_SIZE, sizeof(int));
+	dst = ft_calloc(TXTR_SIZE * TXTR_SIZE, sizeof(int));
 	if (!dst)
 		return (err_malloc(), mlx_destroy_image(data->mlx, tmp.img), NULL);
 	y = 0;
-	while (y < (int)TXTR_SIZE)
+	while (y < TXTR_SIZE)
 	{
 		x = 0;
-		while (x < (int)TXTR_SIZE)
+		while (x < TXTR_SIZE)
 		{
-			dst[y * (int)TXTR_SIZE + x] = tmp.addr[y * (int)TXTR_SIZE + x];
+			dst[y * TXTR_SIZE + x] = tmp.addr[y * TXTR_SIZE + x];
 			x++;
 		}
 		y++;

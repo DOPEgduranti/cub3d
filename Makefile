@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gduranti <gduranti@student.42.fr>          +#+  +:+       +#+         #
+#    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/28 11:27:50 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/29 11:26:07 by sgarigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLXFLAGS = -lX11 -lXext -lm
 
 DEPS = includes/
 
-NAME = cub3d
+NAME = cub3D
 
 SRC_DIR = src
 UTILS_DIR = utils
