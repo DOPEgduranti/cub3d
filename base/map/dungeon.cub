@@ -1,10 +1,10 @@
 F 76,76,76
 C 99,99,99
 
-NO asset/512px/glowstone.xpm
-SO asset/512px/glowstone.xpm
-WE asset/512px/glowstone.xpm
-EA asset/512px/glowstone.xpm
+NO ../assets/512px/glowstone.xpm
+SO ../assets/512px/glowstone.xpm
+WE ../assets/512px/glowstone.xpm
+EA ../assets/512px/glowstone.xpm
 
 1111111111111111111
 10W1001001001000001

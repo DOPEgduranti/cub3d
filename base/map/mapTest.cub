@@ -1,10 +1,10 @@
-NO ./asset/texture/txtr1.xpm
-SO ./asset/texture/txtr4.xpm
-WE ./asset/texture/txtr10.xpm
-EA ./asset/texture/txtr19.xpm
+NO ../assets/texture/txtr1.xpm
+SO ../assets/texture/txtr4.xpm
+WE ../assets/texture/txtr10.xpm
+EA ../assets/texture/txtr19.xpm
 
-F 132,192,200
-C 195,224,244
+F 128,0,0
+C 0,128,0
 
         1111111111111111111111111
         1000000000110000000000001
