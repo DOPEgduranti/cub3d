@@ -59,13 +59,13 @@ dkms.conf
 file*
 
 #directories
-obj
-bonus_obj
-minilibx-linux
+obj/
+bonus_obj/
+minilibx-linux/
 
 #executables
 cub3D
 cub3D_bonus
 
 # VSCode
-.vscode
+.vscode/
