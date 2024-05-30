@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:18:07 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:00:36 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_img	*imggen(t_data *data, char *filename)
 		return (NULL);
 	img = mlx_xpm_file_to_image(data->mlx, filename,
 			&(data->img_w), &(data->img_h));
-	if (data->img_h != TXTR_SIZE || data->img_w != TXTR_SIZE)
+	if (img && (data->img_h != TXTR_SIZE || data->img_w != TXTR_SIZE))
 	{
 		mlx_destroy_image(data->mlx, img);
 		return (NULL);

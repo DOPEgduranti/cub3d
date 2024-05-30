@@ -23,12 +23,14 @@ MLXFLAGS = -lX11 -lXext -lm
 DEPS = includes/
 
 NAME = cub3D
+BONUS_NAME = $(NAME)_bonus
 
 SRC_DIR = src
 UTILS_DIR = utils
 GENERATOR_DIR = generator
 EVENTS_DIR = events
 GRAPHICS_DIR = graphic
+BONUS_DIR = $(SRC_DIR)/bonus
 
 SRC = main.c
 
@@ -60,14 +62,25 @@ GRAPHIC = raycaster.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
+BONUS = bonus.c
+
+BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
+
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS))
+BONUS_SRCS = $(SRCS) $(BONUSES)
 
 OBJ_DIR = obj
+BONUS_OBJ_DIR = bonus_obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+BONUS_OBJ = $(addprefix $(BONUS_OBJ_DIR)/, $(BONUS_SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -I$(MLX_DIR) -I$(DEPS) -o $@
+
+$(BONUS_OBJ_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -D BONUS=1 -I$(MLX_DIR) -I$(DEPS) -o $@
 
 all: $(NAME)
 
@@ -76,15 +89,22 @@ $(NAME): $(OBJ)
 	make all -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I$(MLX_DIR) -I$(DEPS) -o $@
 
+bonus: $(BONUS_OBJ)
+	make all -C $(LIBFT_DIR)
+	make all -C $(MLX_DIR)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(MLX) $(MLXFLAGS) $(LIBFT) -I$(MLX_DIR) -I$(DEPS) -o $(BONUS_NAME)
+
 clean:
 	make clean -C $(LIBFT_DIR)
 	rm -rf $(OBJ_DIR)
+	rm -rf $(BONUS_OBJ_DIR)
 
 fclean: clean
 	make fclean -C $(LIBFT_DIR)
 	make clean -C $(MLX_DIR)
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re	
+.PHONY: all bonus clean fclean re	

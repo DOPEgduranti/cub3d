@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 12:07:28 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:00:35 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
+# ifndef BONUS
+#  define BONUS 0
+# endif
 # define HEIGHT 720
 # define WIDTH 1080
 # define TXTR_SIZE 64
