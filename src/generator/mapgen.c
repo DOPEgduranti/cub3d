@@ -6,11 +6,12 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:00:36 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
+#include <bonus.h>
 
 static char	**map_mtxnoempty(char **mtx)
 {
@@ -40,6 +41,8 @@ static char	**map_mtxnoempty(char **mtx)
 
 static bool	map_charchecker(char **mtx, int i, int j, t_data *data)
 {
+	if (!ft_isinset(mtx[i][j], "01NSEW") && !ft_isspace(mtx[i][j]))
+		return (false);
 	if (ft_isinset(mtx[i][j], "NSEW"))
 	{
 		if (data->player.dir != 0)
@@ -75,9 +78,9 @@ static bool	map_parser(char **mtx, t_data *data)
 		j = 0;
 		while (mtx[i][j])
 		{
-			if (!ft_isinset(mtx[i][j], "01NSEW") && !ft_isspace(mtx[i][j]))
+			if (BONUS && !bonus_map_check(mtx, i, j, data))
 				return (false);
-			if (!map_charchecker(mtx, i, j, data))
+			if (!BONUS && !map_charchecker(mtx, i, j, data))
 				return (false);
 			j++;
 		}

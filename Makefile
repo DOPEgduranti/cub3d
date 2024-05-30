@@ -62,7 +62,8 @@ GRAPHIC = raycaster.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
-BONUS = bonus.c
+BONUS = bonus.c \
+	map_bonus.c
 
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 

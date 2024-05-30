@@ -59,10 +59,10 @@ dkms.conf
 file*
 
 #directories
+libft
 obj
 bonus_obj
-minilibx-linux/test
-minilibx-linux/obj
+minilibx-linux
 
 #executables
 cub3D

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:00:36 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:15:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ void	ft_rotate(t_data *data)
 		ft_rotate_left(data, old_plane, old_dir);
 	if (data->player.rotate == 1)
 		ft_rotate_right(data, old_plane, old_dir);
+}
+
+int	ft_topo(int x, int y, t_data *data)
+{
+	(void)y;
+	if (x < MIDDLE + 100 && x > MIDDLE - 100)
+		data->player.rotate = 0;
+	if (x > MIDDLE + 100)
+		data->player.rotate = 1;
+	else if (x < MIDDLE - 100)
+		data->player.rotate = -1;
+	return (1);
 }

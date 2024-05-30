@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:00:35 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:45:18 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
+# define MIDDLE WIDTH/2
 
 typedef enum s_txtr_index
 {
