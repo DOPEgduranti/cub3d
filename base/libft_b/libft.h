@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:18:07 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 09:27:34 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ char	*ft_strjoin_2(char *old_str, char *buf);
 
 char	*ft_strndup(char *str, int i);
 
-int	find_first(char *str, char c);
+int		find_first(char *str, char c);
 
-int	find_last(char *str, char c);
+int		find_last(char *str, char c);
 
 char	*join_char(char *str, char c);
 

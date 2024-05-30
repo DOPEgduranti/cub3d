@@ -6,7 +6,7 @@
 #    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/29 11:26:07 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/30 09:28:15 by sgarigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR = minilibx-linux
+MLX_DIR = ../minilibx-linux
 MLX = $(MLX_DIR)/libmlx_Linux.a
 MLXFLAGS = -lX11 -lXext -lm
 

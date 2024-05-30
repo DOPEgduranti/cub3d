@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/28 12:18:06 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 09:26:32 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_printmtx(char **mtx);
 char	**ft_mtxdup(char **mtx);
 
 // error.c
-int	err_gen(char *str);
-int	err_malloc(void);
-int	err_map(void);
+int		err_gen(char *str);
+int		err_malloc(void);
+int		err_map(void);
 
 // free_funct.c
 void	free_textures(t_textures *txtr);
@@ -49,6 +49,6 @@ bool	ft_isemptyline(char *str);
 bool	ft_isinset(char c, char *set);
 
 // size_funct.c
-int	ft_mtxlen(char **mtx);
+int		ft_mtxlen(char **mtx);
 
 #endif

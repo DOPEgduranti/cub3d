@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 11:23:38 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/30 09:25:38 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ typedef enum e_textnbr
 }	t_textnbr;
 
 // datagen.c
-t_data	datagen(char *mapname);
+t_data		datagen(char *mapname);
 
 // mapgen.c
-t_map	mapgen(t_data *data);
+t_map		mapgen(t_data *data);
 
 // texturegen.c
 t_textures	texturegen(char **map, t_data *data);
@@ -42,6 +42,6 @@ t_color		txtr_colorset(char *str);
 bool		txtr_check(t_textures *txtr);
 
 // player_init.c
-void	player_init(t_data *data);
+void		player_init(t_data *data);
 
 #endif

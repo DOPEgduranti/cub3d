@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/29 12:07:28 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/30 09:25:58 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ typedef struct s_player
 
 typedef struct s_data
 {
-	double			win_h;
-	double			win_w;
+	double		win_h;
+	double		win_w;
 	int			img_w;
 	int			img_h;
 	void		*mlx;
