@@ -6,7 +6,7 @@
 #    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/29 11:26:07 by sgarigli         ###   ########.fr        #
+#    Updated: 2024/05/30 16:12:54 by sgarigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ EVENT = events.c \
 	rotation.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-GRAPHIC = raycaster.c \
+GRAPHIC = minimap.c \
+	raycaster.c \
 	render.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
