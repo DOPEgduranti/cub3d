@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/31 11:18:43 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/31 11:46:31 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ UTILS_DIR = utils
 GENERATOR_DIR = generator
 EVENTS_DIR = events
 GRAPHICS_DIR = graphic
-BONUS_DIR = $(SRC_DIR)/bonus
+BONUS_DIR = bonus
 
 SRC = main.c
 
@@ -60,7 +60,7 @@ EVENT = events.c \
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
 GRAPHIC = minimap.c \
-	raycaster.c \
+	raycast.c \
 	render.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
@@ -71,13 +71,12 @@ BONUS = bonus.c \
 	raycast_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS))
-BONUS_SRCS = $(SRCS) $(BONUSES)
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS) $(BONUSES))
 
 OBJ_DIR = obj
 BONUS_OBJ_DIR = bonus_obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-BONUS_OBJ = $(addprefix $(BONUS_OBJ_DIR)/, $(BONUS_SRCS:.c=.o))
+BONUS_OBJ = $(addprefix $(BONUS_OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)

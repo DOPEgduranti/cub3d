@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/31 10:18:04 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:26:39 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void render_minimap(t_data *data)
 		x = 0;
 		while (x < MINIMAP_W)
 		{
-			i = y / step_y;
-			j = x / step_x;
+			i = round(y / step_y);
+			j = round(x / step_x);
 			if (x >= player_x && x < player_x + step_x && y >= player_y && y < player_y + step_y)
 				set_pixel(&image, x, y, 0xFF0000);
 			else if (data->map.map_mtx[i][j] == '1')
