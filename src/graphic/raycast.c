@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.c                                        :+:      :+:    :+:   */
+/*   raycast.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <graphic.h>
+#include <bonus.h>
 
 /*
 We initialize the set up for the rays
@@ -78,11 +79,8 @@ static void	dda_init(t_data *data)
 
 static void	dda_exec(t_data *data)
 {
-	bool	hit;
-
-	hit = false;
-	data->ray.door = false;
-	while (hit == false)
+	data->ray.hit = false;
+	while (data->ray.hit == false)
 	{
 		if (data->ray.side_dist.x < data->ray.side_dist.y)
 		{
@@ -99,15 +97,12 @@ static void	dda_exec(t_data *data)
 		if (data->ray.map.y < 0.25 || data->ray.map.x < 0.25
 			|| data->ray.map.y > data->map.size.y - 0.25
 			|| data->ray.map.x > data->map.size.x - 1.25)
-			hit = true;
+			data->ray.hit = true;
 		else if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
 			!= '0')
-		{
-			hit = true;
-			if (BONUS && data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] == 'D')
-				data->ray.door = true;
-		}
+			data->ray.hit = true;
 	}
+	dda_bonus(data);
 }
 
 static void	line_calc(t_data *data)
@@ -132,7 +127,7 @@ static void	line_calc(t_data *data)
 	data->ray.wall_x -= floor(data->ray.wall_x);
 }
 
-int	raycaster(t_data *data)
+int	raycast(t_data *data)
 {
 	int		x;
 

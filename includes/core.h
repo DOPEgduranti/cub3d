@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:37:03 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:01:34 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 	bool		door;
+	bool		hit;
 }	t_ray;
 
 typedef struct s_player
