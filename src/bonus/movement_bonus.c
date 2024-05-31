@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus.h                                            :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:18:30 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/31 11:09:24 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/31 11:22:45 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BONUS_H
-# define BONUS_H
+#include <bonus.h>
 
-# include <utils.h>
+void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos)
+{
+	int	tmp_x;
+	int	tmp_y;
 
-void	ft_ciao(void);
-
-// map_bonus.c
-bool	map_check_bonus(char **mtx, int i, int j, t_data *data);
-
-// movement_bonus.c
-void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos);
-
-// raycast_bonus.c
-void	dda_bonus(t_data *data);
-
-#endif
+	if (!BONUS)
+		return ;
+	tmp_x = (int)(data->player.position.x + (data->player.direction.x * 0.30));
+	tmp_y = (int)(data->player.position.y + (data->player.direction.y * 0.30));
+	if (data->map.map_mtx[tmp_y][tmp_x] == '1')
+	{
+		data->player.position = old_pos;
+		x = 0;
+		y = 0;
+	}
+}

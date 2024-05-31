@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/31 11:04:59 by gduranti         ###   ########.fr        #
+#    Updated: 2024/05/31 11:18:43 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
 BONUS = bonus.c \
 	map_bonus.c \
+	movement_bonus.c \
 	raycast_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 

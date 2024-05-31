@@ -6,11 +6,12 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 16:07:52 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:19:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
+#include <bonus.h>
 
 static void	ft_move_up(t_data *data, int *y)
 {
@@ -57,13 +58,7 @@ int	ft_movement(t_data *data)
 		ft_move_right(data, &y);
 	if (data->player.move.x == -1)
 		ft_move_left(data, &y);
-	if (BONUS && data->map.map_mtx[(int)data->player.position.y]
-		[(int)data->player.position.x] == '1')
-	{
-		data->player.position = old_pos;
-		x = 0;
-		y = 0;
-	}
+	movement_bonus(data, &x, &y, old_pos);
 	ft_rotate(data);
 	return (abs(x) + abs(y) + abs(data->player.rotate));
 }
