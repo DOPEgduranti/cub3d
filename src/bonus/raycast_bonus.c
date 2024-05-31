@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.h                                          :+:      :+:    :+:   */
+/*   raycast_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:55:22 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/31 10:56:19 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/31 11:06:12 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GRAPHIC_H
-# define GRAPHIC_H
+#include <bonus.h>
 
-# include <utils.h>
-
-// raycast.c
-int		raycast(t_data *data);
-
-// texture.c
-void	pixels_update(t_data *data, int x);
-
-// render.c
-void	render_images(t_data *data);
-int		render(t_data *data);
-
-#endif
+void	dda_bonus(t_data *data)
+{
+	if (!BONUS)
+		return ;
+	data->ray.door = false;
+	if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
+		== 'D')
+		data->ray.door = true;
+}

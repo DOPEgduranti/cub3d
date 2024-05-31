@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:22:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static void	txtr_set(char **map, t_data *data, t_textures *txtr)
 			txtr->col_floor = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C && !txtr->col_ceiling.hex)
 			txtr->col_ceiling = txtr_colorset(tmp);
+		else if (BONUS && txtr_row(tmp) == D && !txtr->door)
+			txtr->txtrs[DOOR] = txtr_imgset(tmp, data, &txtr->door);
 		free(tmp);
 	}
 }
@@ -43,7 +45,7 @@ t_textures	texturegen(char **map, t_data *data)
 
 	txtr = (t_textures){0};
 	txtr.size = TXTR_SIZE;
-	txtr.txtrs = ft_calloc(5, sizeof(int *));
+	txtr.txtrs = ft_calloc(6, sizeof(int *));
 	if (!txtr.txtrs)
 		return (err_malloc(), (t_textures){0});
 	txtr_set(map, data, &txtr);

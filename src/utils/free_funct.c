@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:24:14 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	free_textures(t_textures *txtr)
 	if (txtr->east)
 		free (txtr->east);
 	ft_freemtx((void **)txtr->txtrs);
+	if (BONUS && txtr->door)
+		free (txtr->door);
 }
 
 void	free_map(t_map *map)

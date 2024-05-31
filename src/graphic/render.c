@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 15:50:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:55:22 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	pixels_init(t_data *data)
 void	render_images(t_data *data)
 {
 	pixels_init(data);
-	raycaster(data);
+	raycast(data);
 	render_frame(data);
 }
 

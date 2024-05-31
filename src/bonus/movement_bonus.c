@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.h                                          :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:55:22 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/31 11:09:24 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/31 11:22:45 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GRAPHIC_H
-# define GRAPHIC_H
+#include <bonus.h>
 
-# include <utils.h>
+void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos)
+{
+	int	tmp_x;
+	int	tmp_y;
 
-// raycast.c
-int		raycast(t_data *data);
-
-// texture.c
-void	pixels_update(t_data *data, int x);
-
-// render.c
-void	render_images(t_data *data);
-int		render(t_data *data);
-
-#endif
+	if (!BONUS)
+		return ;
+	tmp_x = (int)(data->player.position.x + (data->player.direction.x * 0.30));
+	tmp_y = (int)(data->player.position.y + (data->player.direction.y * 0.30));
+	if (data->map.map_mtx[tmp_y][tmp_x] == '1')
+	{
+		data->player.position = old_pos;
+		x = 0;
+		y = 0;
+	}
+}

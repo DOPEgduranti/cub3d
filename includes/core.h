@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:45:18 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:01:34 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ typedef enum s_txtr_index
 	NORTH,
 	SOUTH,
 	EAST,
-	WEST
+	WEST,
+	DOOR
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -74,6 +75,7 @@ typedef struct s_textures
 	t_color			col_floor;
 	t_color			col_ceiling;
 	int				**txtrs;
+	char			*door;
 	t_txtr_index	index;
 	double			step;
 	double			pos;
@@ -102,6 +104,8 @@ typedef struct s_ray
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	bool		door;
+	bool		hit;
 }	t_ray;
 
 typedef struct s_player
