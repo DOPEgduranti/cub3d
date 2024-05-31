@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 15:50:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:17:44 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
+	if (BONUS && y > HEIGHT - MINIMAP_H && x > WIDTH - MINIMAP_W)
+		return ;
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
 	else if (y < data->win_h / 2)
@@ -71,6 +73,8 @@ void	render_images(t_data *data)
 	pixels_init(data);
 	raycaster(data);
 	render_frame(data);
+	if(BONUS)
+		render_minimap(data);
 }
 
 int	render(t_data *data)
