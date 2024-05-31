@@ -78,7 +78,7 @@ static bool	map_parser(char **mtx, t_data *data)
 		j = 0;
 		while (mtx[i][j])
 		{
-			if (BONUS && !bonus_map_check(mtx, i, j, data))
+			if (BONUS && !map_check_bonus(mtx, i, j, data))
 				return (false);
 			if (!BONUS && !map_charchecker(mtx, i, j, data))
 				return (false);

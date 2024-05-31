@@ -15,8 +15,8 @@
 
 # include <utils.h>
 
-// raycaster.c
-int		raycaster(t_data *data);
+// raycast.c
+int		raycast(t_data *data);
 
 // texture.c
 void	pixels_update(t_data *data, int x);

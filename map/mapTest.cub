@@ -2,8 +2,9 @@ NO ./assets/texture/txtr1.xpm
 SO ./assets/texture/txtr4.xpm
 WE ./assets/texture/txtr10.xpm
 EA ./assets/texture/txtr19.xpm
+D ./assets/texture/txtr26.xpm
 
-F 132,192,200
+F 132,192,17
 C 195,224,244
 
         1111111111111111111111111

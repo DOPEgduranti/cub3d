@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus.h                                            :+:      :+:    :+:   */
+/*   raycast_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:18:30 by gduranti         ###   ########.fr       */
+/*   Created: 2024/05/31 10:56:19 by gduranti          #+#    #+#             */
+/*   Updated: 2024/05/31 11:06:12 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BONUS_H
-# define BONUS_H
+#include <bonus.h>
 
-# include <utils.h>
-
-void	ft_ciao(void);
-
-// map_bonus.c
-bool	map_check_bonus(char **mtx, int i, int j, t_data *data);
-
-// movement_bonus.c
-void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos);
-
-// raycast_bonus.c
-void	dda_bonus(t_data *data);
-
-#endif
+void	dda_bonus(t_data *data)
+{
+	if (!BONUS)
+		return ;
+	data->ray.door = false;
+	if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
+		== 'D')
+		data->ray.door = true;
+}

@@ -71,7 +71,7 @@ static void	pixels_init(t_data *data)
 void	render_images(t_data *data)
 {
 	pixels_init(data);
-	raycaster(data);
+	raycast(data);
 	render_frame(data);
 	if(BONUS)
 		render_minimap(data);

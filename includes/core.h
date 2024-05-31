@@ -42,7 +42,8 @@ typedef enum s_txtr_index
 	NORTH,
 	SOUTH,
 	EAST,
-	WEST
+	WEST,
+	DOOR
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -76,6 +77,7 @@ typedef struct s_textures
 	t_color			col_floor;
 	t_color			col_ceiling;
 	int				**txtrs;
+	char			*door;
 	t_txtr_index	index;
 	double			step;
 	double			pos;
@@ -105,6 +107,8 @@ typedef struct s_ray
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	bool		door;
+	bool		hit;
 }	t_ray;
 
 typedef struct s_player
