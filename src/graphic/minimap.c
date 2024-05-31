@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/05/31 11:26:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:32:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void render_minimap(t_data *data)
 				set_pixel(&image, x, y, 0xFF0000);
 			else if (data->map.map_mtx[i][j] == '1')
 				set_pixel(&image, x, y, 0x000000);
+			else if (data->map.map_mtx[i][j] == 'D')
+				set_pixel(&image, x, y, 0x00FF00);
 			else
 				set_pixel(&image, x, y, 0xFFFFFF);
 			x++;
