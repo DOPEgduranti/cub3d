@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:31:39 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_key_release(int keysym, t_data *data)
 		data->player.move.x = 0;
 	if (keysym == XK_Left || keysym == XK_Right)
 		data->player.rotate = 0;
+	if (keysym == XK_space)
+		data->player.door_interact = false;
 	return (0);
 }
 
@@ -45,5 +47,7 @@ int	ft_key_press(int keysym, t_data *data)
 		data->player.rotate = -1;
 	if (keysym == XK_Right)
 		data->player.rotate = 1;
+	if (keysym == XK_space)
+		data->player.door_interact = true;
 	return (0);
 }
