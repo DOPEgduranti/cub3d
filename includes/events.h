@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:00:35 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:15:43 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		ft_movement(t_data *data);
 
 // rotation.c
 void	ft_rotate(t_data *data);
+int		ft_topo(int x, int y, t_data *data);
 
 #endif

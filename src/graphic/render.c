@@ -12,6 +12,7 @@
 
 #include <graphic.h>
 #include <events.h>
+#include <bonus.h>
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {

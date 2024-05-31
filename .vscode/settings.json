@@ -1,16 +1,22 @@
 {
+	"42header.username": "gduranti",
+  	"42header.email": "gduranti@student.42firenze.it",
 	"files.associations": {
 		"array": "c",
 		"string": "c",
 		"string_view": "c",
 		"ranges": "c",
 		"keysym.h": "c",
+		"mlx.h": "c",
 		"mlx_int.h": "c",
 		"cmath": "c",
 		"utils.h": "c",
 		"graphic.h": "c",
 		"cub3d.h": "c",
-		"generator.h": "c"
+		"generator.h": "c",
+		"bonus.h": "c",
+		"core.h": "c",
+		"events.h": "c"
 	},
 	"C_Cpp.default.includePath": [
 		"${workspaceFolder}/includes",

@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+         #
+#    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
 #    Updated: 2024/05/30 16:12:54 by sgarigli         ###   ########.fr        #
@@ -63,7 +63,8 @@ GRAPHIC = minimap.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
-BONUS = bonus.c
+BONUS = bonus.c \
+	map_bonus.c
 
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 

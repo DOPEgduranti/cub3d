@@ -6,28 +6,25 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:00:36 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:28:03 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
 
-static void	get_index(t_data *data)
+static int	get_index(t_data *data)
 {
 	if (data->ray.side == 0)
 	{
 		if (data->ray.direction.x < 0)
-			data->textures.index = WEST;
+			return (WEST);
 		else
-			data->textures.index = EAST;
+			return (EAST);
 	}
+	if (data->ray.direction.y > 0)
+		return (SOUTH);
 	else
-	{
-		if (data->ray.direction.y > 0)
-			data->textures.index = SOUTH;
-		else
-			data->textures.index = NORTH;
-	}
+		return (NORTH);
 }
 
 void	pixels_update(t_data *data, int x)
@@ -35,7 +32,7 @@ void	pixels_update(t_data *data, int x)
 	int			y;
 	int			color;
 
-	get_index(data);
+	data->textures.index = get_index(data);
 	data->textures.x = (int)(data->ray.wall_x * TXTR_SIZE);
 	if ((data->ray.side == 0 && data->ray.direction.x < 0)
 		|| (data->ray.side == 1 && data->ray.direction.y > 0))

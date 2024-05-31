@@ -35,6 +35,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
+# define MIDDLE WIDTH/2
 
 typedef enum s_txtr_index
 {
