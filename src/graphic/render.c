@@ -6,7 +6,7 @@
 /*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 16:24:54 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:17:44 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
-	if (y > HEIGHT - MINIMAP_H && x > WIDTH - MINIMAP_W && BONUS)
+	if (BONUS && y > HEIGHT - MINIMAP_H && x > WIDTH - MINIMAP_W)
 		return ;
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
