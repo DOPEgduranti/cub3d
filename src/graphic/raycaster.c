@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:39:09 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static void	dda_exec(t_data *data)
 	bool	hit;
 
 	hit = false;
+	data->ray.door = false;
 	while (hit == false)
 	{
 		if (data->ray.side_dist.x < data->ray.side_dist.y)
@@ -101,7 +102,11 @@ static void	dda_exec(t_data *data)
 			hit = true;
 		else if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
 			!= '0')
+		{
 			hit = true;
+			if (BONUS && data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] == 'D')
+				data->ray.door = true;
+		}
 	}
 }
 
