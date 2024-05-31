@@ -59,7 +59,8 @@ EVENT = events.c \
 	rotation.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-GRAPHIC = raycast.c \
+GRAPHIC = minimap.c \
+	raycaster.c \
 	render.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))

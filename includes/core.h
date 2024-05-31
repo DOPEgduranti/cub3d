@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:13:45 by sgarigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # endif
 # define HEIGHT 720
 # define WIDTH 1080
+# define MINIMAP_H HEIGHT / 4
+# define MINIMAP_W WIDTH / 4
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
@@ -87,6 +89,7 @@ typedef struct s_map
 {
 	char		*map_str;
 	char		**map_mtx;
+	char		**minimap;
 	t_vector	size;
 }	t_map;
 
