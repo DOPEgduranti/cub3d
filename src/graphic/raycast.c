@@ -99,10 +99,10 @@ static void	dda_exec(t_data *data)
 			|| data->ray.map.x > data->map.size.x - 1.25)
 			data->ray.hit = true;
 		else if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
-			!= '0')
+			== '1')
 			data->ray.hit = true;
+		dda_bonus(data);
 	}
-	dda_bonus(data);
 }
 
 static void	line_calc(t_data *data)
