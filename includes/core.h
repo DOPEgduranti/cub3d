@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:13:45 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:53:17 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define WIDTH 1080
 # define MINIMAP_H HEIGHT / 4
 # define MINIMAP_W WIDTH / 4
+# define STEP_X 10
+# define STEP_Y 10
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
@@ -51,6 +53,11 @@ typedef struct s_vector
 	double	x;
 	double	y;
 }	t_vector;
+typedef struct t_cursor
+{
+	int		x;
+	int		y;
+}	t_cursor;
 
 typedef struct s_color
 {
@@ -89,7 +96,8 @@ typedef struct s_map
 {
 	char		*map_str;
 	char		**map_mtx;
-	char		**minimap;
+	int			minimap_w;
+	int			minimap_h;
 	t_vector	size;
 }	t_map;
 
