@@ -6,11 +6,25 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:24:14 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:50:47 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
+
+static void	free_txtrs(t_textures *txtr)
+{
+	int	i;
+
+	i = 0;
+	while (i < 5)
+	{
+		if (txtr->txtrs[i])
+			free(txtr->txtrs[i]);
+		i++;
+	}
+	free(txtr->txtrs);
+}
 
 void	free_textures(t_textures *txtr)
 {
@@ -26,9 +40,9 @@ void	free_textures(t_textures *txtr)
 		free (txtr->west);
 	if (txtr->east)
 		free (txtr->east);
-	ft_freemtx((void **)txtr->txtrs);
 	if (BONUS && txtr->door)
 		free (txtr->door);
+	free_txtrs(txtr);
 }
 
 void	free_map(t_map *map)

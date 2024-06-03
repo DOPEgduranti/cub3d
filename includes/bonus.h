@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 11:50:42 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:33:34 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define BONUS_H
 
 # include <utils.h>
-
-void	ft_ciao(void);
 
 // map_bonus.c
 bool	map_check_bonus(char **mtx, int i, int j, t_data *data);

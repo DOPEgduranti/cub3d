@@ -42,5 +42,6 @@
 	"c-cpp-flylint.includePaths": [
 		"${workspaceFolder}/includes",
 		"${workspaceFolder}/minilibx-linux"
-	]
+	],
+	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }
