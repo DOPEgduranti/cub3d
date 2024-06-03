@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/03 11:40:38 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/03 11:43:18 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,4 +117,4 @@ play:
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re	
+.PHONY: all bonus clean fclean play re
