@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/05/31 11:46:31 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/03 11:03:59 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,14 +59,14 @@ EVENT = events.c \
 	rotation.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-GRAPHIC = minimap.c \
-	raycast.c \
+GRAPHIC = raycast.c \
 	render.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
 BONUS = bonus.c \
 	map_bonus.c \
+	minimap_bonus.c \
 	movement_bonus.c \
 	raycast_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
