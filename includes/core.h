@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 10:33:06 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:54:13 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,11 @@
 # endif
 # define HEIGHT 720
 # define WIDTH 1080
-# define MINIMAP_H HEIGHT / 4
-# define MINIMAP_W WIDTH / 4
 # define STEP_X 10
 # define STEP_Y 10
 # define TXTR_SIZE 64
 # define RSPEED 0.020
 # define MSPEED 0.050
-# define MIDDLE WIDTH/2
 
 typedef enum s_txtr_index
 {
@@ -136,6 +133,8 @@ typedef struct s_data
 	double		win_w;
 	int			img_w;
 	int			img_h;
+	int			minimap_h;
+	int			minimap_w;
 	void		*mlx;
 	void		*window;
 	int			size_l;

@@ -6,11 +6,19 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 16:27:42 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:52:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
+
+static void	basic_var(t_data *data)
+{
+	data->win_h = HEIGHT;
+	data->win_w = WIDTH;
+	data->minimap_h = HEIGHT / 4;
+	data->minimap_w = WIDTH / 4;
+}
 
 static char	**file_read(char *mapname, t_data *data)
 {
@@ -38,8 +46,7 @@ t_data	datagen(char *mapname)
 	t_data	data;
 
 	data = (t_data){0};
-	data.win_h = HEIGHT;
-	data.win_w = WIDTH;
+	basic_var(&data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (data);

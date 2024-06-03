@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 10:17:47 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:49:53 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
-	if (BONUS && y < MINIMAP_H && x < MINIMAP_W)
+	if (BONUS && y < data->minimap_h && x < data->minimap_w)
 		return ;
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
@@ -45,7 +45,7 @@ static void	render_frame(t_data *data)
 		}
 		y++;
 	}
-	if(BONUS)
+	if (BONUS)
 		render_minimap(&image, data);
 	mlx_put_image_to_window(data->mlx, data->window, image.img, 0, 0);
 	mlx_destroy_image(data->mlx, image.img);

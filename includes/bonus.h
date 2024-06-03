@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 11:05:06 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:50:42 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_ciao(void);
 bool	map_check_bonus(char **mtx, int i, int j, t_data *data);
 
 // minimap_bonus.c
-void	render_minimap(t_myImg *img,t_data *data);
+void	render_minimap(t_myImg *img, t_data *data);
 
 // movement_bonus.c
 void	ft_door(t_data *data);
