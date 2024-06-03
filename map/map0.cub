@@ -1,5 +1,15 @@
+NO ./assets/texture/txtr1.xpm
+SO ./assets/texture/txtr28.xpm
+WE ./assets/texture/txtr10.xpm
+EA ./assets/texture/txtr19.xpm
+
+F 132,192,17
+C 195,224,244
+
 11111
 10001
-10101
+10001
+10S01
+11D11
 10001
 11111

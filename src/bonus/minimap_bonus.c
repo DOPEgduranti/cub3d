@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/06/03 11:49:53 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:22:05 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ static void	minimap_set(t_myImg *image, t_cursor cursor,
 	else if (data->map.map_mtx[minimap.x][minimap.y] == 'O')
 		set_pixel(image, cursor.x, cursor.y, 0x00FF00);
 	else
+	{
+		if ((cursor.x + cursor.y) % 2 == 0)
+			return ;
 		set_pixel(image, cursor.x, cursor.y, 0xFFFFFF);
+	}
 }
 
 void	render_minimap(t_myImg *image, t_data *data)
