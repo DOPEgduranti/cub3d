@@ -6,11 +6,18 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:22:23 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:30:44 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
+
+static void	txtr_bonus(t_data *data, t_textures *txtr)
+{
+	if (!BONUS)
+		return ;
+	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm", data, &txtr->door);
+}
 
 static void	txtr_set(char **map, t_data *data, t_textures *txtr)
 {
@@ -33,10 +40,9 @@ static void	txtr_set(char **map, t_data *data, t_textures *txtr)
 			txtr->col_floor = txtr_colorset(tmp);
 		else if (txtr_row(tmp) == C && !txtr->col_ceiling.hex)
 			txtr->col_ceiling = txtr_colorset(tmp);
-		else if (BONUS && txtr_row(tmp) == D && !txtr->door)
-			txtr->txtrs[DOOR] = txtr_imgset(tmp, data, &txtr->door);
 		free(tmp);
 	}
+	txtr_bonus(data, txtr);
 }
 
 t_textures	texturegen(char **map, t_data *data)
