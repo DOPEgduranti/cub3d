@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarigli <sgarigli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:17:44 by sgarigli         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:17:47 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
-	if (BONUS && y > HEIGHT - MINIMAP_H && x > WIDTH - MINIMAP_W)
+	if (BONUS && y < MINIMAP_H && x < MINIMAP_W)
 		return ;
 	if (data->pixels[y][x] > 0)
 		set_pixel(image, x, y, data->pixels[y][x]);
@@ -45,6 +45,8 @@ static void	render_frame(t_data *data)
 		}
 		y++;
 	}
+	if(BONUS)
+		render_minimap(&image, data);
 	mlx_put_image_to_window(data->mlx, data->window, image.img, 0, 0);
 	mlx_destroy_image(data->mlx, image.img);
 }
@@ -73,8 +75,6 @@ void	render_images(t_data *data)
 	pixels_init(data);
 	raycast(data);
 	render_frame(data);
-	if(BONUS)
-		render_minimap(data);
 }
 
 int	render(t_data *data)

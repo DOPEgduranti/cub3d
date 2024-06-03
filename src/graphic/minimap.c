@@ -3,55 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/06/03 10:23:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:57:52 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <graphic.h>
 
-void render_minimap(t_data *data)
+static void	minimap_set(t_myImg *image, t_cursor cursor, t_data *data, t_cursor minimap)
 {
-	t_myImg	image;
-	int		x;
-	int		y;
-	int 	i;
-	int 	j;
-	int 	step_x;
-	int 	step_y;
-	int 	player_x;
-	int 	player_y;
-	
-	image.img = NULL;
-	image = myimg_empty(data, MINIMAP_W, MINIMAP_H);
-	step_x = MINIMAP_W / data->map.size.x;
-	step_y = MINIMAP_H / data->map.size.y;
-	player_x = data->player.position.x * step_x - step_x / 2;
-	player_y = data->player.position.y * step_y - step_y / 2;
-	y = 0;
-	while (y < MINIMAP_H)
+	if (cursor.x >= MINIMAP_W / 2 - STEP_X / 2 && cursor.x < MINIMAP_W / 2 + STEP_X / 2 && cursor.y >= MINIMAP_H / 2 - STEP_Y / 2 && cursor.y < MINIMAP_H / 2 + STEP_Y / 2)
+		set_pixel(image, cursor.x, cursor.y, 0xCC0000);
+	else if (data->map.map_mtx[minimap.x][minimap.y] == '1')
+		set_pixel(image, cursor.x, cursor.y, 0x000000);
+	else if (data->map.map_mtx[minimap.x][minimap.y] == 'D')
+		set_pixel(image, cursor.x, cursor.y, 0x00CC00);
+	else if (data->map.map_mtx[minimap.x][minimap.y] == 'O')
+		set_pixel(image, cursor.x, cursor.y, 0x00AA00);
+	else
+		set_pixel(image, cursor.x, cursor.y, 0xCCCCCC);
+}
+
+void	render_minimap(t_myImg *image, t_data *data)
+{
+	t_cursor	cursor;
+	t_cursor	minimap;
+	t_cursor	player;
+
+	player.x = data->player.position.x;
+	player.y = data->player.position.y;
+	cursor.y = 0;
+	while (cursor.y < HEIGHT)
 	{
-		x = 0;
-		while (x < MINIMAP_W)
+		cursor.x = 0;
+		while (cursor.x < WIDTH)
 		{
-			i = round(y / step_y);
-			j = round(x / step_x);
-			if (x >= player_x && x < player_x + step_x && y >= player_y && y < player_y + step_y)
-				set_pixel(&image, x, y, 0xFF0000);
-			else if (data->map.map_mtx[i][j] == '1')
-				set_pixel(&image, x, y, 0x000000);
-			else if (data->map.map_mtx[i][j] == 'D')
-				set_pixel(&image, x, y, 0x00FF00);
-			else if (data->map.map_mtx[i][j] == 'O')
-				set_pixel(&image, x, y, 0x0000FF);
-			else
-				set_pixel(&image, x, y, 0xFFFFFF);
-			x++;
+			minimap.x = round(cursor.y / STEP_Y + player.y - MINIMAP_H / (2 * STEP_Y));
+			minimap.y = round(cursor.x / STEP_X + player.x - MINIMAP_W / (2 * STEP_X));
+			if (minimap.x >= 0 && minimap.x < data->map.size.y && minimap.y >= 0 && minimap.y < data->map.size.x && cursor.x < MINIMAP_W && cursor.y < MINIMAP_H)
+				minimap_set(image, cursor, data, minimap);
+			cursor.x++;
 		}
-		y++;
+		cursor.y++;
 	}
-	mlx_put_image_to_window(data->mlx, data->window, image.img, WIDTH - MINIMAP_W, HEIGHT - MINIMAP_H);
-	mlx_destroy_image(data->mlx, image.img);
 }
