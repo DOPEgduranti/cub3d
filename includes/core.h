@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 15:45:58 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:14:48 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define RSPEED 0.030
 # define MSPEED 0.055
 # define NBR_TEXTURE 9
+
 typedef enum s_txtr_index
 {
 	NORTH,
