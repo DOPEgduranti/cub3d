@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/03 12:33:19 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/04 10:45:57 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 BONUS = map_bonus.c \
 	minimap_bonus.c \
 	movement_bonus.c \
-	raycast_bonus.c
+	raycast_bonus.c \
+	sprites_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS) $(BONUSES))

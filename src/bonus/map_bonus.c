@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:10:54 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:22:10 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static bool	ft_door_check(char **mtx, int i, int j)
 
 bool	map_check_bonus(char **mtx, int i, int j, t_data *data)
 {
-	if (!ft_isinset(mtx[i][j], "01NSEWD") && !ft_isspace(mtx[i][j]))
+	if (!ft_isinset(mtx[i][j], "01NSEWDF") && !ft_isspace(mtx[i][j]))
 		return (false);
 	if (ft_isinset(mtx[i][j], "NSEW"))
 	{

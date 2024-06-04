@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:33:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:46:52 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos);
 
 // raycast_bonus.c
 void	dda_bonus(t_data *data);
+
+// sprites_bonus.c
+void	render_sprite(t_myImg *img, t_data *data);
 
 #endif

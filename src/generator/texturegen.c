@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 11:46:06 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:23:55 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 	if (!BONUS)
 		return ;
 	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm",
+			data, &txtr->door);
+	txtr->txtrs[FOE] = txtr_imgset("FO ./assets/sprites/charlie_idle0.xpm",
 			data, &txtr->door);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 09:23:52 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:37:46 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef enum s_txtr_index
 	SOUTH,
 	EAST,
 	WEST,
-	DOOR
+	DOOR,
+	FOE
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -82,6 +83,7 @@ typedef struct s_textures
 	t_color			col_ceiling;
 	int				**txtrs;
 	char			*door;
+	char			*foe;
 	t_txtr_index	index;
 	double			step;
 	double			pos;
@@ -113,6 +115,8 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 	bool		door;
+	bool		foe;
+	t_vector	foe_pos;
 	bool		hit;
 }	t_ray;
 
