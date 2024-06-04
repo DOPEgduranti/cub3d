@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 10:37:46 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:45:58 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.030
 # define MSPEED 0.055
-
+# define NBR_TEXTURE 9
 typedef enum s_txtr_index
 {
 	NORTH,
@@ -43,7 +43,10 @@ typedef enum s_txtr_index
 	EAST,
 	WEST,
 	DOOR,
-	FOE
+	WEAPON1,
+	WEAPON2,
+	WEAPON3,
+	WEAPON4
 }	t_txtr_index;
 
 typedef struct s_vector

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 10:23:55 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:49:22 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 		return ;
 	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm",
 			data, &txtr->door);
-	txtr->txtrs[FOE] = txtr_imgset("FO ./assets/sprites/charlie_idle0.xpm",
+	txtr->txtrs[WEAPON1] = txtr_imgset("FO ./assets/sprites/fire1.xpm",
+			data, &txtr->door);
+	txtr->txtrs[WEAPON2] = txtr_imgset("FO ./assets/sprites/fire2.xpm",
+			data, &txtr->door);
+	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/fire1.xpm",
+			data, &txtr->door);
+	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/fire2.xpm",
 			data, &txtr->door);
 }
 
@@ -54,7 +60,7 @@ t_textures	texturegen(char **map, t_data *data)
 
 	txtr = (t_textures){0};
 	txtr.size = TXTR_SIZE;
-	txtr.txtrs = ft_calloc(6, sizeof(int *));
+	txtr.txtrs = ft_calloc(NBR_TEXTURE, sizeof(int *));
 	if (!txtr.txtrs)
 		return (err_malloc(), (t_textures){0});
 	txtr_set(map, data, &txtr);
