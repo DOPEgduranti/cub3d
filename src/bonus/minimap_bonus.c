@@ -6,31 +6,46 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/06/03 16:00:35 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:13:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bonus.h>
 
-static void	minimap_set(t_myImg *image, t_vector cursor,
-	t_data *data, t_vector minimap)
+static bool	check_player(t_vector cursor, t_data *data)
 {
-	if (cursor.x >= data->minimap_w / 2 - STEP_X / 2
+	return (cursor.x >= data->minimap_w / 2 - STEP_X / 2
 		&& cursor.x < data->minimap_w / 2 + STEP_X / 2
 		&& cursor.y >= data->minimap_h / 2 - STEP_Y / 2
-		&& cursor.y < data->minimap_h / 2 + STEP_Y / 2)
+		&& cursor.y < data->minimap_h / 2 + STEP_Y / 2);
+}
+
+static void	minimap_set(t_myImg *image, t_vector cursor,
+	t_data *data, t_vector mini)
+{
+	int			r;
+	t_cursor	center;
+
+	r = fmin(data->minimap_w, data->minimap_h) / 2;
+	center = (t_cursor){data->minimap_w / 2, data->minimap_h / 2};
+	if ((cursor.x - center.x) * (cursor.x - center.x)
+		+ (cursor.y - center.y) * (cursor.y - center.y) > r * r)
+		return ;
+	if (check_player(cursor, data))
 		set_pixel(image, cursor.x, cursor.y, 0xFF0000);
-	else if (data->map.map_mtx[(int)floor(minimap.x)][(int)floor(minimap.y)] == '1')
-		set_pixel(image, cursor.x, cursor.y, 0x000000);
-	else if (data->map.map_mtx[(int)floor(minimap.x)][(int)floor(minimap.y)] == 'D')
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == '1')
+	{
+		if ((int)floor((cursor.x + cursor.y)) % 2 == 1)
+			set_pixel(image, cursor.x, cursor.y, 0x000000);
+	}
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'D')
 		set_pixel(image, cursor.x, cursor.y, 0x00AAFF);
-	else if (data->map.map_mtx[(int)floor(minimap.x)][(int)floor(minimap.y)] == 'O')
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'O')
 		set_pixel(image, cursor.x, cursor.y, 0x00FF00);
 	else
 	{
-		if ((int)floor((cursor.x + cursor.y)) % 2 == 0)
-			return ;
-		set_pixel(image, cursor.x, cursor.y, 0xFFFFFF);
+		if ((int)floor((cursor.x + cursor.y)) % 2 == 1)
+			set_pixel(image, cursor.x, cursor.y, 0xFFFFFF);
 	}
 }
 
