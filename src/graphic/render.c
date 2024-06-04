@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:21:59 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:07:25 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 
 static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 {
-	if (BONUS && y < data->minimap_h && x < data->minimap_w
+	int			r;
+	t_cursor	cent;
+
+	r = fmin(data->minimap_w, data->minimap_h) / 2;
+	cent = (t_cursor){data->minimap_w / 2, data->minimap_h / 2};
+	if (!((x - cent.x) * (x - cent.x) + (y - cent.y) * (y - cent.y) > r * r)
+		&& BONUS && y < data->minimap_h && x < data->minimap_w
 		&& ((x + y) % 2 == 1))
 		return ;
 	if (data->pixels[y][x] > 0)
