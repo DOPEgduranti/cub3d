@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 10:32:41 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:38:04 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	get_index(t_data *data)
 {
 	if (BONUS && data->ray.door)
 		return (DOOR);
+	if (BONUS && data->ray.box)
+		return (BOX);
 	if (data->ray.side == 0)
 	{
 		if (data->ray.direction.x < 0)

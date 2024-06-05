@@ -5,7 +5,7 @@
             "name": "gdb Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/cub3d",
+            "program": "${workspaceFolder}/cub3D_bonus",
             "args": ["map/mapTest.cub"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

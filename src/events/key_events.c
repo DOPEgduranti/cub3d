@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:31:00 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:44:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ int	ft_key_press(int keysym, t_data *data)
 		data->player.rotate = 1;
 	if (keysym == XK_space)
 		ft_door(data);
+	if (keysym == XK_Shift_L)
+		ft_shoot(data);
 	return (0);
 }

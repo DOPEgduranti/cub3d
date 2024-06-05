@@ -21,7 +21,7 @@ We initialize the set up for the rays
 - delta_dist.x/y = distance to go to the next x or y.
 */
 
-static void	reycast_init(int x, t_data *data)
+static void	raycast_init(int x, t_data *data)
 {
 	data->ray.map.x = (int)data->player.position.x;
 	data->ray.map.y = (int)data->player.position.y;
@@ -134,7 +134,7 @@ int	raycast(t_data *data)
 	x = 0;
 	while (x < data->win_w)
 	{
-		reycast_init(x, data);
+		raycast_init(x, data);
 		dda_init(data);
 		dda_exec(data);
 		line_calc(data);

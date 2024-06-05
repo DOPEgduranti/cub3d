@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 11:09:24 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 10:32:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:05:05 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos)
 	tmp_x = (int)(data->player.position.x);
 	tmp_y = (int)(data->player.position.y);
 	if (data->map.map_mtx[tmp_y][tmp_x] == '1'
-		|| data->map.map_mtx[tmp_y][tmp_x] == 'D')
+		|| data->map.map_mtx[tmp_y][tmp_x] == 'D'
+		|| data->map.map_mtx[tmp_y][tmp_x] == 'B')
 	{
 		data->player.position = old_pos;
 		x = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 15:49:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:36:00 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 		return ;
 	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm",
 			data, &txtr->door);
-	txtr->txtrs[WEAPON1] = txtr_imgset("FO ./assets/sprites/fire1.xpm",
+	txtr->txtrs[BOX] = txtr_imgset("D ./assets/texture/box.xpm",
 			data, &txtr->door);
-	txtr->txtrs[WEAPON2] = txtr_imgset("FO ./assets/sprites/fire2.xpm",
+	txtr->txtrs[WEAPON1] = txtr_imgset("FO ./assets/sprites/Yellow1.xpm",
 			data, &txtr->door);
-	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/fire1.xpm",
+	txtr->txtrs[WEAPON2] = txtr_imgset("FO ./assets/sprites/Yellow2.xpm",
 			data, &txtr->door);
-	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/fire2.xpm",
+	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/Yellow3.xpm",
+			data, &txtr->door);
+	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/Yellow4.xpm",
 			data, &txtr->door);
 }
 

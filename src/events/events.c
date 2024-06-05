@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:40:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:58:21 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
+#include <bonus.h>
 
 void	ft_mlx_hook(t_data *data)
 {
@@ -18,7 +19,10 @@ void	ft_mlx_hook(t_data *data)
 	mlx_hook(data->window, KeyPress, KeyPressMask, ft_key_press, data);
 	mlx_hook(data->window, KeyRelease, KeyReleaseMask, ft_key_release, data);
 	if (BONUS)
+	{
+		// mlx_hook(data->window, ButtonPress, ButtonPressMask, ft_shoot, data);
 		mlx_hook(data->window, MotionNotify, PointerMotionMask, ft_topo, data);
+	}
 	mlx_loop_hook(data->mlx, render, data);
 	mlx_loop(data->mlx);
 }
