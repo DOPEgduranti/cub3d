@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
+#    By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/05 10:48:46 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/06 09:40:03 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ BONUS = map_bonus.c \
 	movement_bonus.c \
 	raycast_bonus.c \
 	shoot_bonus.c \
+	shoot_utils_bonus.c \
 	sprites_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 
@@ -117,5 +118,9 @@ play:
 	./cub3D_bonus map/mapTest.cub
 
 re: fclean all
+
+val_bonus: bonus
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(BONUS_NAME) map/mapTest.cub
+	
 
 .PHONY: all bonus clean fclean play re

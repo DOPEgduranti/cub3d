@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   shoot_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:43:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/05 12:36:19 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:38:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bonus.h>
 #include <graphic.h>
+#include <time.h>
+#define NUM_FRAMES 5
+
 
 static void	dda_init(t_data *data)
 {
@@ -53,11 +56,6 @@ static void ft_hit_obstacle(t_data *data)
 		data->ray.hit = true;
 }
 
-// static void	ft_shoot_aniamtion(t_data *data)
-// {
-	
-// }
-
 static void	dda_exec(t_data *data)
 {
 	data->ray.hit = false;
@@ -77,10 +75,8 @@ static void	dda_exec(t_data *data)
 		if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
 			== 'B')
 		{
-			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = '0';
+			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = 'X';
 			data->ray.hit = true;
-			// ft_shoot_animation(data);
-			render(data);
 		}
 	}
 }
@@ -89,6 +85,7 @@ int	ft_shoot(t_data *data)
 {
 	int		x;
 
+	data->player.shooting = 3;
 	x = data->win_w / 2;
 	data->ray.map.x = (int)data->player.position.x;
 	data->ray.map.y = (int)data->player.position.y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 11:01:34 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:10:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void	player_ea_we(t_player *player)
 
 void	player_init(t_data *data)
 {
+	data->player.has_moved = false;
+	data->player.shooting = 0;
 	player_no_so(&data->player);
 	player_ea_we(&data->player);
 }

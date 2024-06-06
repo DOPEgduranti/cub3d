@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:42:07 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 16:14:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:05:03 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,24 @@ void	render_weapon(t_myImg *img, t_data *data)
 	t_cursor	txt_cursor;
 	int			color;
 	
-
-	cursor.y = data->win_h * 2 / 3;
-	while (cursor.y < data->win_h)
+	if(data->player.shooting == 0)
 	{
-		cursor.x = data->win_w * 3 / 5;
-		while (cursor.x < data->win_w * 4 / 5)
+		cursor.y = data->win_h * 2 / 3;
+		while (cursor.y < data->win_h)
 		{
-			txt_cursor.x = (int)(64
-					* (cursor.x - data->win_w * 3 / 5) / (data->win_w * 1 / 5));
-			txt_cursor.y = (int)(64
-					* (cursor.y - data->win_h * 2 / 3) / (data->win_h * 1 / 3));
-			color = set_color(data, txt_cursor);
-			if (color != 0x000000)
-				set_pixel(img, cursor.x, cursor.y, color);
-			cursor.x++;
+			cursor.x = data->win_w * 3 / 5;
+			while (cursor.x < data->win_w * 4 / 5)
+			{
+				txt_cursor.x = (int)(64
+						* (cursor.x - data->win_w * 3 / 5) / (data->win_w * 1 / 5));
+				txt_cursor.y = (int)(64
+						* (cursor.y - data->win_h * 2 / 3) / (data->win_h * 1 / 3));
+				color = set_color(data, txt_cursor);
+				if (color != 0x000000)
+					set_pixel(img, cursor.x, cursor.y, color);
+				cursor.x++;
+			}
+			cursor.y++;
 		}
-		cursor.y++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/05 10:37:16 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:42:10 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.030
 # define MSPEED 0.055
-# define NBR_TEXTURE 10
+# define NBR_TEXTURE 12
 
 typedef enum s_txtr_index
 {
@@ -45,10 +45,12 @@ typedef enum s_txtr_index
 	WEST,
 	DOOR,
 	BOX,
+	EXPLODE,
 	WEAPON1,
 	WEAPON2,
 	WEAPON3,
-	WEAPON4
+	WEAPON4,
+	SHOOT,
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -121,6 +123,7 @@ typedef struct s_ray
 	int			draw_end;
 	bool		door;
 	bool		box;
+	bool		explosion;
 	bool		hit;
 }	t_ray;
 
@@ -133,6 +136,7 @@ typedef struct s_player
 	char		dir;
 	int			has_moved;
 	int			rotate;
+	int			shooting;
 }	t_player;
 
 typedef struct s_data
@@ -151,6 +155,7 @@ typedef struct s_data
 	char		*file_str;
 	char		**file_mtx;
 	int			**pixels;
+	t_myImg		big_img;
 	t_player	player;
 	t_map		map;
 	t_textures	textures;

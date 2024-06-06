@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/05 11:55:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:33:25 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ void	movement_bonus(t_data *data, int *x, int *y, t_vector old_pos);
 void	dda_bonus(t_data *data);
 
 // shoot_bonus.c
-int	ft_shoot(t_data *data);
+int		ft_shoot(t_data *data);
+
+// shoot_utils_bonus.c
+void	render_shooting(t_myImg *img, t_data *data);
+
 
 // sprites_bonus.c
 void	render_weapon(t_myImg *img, t_data *data);

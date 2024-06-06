@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 15:50:20 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:19:20 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,34 @@ static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 
 static void	render_frame(t_data *data)
 {
-	t_myImg	image;
 	int		x;
 	int		y;
 	
-	image.img = NULL;
-	image = myimg_empty(data, data->win_w, data->win_h);
+	data->big_img.img = NULL;
+	data->big_img = myimg_empty(data, data->win_w, data->win_h);
 	y = 0;
 	while (y < data->win_h)
 	{
 		x = 0;
 		while (x < data->win_w)
 		{
-			frame_set(data, &image, x, y);
+			frame_set(data, &data->big_img, x, y);
 			x++;
 		}
 		y++;
 	}
 	if (BONUS)
 	{
-		render_minimap(&image, data);
-		render_weapon(&image, data);
+		render_minimap(&data->big_img, data);
+		render_weapon(&data->big_img, data);
+		if(data->player.shooting != 0)
+		{
+			render_shooting(&data->big_img, data);
+			data->player.shooting--;
+		}
 	}
-	mlx_put_image_to_window(data->mlx, data->window, image.img, 0, 0);
-	mlx_destroy_image(data->mlx, image.img);
+	mlx_put_image_to_window(data->mlx, data->window, data->big_img.img, 0, 0);
+	mlx_destroy_image(data->mlx, data->big_img.img);
 }
 
 static void	pixels_init(t_data *data)
@@ -87,11 +91,31 @@ void	render_images(t_data *data)
 	render_frame(data);
 }
 
+void ft_removeboxexplosion(t_data *data)
+{
+	int i;
+	int j;
+		
+	i = 0;
+	while (i < data->map.size.y)
+	{
+		j = 0;
+		while (j < data->map.size.x)
+		{
+			if (data->map.map_mtx[i][j] == 'X')
+				data->map.map_mtx[i][j] = '0';
+			j++;
+		}
+		i++;
+	}
+}
+
 int	render(t_data *data)
 {
 	data->player.has_moved += ft_movement(data);
 	if (data->player.has_moved == 0)
 		return (0);
 	render_images(data);
+	ft_removeboxexplosion(data);
 	return (0);
 }

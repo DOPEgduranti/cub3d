@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/05 12:36:00 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:01:16 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/Yellow3.xpm",
 			data, &txtr->door);
 	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/Yellow4.xpm",
+			data, &txtr->door);
+	txtr->txtrs[SHOOT] = txtr_imgset("FO ./assets/sprites/fireball64.xpm",
+			data, &txtr->door);
+	txtr->txtrs[EXPLODE] = txtr_imgset("FO ./assets/texture/box2.xpm",
 			data, &txtr->door);
 }
 
