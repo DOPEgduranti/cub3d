@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/07 09:26:56 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/07 10:05:00 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,7 @@ val_bonus:
 	rm -rf $(BONUS_OBJ_DIR)
 	rm -f $(BONUS_NAME)
 	make bonus
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(BONUS_NAME) map/mapTest.cub
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./$(BONUS_NAME) map/mapTest.cub
 	
 
 .PHONY: all bonus clean fclean play re

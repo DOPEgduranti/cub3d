@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 15:39:42 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:07:22 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,21 @@ bool	txtr_check(t_textures *txtr)
 	i = 0;
 	while (i < 4)
 	{
-		if (!txtr->txtrs[i] || !txtr->col_ceiling.hex || !txtr->col_floor.hex
-			|| (BONUS && !txtr->txtrs[DOOR]))
+		if (!txtr->txtrs[i] || !txtr->col_ceiling.hex || !txtr->col_floor.hex)
 		{
 			err_gen("Error\nissue occurs during texture generation\n");
-			free_textures(txtr);
-			return (false);
+			return (free_textures(txtr), false);
+		}
+		i++;
+	}
+	if (!BONUS)
+		return (true);
+	while(i < NBR_TEXTURE)
+	{
+		if (!txtr->txtrs[i])
+		{
+			err_gen("Error\nissue occurs during texture generation\n");
+			return (free_textures(txtr), false);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:28:49 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:07:39 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,25 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 		return ;
 	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm",
 			data, &txtr->door);
+	free (txtr->door);
 	txtr->txtrs[BOX] = txtr_imgset("D ./assets/texture/box.xpm",
 			data, &txtr->box);
+	free (txtr->box);
 	txtr->txtrs[WEAPON1] = txtr_imgset("FO ./assets/sprites/Yellow1.xpm",
 			data, &txtr->weapon1);
+	free (txtr->weapon1);
 	txtr->txtrs[WEAPON2] = txtr_imgset("FO ./assets/sprites/Yellow2.xpm",
 			data, &txtr->weapon2);
+	free (txtr->weapon2);
 	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/Yellow3.xpm",
 			data, &txtr->weapon3);
+	free (txtr->weapon3);
 	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/Yellow4.xpm",
 			data, &txtr->weapon4);
+	free (txtr->weapon4);
 	txtr->txtrs[EXPLODE] = txtr_imgset("FO ./assets/texture/box2.xpm",
 			data, &txtr->explode);
+	free (txtr->explode);
 }
 
 static void	txtr_set(char **map, t_data *data, t_textures *txtr)

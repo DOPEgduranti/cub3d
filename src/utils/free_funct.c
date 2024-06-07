@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:38:56 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:02:37 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void	free_textures(t_textures *txtr)
 		free (txtr->west);
 	if (txtr->east)
 		free (txtr->east);
-	if (BONUS && txtr->door)
-		free (txtr->door);
-	if (BONUS && txtr->box)
-		free (txtr->box);
-	// if (BONUS && txtr->weapon1)
-	free (txtr->weapon1);
-	// if (BONUS && txtr->weapon2)
-	free (txtr->weapon2);
-	// if (BONUS && txtr->weapon3)
-	free (txtr->weapon3);
-	// if (BONUS && txtr->weapon4)
-	free (txtr->weapon4);
-	// if (BONUS && txtr->explode)
-	free (txtr->explode);
+	// if (BONUS && txtr->door)
+	// 	free (txtr->door);
+	// if (BONUS && txtr->box)
+	// 	free (txtr->box);
+	// // if (BONUS && txtr->weapon1)
+	// // free (txtr->weapon1);
+	// // if (BONUS && txtr->weapon2)
+	// free (txtr->weapon2);
+	// // if (BONUS && txtr->weapon3)
+	// free (txtr->weapon3);
+	// // if (BONUS && txtr->weapon4)
+	// free (txtr->weapon4);
+	// // if (BONUS && txtr->explode)
+	// free (txtr->explode);
 	free_txtrs(txtr);
 }
 
