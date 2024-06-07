@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 10:49:03 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 11:42:45 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.050
 # define MSPEED 0.055
-# define NBR_TEXTURE 17
+# define NBR_TEXTURE 15
 
 typedef enum s_txtr_index
 {
@@ -53,9 +53,7 @@ typedef enum s_txtr_index
 	SHOOT1,
 	SHOOT2,
 	SHOOT3,
-	SHOOT4,
-	SHOOT5,
-	SHOOT6
+	SHOOT4
 }	t_txtr_index;
 
 typedef struct s_vector

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 10:49:20 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 11:42:23 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,13 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 			data, &txtr->weapon);
 	txtr->txtrs[EXPLODE] = txtr_imgset("FO ./assets/texture/box2.xpm",
 			data, &txtr->explode);
-	txtr->txtrs[SHOOT1] = txtr_imgset("FO ./assets/sprites/Holy1.xpm",
+	txtr->txtrs[SHOOT1] = txtr_imgset("FO ./assets/sprites/Holy3.xpm",
 			data, &txtr->shoot);
-	txtr->txtrs[SHOOT2] = txtr_imgset("FO ./assets/sprites/Holy2.xpm",
+	txtr->txtrs[SHOOT2] = txtr_imgset("FO ./assets/sprites/Holy4.xpm",
 			data, &txtr->shoot);
-	txtr->txtrs[SHOOT3] = txtr_imgset("FO ./assets/sprites/Holy3.xpm",
+	txtr->txtrs[SHOOT3] = txtr_imgset("FO ./assets/sprites/Holy5.xpm",
 			data, &txtr->shoot);
-	txtr->txtrs[SHOOT4] = txtr_imgset("FO ./assets/sprites/Holy4.xpm",
-			data, &txtr->shoot);
-	txtr->txtrs[SHOOT5] = txtr_imgset("FO ./assets/sprites/Holy5.xpm",
-			data, &txtr->shoot);
-	txtr->txtrs[SHOOT6] = txtr_imgset("FO ./assets/sprites/Holy6.xpm",
+	txtr->txtrs[SHOOT4] = txtr_imgset("FO ./assets/sprites/Holy6.xpm",
 			data, &txtr->shoot);
 }
 

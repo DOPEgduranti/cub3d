@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 10:20:51 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 11:41:28 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ bool	txtr_check(t_textures *txtr)
 	}
 	if (!BONUS)
 		return (true);
-	while(i < NBR_TEXTURE)
+	while (i < NBR_TEXTURE)
 	{
 		if (!txtr->txtrs[i])
 		{
