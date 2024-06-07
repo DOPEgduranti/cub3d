@@ -6,12 +6,13 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 11:15:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:17:30 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
 #include <bonus.h>
+#include <graphic.h>
 
 int	ft_close_window(t_data *data)
 {
@@ -27,6 +28,8 @@ int	ft_key_release(int keysym, t_data *data)
 		data->player.move.x = 0;
 	if (keysym == XK_Left || keysym == XK_Right)
 		data->player.rotate = 0;
+	if (keysym == XK_Shift_L)
+		ft_removeexplosion(data);
 	return (0);
 }
 
@@ -50,5 +53,7 @@ int	ft_key_press(int keysym, t_data *data)
 		ft_door(data);
 	if (keysym == XK_Shift_L)
 		ft_shoot(data);
+	if (keysym == XK_Control_L)
+		ft_createbox(data);
 	return (0);
 }

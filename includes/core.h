@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 11:42:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:24:12 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 # define STEP_X 10
 # define STEP_Y 10
 # define TXTR_SIZE 64
-# define RSPEED 0.030
+# define RSPEED 0.050
 # define MSPEED 0.055
-# define NBR_TEXTURE 12
+# define NBR_TEXTURE 11
 
 typedef enum s_txtr_index
 {
@@ -50,7 +50,6 @@ typedef enum s_txtr_index
 	WEAPON2,
 	WEAPON3,
 	WEAPON4,
-	SHOOT,
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -90,6 +89,12 @@ typedef struct s_textures
 	t_color			col_ceiling;
 	int				**txtrs;
 	char			*door;
+	char			*box;
+	char			*weapon1;
+	char			*weapon2;
+	char			*weapon3;
+	char			*weapon4;
+	char			*explode;
 	char			*foe;
 	t_txtr_index	index;
 	double			step;
@@ -136,7 +141,7 @@ typedef struct s_player
 	char		dir;
 	int			has_moved;
 	int			rotate;
-	int			shooting;
+	bool		is_shooting;
 }	t_player;
 
 typedef struct s_data

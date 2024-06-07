@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/06/06 09:07:00 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:24:19 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ static void	minimap_set(t_myImg *image, t_vector cursor,
 		set_pixel(image, cursor.x, cursor.y, 0x00AAFF);
 	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'O')
 		set_pixel(image, cursor.x, cursor.y, 0x00FF00);
-	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'B')
-		set_pixel(image, cursor.x, cursor.y, 0xFFFF00);
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'B'
+			|| data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'X')
+		set_pixel(image, cursor.x, cursor.y, 0xFFBB00);
 	else
 	{
 		if ((int)floor((cursor.x + cursor.y)) % 2 == 1)

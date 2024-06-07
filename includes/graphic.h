@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 11:04:52 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:27:55 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int		raycast(t_data *data);
 void	pixels_update(t_data *data, int x);
 
 // render.c
+
 void	render_images(t_data *data);
 int		render(t_data *data);
+void	ft_removeexplosion(t_data *data);
 
 #endif

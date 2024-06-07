@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shoot_bonus.c                                      :+:      :+:    :+:   */
+/*   create_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:43:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:23:39 by gduranti         ###   ########.fr       */
+/*   Created: 2024/06/06 16:13:33 by gduranti          #+#    #+#             */
+/*   Updated: 2024/06/06 16:21:29 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static void ft_hit_obstacle(t_data *data)
 		|| data->ray.map.x > data->map.size.x - 1.25)
 		data->ray.hit = true;
 	else if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
-		== '1' || data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
-		== 'D')
+		!= '0')
 		data->ray.hit = true;
 }
 
@@ -73,19 +72,19 @@ static void	dda_exec(t_data *data)
 		}
 		ft_hit_obstacle(data);
 		if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
-			== 'B')
+			== '0')
 		{
-			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = 'X';
+			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = 'B';
 			data->ray.hit = true;
 		}
 	}
 }
 
-int	ft_shoot(t_data *data)
+void	ft_createbox(t_data *data)
 {
 	int		x;
 
-	data->player.is_shooting = true;
+	// data->player.shooting = 3;
 	x = data->win_w / 2;
 	data->ray.map.x = (int)data->player.position.x;
 	data->ray.map.y = (int)data->player.position.y;
@@ -98,5 +97,4 @@ int	ft_shoot(t_data *data)
 	data->ray.delta_dist.y = fabs(1 / data->ray.direction.y);
 	dda_init(data);
 	dda_exec(data);
-	return (0);
 }

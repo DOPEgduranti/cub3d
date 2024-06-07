@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_funct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:50:47 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:09:07 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	free_txtrs(t_textures *txtr)
 	int	i;
 
 	i = 0;
-	while (i < 5)
+	while (i < NBR_TEXTURE)
 	{
 		if (txtr->txtrs[i])
 			free(txtr->txtrs[i]);
@@ -42,6 +42,18 @@ void	free_textures(t_textures *txtr)
 		free (txtr->east);
 	if (BONUS && txtr->door)
 		free (txtr->door);
+	if (BONUS && txtr->box)
+		free (txtr->box);
+	if (BONUS && txtr->weapon1)
+		free (txtr->weapon1);
+	if (BONUS && txtr->weapon2)
+		free (txtr->weapon2);
+	if (BONUS && txtr->weapon3)
+		free (txtr->weapon3);
+	if (BONUS && txtr->weapon4)
+		free (txtr->weapon4);
+	if (BONUS && txtr->explode)
+		free (txtr->explode);
 	free_txtrs(txtr);
 }
 
