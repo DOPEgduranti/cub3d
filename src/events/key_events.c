@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:36:08 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:48:40 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_key_release(int keysym, t_data *data)
 		data->player.rotate = 0;
 	if (keysym == XK_Shift_L && BONUS)
 		ft_removeexplosion(data);
+	if (keysym == XK_Control_L && BONUS)
+		data->player.box = false;
 	return (0);
 }
 
@@ -74,6 +76,6 @@ int	ft_key_press(int keysym, t_data *data)
 	if (keysym == XK_Shift_L && BONUS)
 		ft_shoot(data);
 	if (keysym == XK_Control_L && BONUS)
-		ft_createbox(data);
+		data->player.box = true;
 	return (0);
 }

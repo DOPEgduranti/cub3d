@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:24:12 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:46:26 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_player
 	int			has_moved;
 	int			rotate;
 	bool		is_shooting;
+	bool		box;
 }	t_player;
 
 typedef struct s_data

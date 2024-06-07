@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:13:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:38:21 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:45:38 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_createbox(t_data *data)
 {
 	int	x;
 
+	data->player.box = true;
 	x = data->win_w / 2;
 	data->ray.map.x = (int)data->player.position.x;
 	data->ray.map.y = (int)data->player.position.y;

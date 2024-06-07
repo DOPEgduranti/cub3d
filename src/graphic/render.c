@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:33:14 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:48:02 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ static void	render_frame(t_data *data)
 	{
 		render_minimap(&data->big_img, data);
 		render_weapon(&data->big_img, data);
+		if(data->player.box)
+			ft_createbox(data);
 	}
 	mlx_put_image_to_window(data->mlx, data->window, data->big_img.img, 0, 0);
 	mlx_destroy_image(data->mlx, data->big_img.img);
