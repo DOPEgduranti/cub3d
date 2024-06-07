@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:42:07 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 11:32:59 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:14:06 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,11 @@ static void	line_calc(t_data *data)
 	data->ray.wall_x -= floor(data->ray.wall_x);
 }
 
-static void	image_update(t_myImg *img, t_data *data, int x)
+static void	image_update(t_myImg *img, t_data *data, int *x)
 {
 	int			y;
 	int			color;
+	int			tmp;
 
 	data->textures.x = (int)(data->ray.wall_x * TXTR_SIZE);
 	if ((data->ray.side == 0 && data->ray.direction.x < 0)
@@ -129,16 +130,22 @@ static void	image_update(t_myImg *img, t_data *data, int x)
 	data->textures.step = 1.0 * TXTR_SIZE / data->ray.line_height;
 	data->textures.pos = (data->ray.draw_start - data->win_h / 2
 			+ data->ray.line_height / 2) * data->textures.step;
-	y = data->ray.draw_start;
-	while (y < data->ray.draw_end)
+	tmp = 0;
+	while (tmp < TXTR_SIZE)
 	{
-		data->textures.y = (int)data->textures.pos & (TXTR_SIZE - 1);
-		data->textures.pos += data->textures.step;
-		color = data->textures.txtrs[FOE][TXTR_SIZE
-			* data->textures.y + data->textures.x];
-		if (color != 0x000000)
-			set_pixel(img, x, y, color);
-		y++;
+		y = data->ray.draw_start;
+		while (y < data->ray.draw_end)
+		{
+			data->textures.y = (int)data->textures.pos & (TXTR_SIZE - 1);
+			data->textures.pos += data->textures.step;
+			color = data->textures.txtrs[FOE][TXTR_SIZE
+				* data->textures.y + data->textures.x + tmp];
+			if (color != 0x000000)
+				set_pixel(img, *x, y, color);
+			y++;
+		}
+		(*x)++;
+	tmp++;
 	}
 }
 
@@ -161,7 +168,7 @@ void	render_sprite(t_myImg *img, t_data *data)
 			continue ;
 		}
 		line_calc(data);
-		image_update(img, data, x);
-		x++;
+		image_update(img, data, &x);
+		return ;
 	}
 }
