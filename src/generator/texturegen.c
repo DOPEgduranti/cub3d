@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 16:07:21 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:28:49 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 			data, &txtr->weapon3);
 	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/Yellow4.xpm",
 			data, &txtr->weapon4);
-	// txtr->txtrs[SHOOT] = txtr_imgset("FO ./assets/sprites/fireball64.xpm",
-	// 		data, &txtr->door);
 	txtr->txtrs[EXPLODE] = txtr_imgset("FO ./assets/texture/box2.xpm",
 			data, &txtr->explode);
 }

@@ -6,15 +6,13 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:43:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:23:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:29:11 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bonus.h>
 #include <graphic.h>
 #include <time.h>
-#define NUM_FRAMES 5
-
 
 static void	dda_init(t_data *data)
 {
@@ -44,7 +42,7 @@ static void	dda_init(t_data *data)
 	}
 }
 
-static void ft_hit_obstacle(t_data *data)
+static void	ft_hit_obstacle(t_data *data)
 {
 	if (data->ray.map.y < 0.25 || data->ray.map.x < 0.25
 		|| data->ray.map.y > data->map.size.y - 0.25

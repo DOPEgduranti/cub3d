@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:24:02 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:33:14 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	render_frame(t_data *data)
 {
 	int		x;
 	int		y;
-	
+
 	data->big_img.img = NULL;
 	data->big_img = myimg_empty(data, data->win_w, data->win_h);
 	y = 0;
@@ -86,32 +86,11 @@ void	render_images(t_data *data)
 	render_frame(data);
 }
 
-void ft_removeexplosion(t_data *data)
-{
-	int i;
-	int j;
-		
-	data->player.is_shooting = false;
-	i = 0;
-	while (i < data->map.size.y)
-	{
-		j = 0;
-		while (j < data->map.size.x)
-		{
-			if (data->map.map_mtx[i][j] == 'X')
-				data->map.map_mtx[i][j] = '0';
-			j++;
-		}
-		i++;
-	}
-}
-
 int	render(t_data *data)
 {
 	data->player.has_moved += ft_movement(data);
 	if (data->player.has_moved == 0)
 		return (0);
 	render_images(data);
-	// ft_removeboxexplosion(data);
 	return (0);
 }

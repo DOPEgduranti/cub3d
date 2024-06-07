@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 15:27:55 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:34:07 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ void	pixels_update(t_data *data, int x);
 
 void	render_images(t_data *data);
 int		render(t_data *data);
-void	ft_removeexplosion(t_data *data);
 
 #endif

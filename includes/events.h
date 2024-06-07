@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/30 12:15:43 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:34:13 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_mlx_hook(t_data *data);
 int		ft_close_window(t_data *data);
 int		ft_key_press(int keysym, t_data *data);
 int		ft_key_release(int keysym, t_data *data);
+void	ft_removeexplosion(t_data *data);
 
 // movement.c
 int		ft_movement(t_data *data);

@@ -1,10 +1,10 @@
-F 76,76,76
-C 99,99,99
+NO ./assets/texture/txtr1.xpm
+SO ./assets/texture/txtr28.xpm
+WE ./assets/texture/txtr10.xpm
+EA ./assets/texture/txtr19.xpm
 
-NO asset/512px/glowstone.xpm
-SO asset/512px/glowstone.xpm
-WE asset/512px/glowstone.xpm
-EA asset/512px/glowstone.xpm
+F 132,192,17
+C 195,224,244
 
 1111111111111111111
 10W1001001001000001

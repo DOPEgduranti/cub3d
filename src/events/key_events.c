@@ -6,13 +6,33 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/06 16:17:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:36:08 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
 #include <bonus.h>
 #include <graphic.h>
+
+void	ft_removeexplosion(t_data *data)
+{
+	int	i;
+	int	j;
+
+	data->player.is_shooting = false;
+	i = 0;
+	while (i < data->map.size.y)
+	{
+		j = 0;
+		while (j < data->map.size.x)
+		{
+			if (data->map.map_mtx[i][j] == 'X')
+				data->map.map_mtx[i][j] = '0';
+			j++;
+		}
+		i++;
+	}
+}
 
 int	ft_close_window(t_data *data)
 {
@@ -28,7 +48,7 @@ int	ft_key_release(int keysym, t_data *data)
 		data->player.move.x = 0;
 	if (keysym == XK_Left || keysym == XK_Right)
 		data->player.rotate = 0;
-	if (keysym == XK_Shift_L)
+	if (keysym == XK_Shift_L && BONUS)
 		ft_removeexplosion(data);
 	return (0);
 }
@@ -51,9 +71,9 @@ int	ft_key_press(int keysym, t_data *data)
 		data->player.rotate = 1;
 	if (keysym == XK_space)
 		ft_door(data);
-	if (keysym == XK_Shift_L)
+	if (keysym == XK_Shift_L && BONUS)
 		ft_shoot(data);
-	if (keysym == XK_Control_L)
+	if (keysym == XK_Control_L && BONUS)
 		ft_createbox(data);
 	return (0);
 }

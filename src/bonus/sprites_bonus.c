@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 10:42:07 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:24:54 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:29:27 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	render_weapon(t_myImg *img, t_data *data)
 	t_cursor	cursor;
 	t_cursor	txt_cursor;
 	int			color;
-	
+
 	cursor.y = data->win_h * 2 / 3;
 	while (cursor.y < data->win_h)
 	{
