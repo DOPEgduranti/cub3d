@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:34:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:12:41 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ static int	get_index(t_data *data)
 {
 	if (BONUS && data->ray.door)
 		return (DOOR);
+	if (BONUS && data->ray.box)
+		return (BOX);
+	if (BONUS && data->ray.explosion)
+		return (EXPLODE);
 	if (data->ray.side == 0)
 	{
 		if (data->ray.direction.x < 0)

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 10:07:25 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:48:02 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,31 @@ static void	frame_set(t_data *data, t_myImg *image, int x, int y)
 
 static void	render_frame(t_data *data)
 {
-	t_myImg	image;
 	int		x;
 	int		y;
 
-	image.img = NULL;
-	image = myimg_empty(data, data->win_w, data->win_h);
+	data->big_img.img = NULL;
+	data->big_img = myimg_empty(data, data->win_w, data->win_h);
 	y = 0;
 	while (y < data->win_h)
 	{
 		x = 0;
 		while (x < data->win_w)
 		{
-			frame_set(data, &image, x, y);
+			frame_set(data, &data->big_img, x, y);
 			x++;
 		}
 		y++;
 	}
 	if (BONUS)
-		render_minimap(&image, data);
-	mlx_put_image_to_window(data->mlx, data->window, image.img, 0, 0);
-	mlx_destroy_image(data->mlx, image.img);
+	{
+		render_minimap(&data->big_img, data);
+		render_weapon(&data->big_img, data);
+		if(data->player.box)
+			ft_createbox(data);
+	}
+	mlx_put_image_to_window(data->mlx, data->window, data->big_img.img, 0, 0);
+	mlx_destroy_image(data->mlx, data->big_img.img);
 }
 
 static void	pixels_init(t_data *data)

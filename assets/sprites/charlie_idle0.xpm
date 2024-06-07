@@ -2,7 +2,7 @@
 static char *_31b546fb39f4f71cb747839aa0e5d57eWsTMSdOv5AQsIv3[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 8 1 ",
-"  c None",
+"  c black",
 ". c #4D2B32",
 "X c #AD7757",
 "o c #7A4841",
@@ -11,6 +11,15 @@ static char *_31b546fb39f4f71cb747839aa0e5d57eWsTMSdOv5AQsIv3[] = {
 "@ c #090A14",
 "# c white",
 /* pixels */
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
 "                                                                ",
 "                                                                ",
 "                                                                ",
@@ -65,14 +74,5 @@ static char *_31b546fb39f4f71cb747839aa0e5d57eWsTMSdOv5AQsIv3[] = {
 "         ++++                     ++++                          ",
 "         +++++                     ++++                         ",
 "          +++++                     ++++                        ",
-"           ++++                      +++                        ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                ",
-"                                                                "
+"           ++++                      +++                        "
 };

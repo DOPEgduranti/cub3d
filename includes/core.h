@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/04 09:23:52 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:46:26 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@
 # define STEP_X 10
 # define STEP_Y 10
 # define TXTR_SIZE 64
-# define RSPEED 0.030
+# define RSPEED 0.050
 # define MSPEED 0.055
+# define NBR_TEXTURE 11
 
 typedef enum s_txtr_index
 {
@@ -42,7 +43,13 @@ typedef enum s_txtr_index
 	SOUTH,
 	EAST,
 	WEST,
-	DOOR
+	DOOR,
+	BOX,
+	EXPLODE,
+	WEAPON1,
+	WEAPON2,
+	WEAPON3,
+	WEAPON4,
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -82,6 +89,13 @@ typedef struct s_textures
 	t_color			col_ceiling;
 	int				**txtrs;
 	char			*door;
+	char			*box;
+	char			*weapon1;
+	char			*weapon2;
+	char			*weapon3;
+	char			*weapon4;
+	char			*explode;
+	char			*foe;
 	t_txtr_index	index;
 	double			step;
 	double			pos;
@@ -113,6 +127,8 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 	bool		door;
+	bool		box;
+	bool		explosion;
 	bool		hit;
 }	t_ray;
 
@@ -125,6 +141,8 @@ typedef struct s_player
 	char		dir;
 	int			has_moved;
 	int			rotate;
+	bool		is_shooting;
+	bool		box;
 }	t_player;
 
 typedef struct s_data
@@ -143,6 +161,7 @@ typedef struct s_data
 	char		*file_str;
 	char		**file_mtx;
 	int			**pixels;
+	t_myImg		big_img;
 	t_player	player;
 	t_map		map;
 	t_textures	textures;

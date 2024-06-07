@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
+#    By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/03 12:33:19 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/07 10:05:00 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,13 @@ GRAPHIC = raycast.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))
 
-BONUS = map_bonus.c \
+BONUS = create_bonus.c \
+	map_bonus.c \
 	minimap_bonus.c \
 	movement_bonus.c \
-	raycast_bonus.c
+	raycast_bonus.c \
+	shoot_bonus.c \
+	sprites_bonus.c
 BONUSES = $(addprefix $(BONUS_DIR)/, $(BONUS))
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC) $(UTILS) $(GENERATORS) $(EVENTS) $(GRAPHICS) $(BONUSES))
@@ -115,5 +118,12 @@ play:
 	./cub3D_bonus map/mapTest.cub
 
 re: fclean all
+
+val_bonus:
+	rm -rf $(BONUS_OBJ_DIR)
+	rm -f $(BONUS_NAME)
+	make bonus
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./$(BONUS_NAME) map/mapTest.cub
+	
 
 .PHONY: all bonus clean fclean play re

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:12:03 by sgarigli          #+#    #+#             */
-/*   Updated: 2024/06/04 10:13:28 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:31:26 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,18 @@ static void	minimap_set(t_myImg *image, t_vector cursor,
 		return ;
 	if (check_player(cursor, data))
 		set_pixel(image, cursor.x, cursor.y, 0xFF0000);
-	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == '1')
-	{
-		if ((int)floor((cursor.x + cursor.y)) % 2 == 1)
-			set_pixel(image, cursor.x, cursor.y, 0x000000);
-	}
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == '1'
+			&& (int)floor((cursor.x + cursor.y)) % 2 == 1)
+		set_pixel(image, cursor.x, cursor.y, 0x000000);
 	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'D')
 		set_pixel(image, cursor.x, cursor.y, 0x00AAFF);
 	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'O')
 		set_pixel(image, cursor.x, cursor.y, 0x00FF00);
-	else
-	{
-		if ((int)floor((cursor.x + cursor.y)) % 2 == 1)
-			set_pixel(image, cursor.x, cursor.y, 0xFFFFFF);
-	}
+	else if (data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'B'
+			|| data->map.map_mtx[(int)floor(mini.x)][(int)floor(mini.y)] == 'X')
+		set_pixel(image, cursor.x, cursor.y, 0xFFBB00);
+	else if ((int)floor((cursor.x + cursor.y)) % 2 == 1)
+		set_pixel(image, cursor.x, cursor.y, 0xFFFFFF);
 }
 
 void	render_minimap(t_myImg *image, t_data *data)

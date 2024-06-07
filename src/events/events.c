@@ -6,11 +6,12 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 12:40:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:28:45 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <events.h>
+#include <bonus.h>
 
 void	ft_mlx_hook(t_data *data)
 {
