@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 10:07:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:20:51 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	*txtr_imgset(char *str, t_data *data, char **name)
 
 	*name = txtr_nameset(str);
 	tmp = myimg_gen(*name, data);
+	free (*name);
 	if (!tmp.addr)
 		return (NULL);
 	dst = ft_calloc(TXTR_SIZE * TXTR_SIZE, sizeof(int));

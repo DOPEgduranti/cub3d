@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:48:02 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:31:07 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	render_images(t_data *data)
 int	render(t_data *data)
 {
 	data->player.has_moved += ft_movement(data);
-	if (data->player.has_moved == 0)
+	if (!BONUS && data->player.has_moved == 0)
 		return (0);
 	render_images(data);
 	return (0);

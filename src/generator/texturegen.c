@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texturegen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 10:07:39 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:49:20 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,30 @@ static void	txtr_bonus(t_data *data, t_textures *txtr)
 		return ;
 	txtr->txtrs[DOOR] = txtr_imgset("D ./assets/texture/txtr26.xpm",
 			data, &txtr->door);
-	free (txtr->door);
 	txtr->txtrs[BOX] = txtr_imgset("D ./assets/texture/box.xpm",
 			data, &txtr->box);
-	free (txtr->box);
 	txtr->txtrs[WEAPON1] = txtr_imgset("FO ./assets/sprites/Yellow1.xpm",
-			data, &txtr->weapon1);
-	free (txtr->weapon1);
+			data, &txtr->weapon);
 	txtr->txtrs[WEAPON2] = txtr_imgset("FO ./assets/sprites/Yellow2.xpm",
-			data, &txtr->weapon2);
-	free (txtr->weapon2);
+			data, &txtr->weapon);
 	txtr->txtrs[WEAPON3] = txtr_imgset("FO ./assets/sprites/Yellow3.xpm",
-			data, &txtr->weapon3);
-	free (txtr->weapon3);
+			data, &txtr->weapon);
 	txtr->txtrs[WEAPON4] = txtr_imgset("FO ./assets/sprites/Yellow4.xpm",
-			data, &txtr->weapon4);
-	free (txtr->weapon4);
+			data, &txtr->weapon);
 	txtr->txtrs[EXPLODE] = txtr_imgset("FO ./assets/texture/box2.xpm",
 			data, &txtr->explode);
-	free (txtr->explode);
+	txtr->txtrs[SHOOT1] = txtr_imgset("FO ./assets/sprites/Holy1.xpm",
+			data, &txtr->shoot);
+	txtr->txtrs[SHOOT2] = txtr_imgset("FO ./assets/sprites/Holy2.xpm",
+			data, &txtr->shoot);
+	txtr->txtrs[SHOOT3] = txtr_imgset("FO ./assets/sprites/Holy3.xpm",
+			data, &txtr->shoot);
+	txtr->txtrs[SHOOT4] = txtr_imgset("FO ./assets/sprites/Holy4.xpm",
+			data, &txtr->shoot);
+	txtr->txtrs[SHOOT5] = txtr_imgset("FO ./assets/sprites/Holy5.xpm",
+			data, &txtr->shoot);
+	txtr->txtrs[SHOOT6] = txtr_imgset("FO ./assets/sprites/Holy6.xpm",
+			data, &txtr->shoot);
 }
 
 static void	txtr_set(char **map, t_data *data, t_textures *txtr)

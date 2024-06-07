@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:46:26 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:49:03 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define TXTR_SIZE 64
 # define RSPEED 0.050
 # define MSPEED 0.055
-# define NBR_TEXTURE 11
+# define NBR_TEXTURE 17
 
 typedef enum s_txtr_index
 {
@@ -50,6 +50,12 @@ typedef enum s_txtr_index
 	WEAPON2,
 	WEAPON3,
 	WEAPON4,
+	SHOOT1,
+	SHOOT2,
+	SHOOT3,
+	SHOOT4,
+	SHOOT5,
+	SHOOT6
 }	t_txtr_index;
 
 typedef struct s_vector
@@ -90,11 +96,9 @@ typedef struct s_textures
 	int				**txtrs;
 	char			*door;
 	char			*box;
-	char			*weapon1;
-	char			*weapon2;
-	char			*weapon3;
-	char			*weapon4;
+	char			*weapon;
 	char			*explode;
+	char			*shoot;
 	char			*foe;
 	t_txtr_index	index;
 	double			step;
