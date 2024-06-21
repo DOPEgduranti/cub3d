@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 10:12:10 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:54:55 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef enum e_textnbr
 
 // datagen.c
 t_data		datagen(char *mapname);
+int 		count_boxes(char **mtx);
 
 // mapgen.c
 t_map		mapgen(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:13:33 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/07 09:45:38 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:07:26 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static void	dda_exec(t_data *data)
 		{
 			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = 'B';
 			data->ray.hit = true;
+			data->nbr_boxes++;
 		}
 	}
 }

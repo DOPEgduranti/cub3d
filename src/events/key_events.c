@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:40:03 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:56:49 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	ft_removeexplosion(t_data *data)
 		while (j < data->map.size.x)
 		{
 			if (data->map.map_mtx[i][j] == 'X')
+			{
 				data->map.map_mtx[i][j] = '0';
+				data->nbr_boxes--;
+			}
 			j++;
 		}
 		i++;

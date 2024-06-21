@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   datagen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/03 11:52:30 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:54:08 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <generator.h>
+
+int count_boxes(char **mtx)
+{
+	int i;
+	int j;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (mtx[i])
+	{
+		j = 0;
+		while (mtx[i][j])
+		{
+			if (mtx[i][j] == 'B')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
 
 static void	basic_var(t_data *data)
 {
@@ -18,6 +40,7 @@ static void	basic_var(t_data *data)
 	data->win_w = WIDTH;
 	data->minimap_h = HEIGHT / 4;
 	data->minimap_w = WIDTH / 4;
+	data->nbr_boxes = 0;
 }
 
 static char	**file_read(char *mapname, t_data *data)
