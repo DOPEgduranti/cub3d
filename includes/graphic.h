@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 12:26:54 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:37:57 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		render(t_data *data);
 
 // bars.c
 void	render_stamina_bar(t_myImg *image, t_data *data);
+void	render_life_bar(t_myImg *image, t_data *data);
 
 #endif

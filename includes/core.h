@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 12:10:55 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:37:00 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ typedef struct s_player
 	bool		box;
 	int			run;
 	double		stamina;
+	double		life;
 }	t_player;
 
 typedef struct s_data
