@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 12:27:04 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:41:41 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int		ft_key_press(int keysym, t_data *data);
 int		ft_key_release(int keysym, t_data *data);
 void	ft_removeexplosion(t_data *data);
 
+// mana.c
+
+void	reduce_mana(t_data *data);
+void	regain_mana(t_data *data);
+
 // movement.c
 int		ft_movement(t_data *data);
 
@@ -37,5 +42,6 @@ int		ft_topo(int x, int y, t_data *data);
 void	ft_run(t_data *data);
 void 	reduce_stamina(t_data *data);
 void 	regain_stamina(t_data *data);
+void	cast_spell(double *mana);
 
 #endif

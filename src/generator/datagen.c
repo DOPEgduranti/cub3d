@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 12:37:19 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:16:59 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void	basic_var(t_data *data)
 	data->player.run = 1;
 	data->player.stamina = 100;
 	data->player.life = 100;
+	data->player.mana = 100;
 }
 
 static char	**file_read(char *mapname, t_data *data)

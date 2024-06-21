@@ -6,7 +6,7 @@
 #    By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/21 12:26:36 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/21 15:19:47 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 
 EVENT = events.c \
 	key_events.c \
+	mana.c \
 	movement.c \
 	rotation.c \
 	run.c

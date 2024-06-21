@@ -6,12 +6,13 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:43:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:36:22 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:42:11 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bonus.h>
 #include <graphic.h>
+#include <events.h>
 #include <time.h>
 
 static void	dda_init(t_data *data)
@@ -73,6 +74,7 @@ static void	dda_exec(t_data *data)
 		if (data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x]
 			== 'B')
 		{
+			cast_spell(&data->player.mana);
 			data->map.map_mtx[(int)data->ray.map.y][(int)data->ray.map.x] = 'X';
 			data->ray.hit = true;
 		}
