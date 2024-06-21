@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+         #
+#    By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:25 by gduranti          #+#    #+#              #
-#    Updated: 2024/06/07 11:51:50 by gduranti         ###   ########.fr        #
+#    Updated: 2024/06/21 12:26:36 by gduranti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,10 +56,12 @@ GENERATORS = $(addprefix $(GENERATOR_DIR)/, $(GENERATOR))
 EVENT = events.c \
 	key_events.c \
 	movement.c \
-	rotation.c
+	rotation.c \
+	run.c
 EVENTS = $(addprefix $(EVENTS_DIR)/, $(EVENT))
 
-GRAPHIC = raycast.c \
+GRAPHIC = bars.c \
+	raycast.c \
 	render.c \
 	texture.c
 GRAPHICS = $(addprefix $(GRAPHICS_DIR)/, $(GRAPHIC))

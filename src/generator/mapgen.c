@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:54:25 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:32:51 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,5 @@ t_map	mapgen(t_data *data)
 		return (err_map(), ft_freemtx((void **)map.map_mtx), (t_map){0});
 	map_remove_spaces (map.map_mtx);
 	data->nbr_boxes = count_boxes(map.map_mtx);
-	printf("Boxes: %d\n", data->nbr_boxes);
 	return (map);
 }

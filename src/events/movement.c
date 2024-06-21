@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduranti <gduranti@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/05/31 11:19:19 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:20:43 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 
 static void	ft_move_up(t_data *data, int *y)
 {
-	data->player.position.x += data->player.direction.x * MSPEED;
-	data->player.position.y += data->player.direction.y * MSPEED;
+	data->player.position.x += data->player.direction.x * MSPEED * data->player.run;
+	data->player.position.y += data->player.direction.y * MSPEED * data->player.run;
 	(*y)++;
 }
 
 static void	ft_move_down(t_data *data, int *y)
 {
-	data->player.position.x -= data->player.direction.x * MSPEED;
-	data->player.position.y -= data->player.direction.y * MSPEED;
+	data->player.position.x -= data->player.direction.x * MSPEED * data->player.run;
+	data->player.position.y -= data->player.direction.y * MSPEED * data->player.run;
 	(*y)--;
 }
 
 static void	ft_move_left(t_data *data, int *x)
 {
-	data->player.position.x += data->player.direction.y * MSPEED;
-	data->player.position.y -= data->player.direction.x * MSPEED;
+	data->player.position.x += data->player.direction.y * MSPEED * data->player.run;
+	data->player.position.y -= data->player.direction.x * MSPEED * data->player.run;
 	(*x)--;
 }
 
 static void	ft_move_right(t_data *data, int *x)
 {
-	data->player.position.x -= data->player.direction.y * MSPEED;
-	data->player.position.y += data->player.direction.x * MSPEED;
+	data->player.position.x -= data->player.direction.y * MSPEED * data->player.run;
+	data->player.position.y += data->player.direction.x * MSPEED * data->player.run;
 	(*x)++;
 }
 

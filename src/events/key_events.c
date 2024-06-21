@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:56:49 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:20:35 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ int	ft_key_release(int keysym, t_data *data)
 		data->player.move.x = 0;
 	if (keysym == XK_Left || keysym == XK_Right)
 		data->player.rotate = 0;
-	if (keysym == XK_Shift_L && BONUS)
+	if ((keysym == XK_space && BONUS) || data->player.stamina < 10)
 		data->player.is_shooting = false;
-	if (keysym == XK_Control_L && BONUS)
+	if (keysym == XK_Shift_L && BONUS)
 		data->player.box = false;
+	if ((keysym == XK_Control_L && BONUS) || data->player.stamina < 0)
+		data->player.run = 1;
 	return (0);
 }
 
@@ -75,11 +77,13 @@ int	ft_key_press(int keysym, t_data *data)
 		data->player.rotate = -1;
 	if (keysym == XK_Right)
 		data->player.rotate = 1;
-	if (keysym == XK_space)
+	if (keysym == XK_f)
 		ft_door(data);
-	if (keysym == XK_Shift_L && BONUS)
+	if (keysym == XK_space && BONUS && data->player.stamina > 10)
 		ft_shoot(data);
-	if (keysym == XK_Control_L && BONUS)
+	if (keysym == XK_Shift_L && BONUS)
 		data->player.box = true;
+	if (keysym == XK_Control_L && BONUS && data->player.stamina > 0)
+		ft_run(data);
 	return (0);
 }

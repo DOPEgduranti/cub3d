@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.h                                          :+:      :+:    :+:   */
+/*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 12:26:54 by gduranti         ###   ########.fr       */
+/*   Created: 2024/06/21 11:23:36 by gduranti          #+#    #+#             */
+/*   Updated: 2024/06/21 12:25:36 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GRAPHIC_H
-# define GRAPHIC_H
+#include <events.h>
 
-# include <utils.h>
+void reduce_stamina(t_data *data)
+{
+	if (data->player.stamina > 0)
+		data->player.stamina -= 1.0;
+}
+void regain_stamina(t_data *data)
+{
+	if (data->player.stamina < 100)
+		data->player.stamina += 0.2;
+}
 
-// raycast.c
-int		raycast(t_data *data);
-
-// texture.c
-void	pixels_update(t_data *data, int x);
-
-// render.c
-
-void	render_images(t_data *data);
-int		render(t_data *data);
-
-// bars.c
-void	render_stamina_bar(t_myImg *image, t_data *data);
-
-#endif
+void	ft_run(t_data *data)
+{
+	data->player.run = 2;
+}

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:57:28 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:10:55 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@
 # define STEP_X 10
 # define STEP_Y 10
 # define TXTR_SIZE 64
-# define RSPEED 0.080
+# define RSPEED 0.070
 # define MSPEED 0.100
+# define RUNSPEED 0.200
 # define NBR_TEXTURE 15
 
 typedef enum s_txtr_index
@@ -145,6 +146,8 @@ typedef struct s_player
 	int			rotate;
 	bool		is_shooting;
 	bool		box;
+	int			run;
+	double		stamina;
 }	t_player;
 
 typedef struct s_data

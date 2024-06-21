@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 10:54:08 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:55:46 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void	basic_var(t_data *data)
 	data->minimap_h = HEIGHT / 4;
 	data->minimap_w = WIDTH / 4;
 	data->nbr_boxes = 0;
+	data->player.run = 1;
+	data->player.stamina = 100;
 }
 
 static char	**file_read(char *mapname, t_data *data)

@@ -6,7 +6,7 @@
 /*   By: gduranti <gduranti@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by gduranti          #+#    #+#             */
-/*   Updated: 2024/06/21 11:06:16 by gduranti         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:22:41 by gduranti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,21 @@ static void	render_frame(t_data *data)
 		if (data->player.box)
 			ft_createbox(data);
 		if (data->player.is_shooting)
+		{
 			ft_removeexplosion(data);
+			reduce_stamina(data);
+		}
+		if (data->player.run != 1)
+			reduce_stamina(data);
+		else
+			regain_stamina(data);
 	}
+	render_stamina_bar(&data->big_img, data);
 	mlx_put_image_to_window(data->mlx, data->window, data->big_img.img, 0, 0);
 	mlx_string_put(data->mlx, data->window, 10, 10, 0xAABB11, "Boxes left: ");
 	mlx_string_put(data->mlx, data->window, 85, 10, 0xAABB11, ft_itoa(data->nbr_boxes));
+	mlx_string_put(data->mlx, data->window, WIDTH - 100, HEIGHT - 30, 0x000000, "Stamina: ");
+	mlx_string_put(data->mlx, data->window, WIDTH - 50, HEIGHT - 30, 0x000000, ft_itoa(data->player.stamina));
 	mlx_destroy_image(data->mlx, data->big_img.img);
 }
 
