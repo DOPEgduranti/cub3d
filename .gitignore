@@ -64,8 +64,6 @@ bonus_obj/
 minilibx-linux/
 
 #executables
-cub3D
-cub3D_bonus
 
 # VSCode
 .vscode/
